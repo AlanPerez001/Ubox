@@ -14,9 +14,9 @@ d:DesignHeight="1665" d:DesignWidth="1082"
                 <ImageBrush ImageSource="Imagenes/iconoRegresar-01.png"/>
             </Button.Background>
         </Button>
+        <Label Content="Sólo te tomará un minuto." HorizontalAlignment="Left" Margin="118,353,0,0" VerticalAlignment="Top" Height="56" Width="544" FontSize="45" FontFamily="Manrope blod" Foreground="White" FontWeight="SemiBold"/>
         <Label Content="Recoge tu paquete" HorizontalAlignment="Left" Margin="118,230,0,0" VerticalAlignment="Top" Height="128" Width="838" FontSize="90" FontFamily="/Ubox;component/Fonts/#IBM Plex Serif" Foreground="White"/>
-        <Label Content="Sólo te tomará un minuto." HorizontalAlignment="Left" Margin="118,393,0,0" VerticalAlignment="Top" Height="56" Width="544" FontSize="45" FontFamily="Manrope blod" Foreground="White" FontWeight="SemiBold"/>
-        <Label Content="Ingresa el código de recepción o escanea el QR en&#xA;el lector ubicado debajo de la pantalla." HorizontalAlignment="Left" Margin="118,467,0,0" VerticalAlignment="Top" Height="106" Width="829" FontSize="36" FontFamily="Manrope blod" Foreground="White" FontWeight="SemiBold" RenderTransformOrigin="0.5,0.5">
+        <Label Content="Ingresa el código de recepción o escanea el QR en&#xA;el lector ubicado debajo de la pantalla." HorizontalAlignment="Left" Margin="118,427,0,0" VerticalAlignment="Top" Height="106" Width="829" FontSize="36" FontFamily="Manrope blod" Foreground="White" FontWeight="SemiBold" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -26,13 +26,13 @@ d:DesignHeight="1665" d:DesignWidth="1082"
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <TextBox x:Name="Code1" HorizontalAlignment="Left" Height="122" Margin="123,613,0,0" VerticalAlignment="Top" Width="93" TextWrapping="Wrap" MaxLines="2147483646" Background="#FFBFBFBF" BorderBrush="#FFCCCCCC" Text="" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="Code2" HorizontalAlignment="Left" Height="122" Margin="268,613,0,0" VerticalAlignment="Top" Width="93" TextWrapping="Wrap" MaxLines="2147483646" Background="#FFBFBFBF" BorderBrush="#FFCCCCCC" Text="" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="Code3" HorizontalAlignment="Left" Height="122" Margin="412,613,0,0" VerticalAlignment="Top" Width="94" TextWrapping="Wrap" MaxLines="2147483646" Background="#FFBFBFBF" BorderBrush="#FFCCCCCC" Text="" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="Code4" HorizontalAlignment="Left" Height="122" Margin="557,613,0,0" VerticalAlignment="Top" Width="94" TextWrapping="Wrap" MaxLines="2147483646" Background="#FFBFBFBF" BorderBrush="#FFCCCCCC" Text="" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="Code5" HorizontalAlignment="Left" Height="122" Margin="702,613,0,0" VerticalAlignment="Top" Width="93" TextWrapping="Wrap" MaxLines="2147483646" Background="#FFBFBFBF" BorderBrush="#FFCCCCCC" Text="" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="Code6" HorizontalAlignment="Left" Height="122" Margin="847,613,0,0" VerticalAlignment="Top" Width="93" TextWrapping="Wrap" MaxLines="2147483646" Background="#FFBFBFBF" BorderBrush="#FFCCCCCC" Text="" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <Label Content="Es un código alfanumérico de 6 caracteres que debió proporcionarte la&#xA;persona o servicio de mensajería que te está enviando el paquete." HorizontalAlignment="Left" Margin="116,779,0,0" VerticalAlignment="Top" Height="64" Width="748" FontSize="23" FontFamily="Manrope blod" Foreground="White" FontWeight="SemiBold" RenderTransformOrigin="0.5,0.5">
+        <TextBox x:Name="Code1" HorizontalAlignment="Left" Height="122" Margin="123,573,0,0" VerticalAlignment="Top" Width="93" TextWrapping="Wrap" MaxLines="2147483646" Background="#FFBFBFBF" BorderBrush="#FFCCCCCC" Text="" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="Code2" HorizontalAlignment="Left" Height="122" Margin="268,573,0,0" VerticalAlignment="Top" Width="93" TextWrapping="Wrap" MaxLines="2147483646" Background="#FFBFBFBF" BorderBrush="#FFCCCCCC" Text="" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="Code3" HorizontalAlignment="Left" Height="122" Margin="412,573,0,0" VerticalAlignment="Top" Width="94" TextWrapping="Wrap" MaxLines="2147483646" Background="#FFBFBFBF" BorderBrush="#FFCCCCCC" Text="" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="Code4" HorizontalAlignment="Left" Height="122" Margin="557,573,0,0" VerticalAlignment="Top" Width="94" TextWrapping="Wrap" MaxLines="2147483646" Background="#FFBFBFBF" BorderBrush="#FFCCCCCC" Text="" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="Code5" HorizontalAlignment="Left" Height="122" Margin="702,573,0,0" VerticalAlignment="Top" Width="93" TextWrapping="Wrap" MaxLines="2147483646" Background="#FFBFBFBF" BorderBrush="#FFCCCCCC" Text="" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="Code6" HorizontalAlignment="Left" Height="122" Margin="847,573,0,0" VerticalAlignment="Top" Width="93" TextWrapping="Wrap" MaxLines="2147483646" Background="#FFBFBFBF" BorderBrush="#FFCCCCCC" Text="" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label Content="Es un código alfanumérico de 6 caracteres que debió proporcionarte la&#xA;persona o servicio de mensajería que te está enviando el paquete." HorizontalAlignment="Left" Margin="116,739,0,0" VerticalAlignment="Top" Height="64" Width="748" FontSize="23" FontFamily="Manrope blod" Foreground="White" FontWeight="SemiBold" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -42,8 +42,8 @@ d:DesignHeight="1665" d:DesignWidth="1082"
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Button Content="Continuar" HorizontalAlignment="Left" Margin="746,998,0,0" VerticalAlignment="Top" Width="194" Height="66" Background="#1cdbf2" Foreground="White" FontFamily="./#Manrope" FontSize="30" FontWeight="SemiBold"/>
-        <Label Content="¡Ups!" HorizontalAlignment="Center" Margin="503,868,511,753" VerticalAlignment="Center" Height="44" Width="68" FontSize="23" FontFamily="/Ubox;component/Fonts/#IBM Plex Serif" Foreground="#1cdbf2" FontWeight="SemiBold" RenderTransformOrigin="0.5,0.5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+        <Button Content="Continuar" HorizontalAlignment="Left" Margin="746,958,0,0" VerticalAlignment="Top" Width="194" Height="66" Background="#1cdbf2" Foreground="White" FontFamily="./#Manrope" FontSize="30" FontWeight="SemiBold"/>
+        <Label Content="&#x9;    &#x9;    !Ups!      &#xD;&#xA;      El código que ingresaste es incorrecto.&#xA;Verifica la información y vuelve a intentarlo." HorizontalAlignment="Center" Margin="260,799,262,728" VerticalAlignment="Center" Height="138" Width="560" FontSize="23" FontFamily="/Ubox;component/Fonts/#IBM Plex Serif" Foreground="#1cdbf2" FontWeight="SemiBold" RenderTransformOrigin="0.5,0.5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -53,7 +53,7 @@ d:DesignHeight="1665" d:DesignWidth="1082"
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Label Content="      El código que ingresaste es incorrecto.&#xA;Verifica la información y vuelve a intentarlo." HorizontalAlignment="Center" Margin="262,898,259,677" VerticalAlignment="Center" Height="90" Width="561" FontSize="23" FontFamily="/Ubox;component/Fonts/#IBM Plex Serif" Foreground="#1cdbf2" FontWeight="SemiBold" RenderTransformOrigin="0.5,0.5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+        <Label Content="Al escanear el código QR o dar clic en Continuar estás aceptando los terminos y condiciones de&#xA;Ubox y el Aviso de privacidad. Recuerda que estos documentos están disponibles a través de&#xA;nuestra página web ubox.com" HorizontalAlignment="Left" Margin="195,1053,0,0" VerticalAlignment="Top" Height="70" Width="748" FontSize="13" FontFamily="Manrope blod" Foreground="White" FontWeight="SemiBold" RenderTransformOrigin="0.5,0.5" VerticalContentAlignment="Center" FlowDirection="RightToLeft">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -63,60 +63,62 @@ d:DesignHeight="1665" d:DesignWidth="1082"
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Rectangle Fill="#FF727176" HorizontalAlignment="Left" Height="532" Margin="0,1152,0,-19" Stroke="Black" VerticalAlignment="Top" Width="1082"/>
-        <Label Content="Al escanear el código QR o dar clic en Continuar estás aceptando los terminos y condiciones de&#xA;Ubox y el Aviso de privacidad. Recuerda que estos documentos están disponibles a través de&#xA;nuestra página web ubox.com" HorizontalAlignment="Left" Margin="195,1093,0,0" VerticalAlignment="Top" Height="70" Width="748" FontSize="13" FontFamily="Manrope blod" Foreground="White" FontWeight="SemiBold" RenderTransformOrigin="0.5,0.5" VerticalContentAlignment="Center" FlowDirection="RightToLeft">
-            <Label.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleY="-0.1"/>
-                    <RotateTransform/>
-                    <TranslateTransform Y="-0.748"/>
-                </TransformGroup>
-            </Label.RenderTransform>
-        </Label>
-        <Button Content="q" HorizontalAlignment="Left" Margin="7,1200,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="QBtn"/>
-        <Button Content="w" HorizontalAlignment="Left" Margin="102,1200,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="WBtn"/>
-        <Button Content="e" HorizontalAlignment="Left" Margin="197,1200,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="EBtn"/>
-        <Button Content="r" HorizontalAlignment="Left" Margin="292,1200,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="RBtn"/>
-        <Button Content="t" HorizontalAlignment="Left" Margin="387,1200,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="TBtn"/>
-        <Button Content="y" HorizontalAlignment="Left" Margin="482,1200,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="YBtn"/>
-        <Button Content="u" HorizontalAlignment="Left" Margin="577,1200,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="UBtn"/>
-        <Button Content="i" HorizontalAlignment="Left" Margin="672,1200,0,0" VerticalAlignment="Top"  Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="IBtn"/>
-        <Button Content="o" HorizontalAlignment="Left" Margin="767,1200,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="OBtn"/>
-        <Button Content="p" HorizontalAlignment="Left" Margin="862,1200,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="PBtn"/>
-        <Button Content="Del" HorizontalAlignment="Left" Margin="957,1200,0,0" VerticalAlignment="Top" Width="114" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="DELBtn"/>
+        
+        <Rectangle Fill="#FF727176" HorizontalAlignment="Left" Height="565" Margin="0,1119,0,-19" Stroke="Black" VerticalAlignment="Top" Width="1082"/>
+        <Button Content="Q" HorizontalAlignment="Left" Margin="7,1240,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="QBtn"/>
+        <Button Content="W" HorizontalAlignment="Left" Margin="102,1240,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="WBtn"/>
+        <Button Content="E" HorizontalAlignment="Left" Margin="197,1240,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="EBtn"/>
+        <Button Content="R" HorizontalAlignment="Left" Margin="292,1240,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="RBtn"/>
+        <Button Content="T" HorizontalAlignment="Left" Margin="387,1240,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="TBtn"/>
+        <Button Content="Y" HorizontalAlignment="Left" Margin="482,1240,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="YBtn"/>
+        <Button Content="U" HorizontalAlignment="Left" Margin="577,1240,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="UBtn"/>
+        <Button Content="I" HorizontalAlignment="Left" Margin="672,1240,0,0" VerticalAlignment="Top"  Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="IBtn"/>
+        <Button Content="O" HorizontalAlignment="Left" Margin="767,1240,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="OBtn"/>
+        <Button Content="P" HorizontalAlignment="Left" Margin="862,1240,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="PBtn"/>
+        <Button Content="Del" HorizontalAlignment="Left" Margin="957,1240,0,0" VerticalAlignment="Top" Width="114" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="DELBtn"/>
 
-        <Button Content="a" HorizontalAlignment="Left" Margin="22,1303,0,0" VerticalAlignment="Top"  Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="ABtn"/>
-        <Button Content="s" HorizontalAlignment="Left" Margin="117,1303,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="SBtn"/>
-        <Button Content="d" HorizontalAlignment="Left" Margin="212,1303,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="DBtn"/>
-        <Button Content="f" HorizontalAlignment="Left" Margin="307,1303,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="FBtn"/>
-        <Button Content="g" HorizontalAlignment="Left" Margin="402,1303,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="GBtn"/>
-        <Button Content="h" HorizontalAlignment="Left" Margin="497,1303,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="HBtn"/>
-        <Button Content="j" HorizontalAlignment="Left" Margin="592,1303,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="JBtn"/>
-        <Button Content="k" HorizontalAlignment="Left" Margin="687,1303,0,0" VerticalAlignment="Top"  Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="KBtn"/>
-        <Button Content="l" HorizontalAlignment="Left" Margin="782,1303,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="LBtn"/>
-        <Button Content="ñ" HorizontalAlignment="Left" Margin="877,1303,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="ÑBtn"/>
-        <Button Content="Ent" HorizontalAlignment="Left" Margin="972,1303,0,0" VerticalAlignment="Top" Width="99" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="ENTERBtn"
+        <Button Content="A" HorizontalAlignment="Left" Margin="22,1335,0,0" VerticalAlignment="Top"  Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="ABtn"/>
+        <Button Content="S" HorizontalAlignment="Left" Margin="117,1335,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="SBtn"/>
+        <Button Content="D" HorizontalAlignment="Left" Margin="212,1335,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="DBtn"/>
+        <Button Content="F" HorizontalAlignment="Left" Margin="307,1335,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="FBtn"/>
+        <Button Content="G" HorizontalAlignment="Left" Margin="402,1335,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="GBtn"/>
+        <Button Content="H" HorizontalAlignment="Left" Margin="497,1335,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="HBtn"/>
+        <Button Content="J" HorizontalAlignment="Left" Margin="592,1335,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="JBtn"/>
+        <Button Content="K" HorizontalAlignment="Left" Margin="687,1335,0,0" VerticalAlignment="Top"  Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="KBtn"/>
+        <Button Content="L" HorizontalAlignment="Left" Margin="782,1335,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="LBtn"/>
+        <Button Content="Ñ" HorizontalAlignment="Left" Margin="877,1335,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="ÑBtn"/>
+        <Button Content="Ent" HorizontalAlignment="Left" Margin="972,1335,0,0" VerticalAlignment="Top" Width="99" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="ENTERBtn"
 />
 
-        <Button Content="&lt;" HorizontalAlignment="Left" Margin="9,1406,0,0" VerticalAlignment="Top"  Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="SHIFTIBtn"/>
-        <Button Content="z" HorizontalAlignment="Left" Margin="104,1406,0,0" VerticalAlignment="Top"  Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="ZBtn"/>
-        <Button Content="x" HorizontalAlignment="Left" Margin="199,1406,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="XBtn"/>
-        <Button Content="c" HorizontalAlignment="Left" Margin="294,1406,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="CBtn"/>
-        <Button Content="v" HorizontalAlignment="Left" Margin="389,1406,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="VBtn"/>
-        <Button Content="b" HorizontalAlignment="Left" Margin="484,1406,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="BBtn"/>
-        <Button Content="n" HorizontalAlignment="Left" Margin="579,1406,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="NBtn"/>
-        <Button Content="m" HorizontalAlignment="Left" Margin="674,1406,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="MBtn"/>
-        <Button Content="," HorizontalAlignment="Left" Margin="769,1406,0,0" VerticalAlignment="Top"  Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="COMABtn"/>
-        <Button Content="." HorizontalAlignment="Left" Margin="864,1406,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="PUNTOBtn"/>
-        <Button Content="&lt;" HorizontalAlignment="Left" Margin="959,1406,0,0" VerticalAlignment="Top" Width="112" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="SHIFTDBtn"/>
+        <Button Content="&lt;" HorizontalAlignment="Left" Margin="9,1430,0,0" VerticalAlignment="Top"  Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="SHIFTIBtn"/>
+        <Button Content="Z" HorizontalAlignment="Left" Margin="104,1430,0,0" VerticalAlignment="Top"  Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="ZBtn"/>
+        <Button Content="X" HorizontalAlignment="Left" Margin="199,1430,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="XBtn"/>
+        <Button Content="C" HorizontalAlignment="Left" Margin="294,1430,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="CBtn"/>
+        <Button Content="V" HorizontalAlignment="Left" Margin="389,1430,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="VBtn"/>
+        <Button Content="B" HorizontalAlignment="Left" Margin="484,1430,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="BBtn"/>
+        <Button Content="N" HorizontalAlignment="Left" Margin="579,1430,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="NBtn"/>
+        <Button Content="M" HorizontalAlignment="Left" Margin="674,1430,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="MBtn"/>
+        <Button Content="," HorizontalAlignment="Left" Margin="769,1430,0,0" VerticalAlignment="Top"  Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="COMABtn"/>
+        <Button Content="." HorizontalAlignment="Left" Margin="864,1430,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="PUNTOBtn"/>
+        <Button Content="&lt;" HorizontalAlignment="Left" Margin="959,1430,0,0" VerticalAlignment="Top" Width="112" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="SHIFTDBtn"/>
 
-        <Button Content="123" HorizontalAlignment="Left" Margin="10,1507,0,0" VerticalAlignment="Top"  Width="90" Height="90" HorizontalContentAlignment="Left" FontFamily="./#Manrope" FontSize="50" VerticalContentAlignment="Center" Padding="0" Click="NUMBtn"/>
-        <Button Content="Ctrl" HorizontalAlignment="Left" Margin="105,1507,0,0" VerticalAlignment="Top"  Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="50" Click="CTRLBtn"/>
-        <Button Content="a" HorizontalAlignment="Left" Margin="200,1507,0,0" VerticalAlignment="Top"  Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="HOMEBtn"/>
-        <Button Content="" HorizontalAlignment="Left" Margin="295,1507,0,0" VerticalAlignment="Top"  Width="468" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="ESPACIOBtn"/>
-        <Button Content="&lt;" HorizontalAlignment="Left" Margin="769,1507,0,0" VerticalAlignment="Top"  Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="FLECHA_IZQBtn"/>
-        <Button Content="&gt;" HorizontalAlignment="Left" Margin="863,1507,0,0" VerticalAlignment="Top"  Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="FLECHA_DERBtn"/>
-        <Button Content="Eng" HorizontalAlignment="Left" Margin="958,1507,0,0" VerticalAlignment="Top"  Width="111" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="ENGBtn"/>
+        <Button Content="123" HorizontalAlignment="Left" Margin="10,1525,0,0" VerticalAlignment="Top"  Width="90" Height="90" HorizontalContentAlignment="Left" FontFamily="./#Manrope" FontSize="50" VerticalContentAlignment="Center" Padding="0" Click="NUMBtn"/>
+        <Button Content="Ctrl" HorizontalAlignment="Left" Margin="105,1525,0,0" VerticalAlignment="Top"  Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="50" Click="CTRLBtn"/>
+        <Button Content="a" HorizontalAlignment="Left" Margin="200,1525,0,0" VerticalAlignment="Top"  Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="HOMEBtn"/>
+        <Button Content="" HorizontalAlignment="Left" Margin="295,1525,0,0" VerticalAlignment="Top"  Width="468" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="ESPACIOBtn"/>
+        <Button Content="&lt;" HorizontalAlignment="Left" Margin="769,1525,0,0" VerticalAlignment="Top"  Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="FLECHA_IZQBtn"/>
+        <Button Content="&gt;" HorizontalAlignment="Left" Margin="863,1525,0,0" VerticalAlignment="Top"  Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="FLECHA_DERBtn"/>
+        <Button Content="Eng" HorizontalAlignment="Left" Margin="958,1525,0,0" VerticalAlignment="Top"  Width="111" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="ENGBtn"/>
+
+        <Button Content="1" HorizontalAlignment="Left" Margin="65,1145,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="UnoBtn"/>
+        <Button Content="2" HorizontalAlignment="Left" Margin="160,1145,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="DosBtn"/>
+        <Button Content="3" HorizontalAlignment="Left" Margin="255,1145,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="TresBtn"/>
+        <Button Content="4" HorizontalAlignment="Left" Margin="350,1145,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="CuatroBtn"/>
+        <Button Content="5" HorizontalAlignment="Left" Margin="445,1145,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="CincoBtn"/>
+        <Button Content="6" HorizontalAlignment="Left" Margin="540,1145,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="SeisBtn"/>
+        <Button Content="7" HorizontalAlignment="Left" Margin="635,1145,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="SieteBtn"/>
+        <Button Content="8" HorizontalAlignment="Left" Margin="730,1145,0,0" VerticalAlignment="Top"  Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="OchoBtn"/>
+        <Button Content="9" HorizontalAlignment="Left" Margin="825,1145,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="NueveBtn"/>
+        <Button Content="0" HorizontalAlignment="Left" Margin="920,1145,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="CeroBtn"/>
     </Grid>
 </Page>

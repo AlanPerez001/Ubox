@@ -11,7 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using System.IO.Ports;
 
 namespace Ubox
 {
@@ -23,6 +23,22 @@ namespace Ubox
         public RecogerPage()
         {
             InitializeComponent();
+            Console.WriteLine("Escanenado");
+            string Start = "02 54 0d 02 55";
+
+            byte[] ByteMessage = Start
+              .Split(' ')
+              .Select(item => Convert.ToByte(item, 16))
+              .ToArray();
+            string HexMessage = string.Join("-", ByteMessage
+              .Select(item => item.ToString("X2")));
+            Console.WriteLine("El Hex es... " + HexMessage);
+            /* SerialPort spPuertoSerie = new SerialPort(
+                   "COM6", 115200, Parity.None, 8, StopBits.One);
+             spPuertoSerie.Open();
+             spPuertoSerie.Write(ByteMessage, 0, ByteMessage.Length);
+             spPuertoSerie.Close();
+             spPuertoSerie.Close();*/
         }
 
         private void RegresarbBtn(object sender, RoutedEventArgs e)
@@ -31,6 +47,486 @@ namespace Ubox
             this.NavigationService.Navigate(uri);
         }
 
+        private void UnoBtn(object sender, RoutedEventArgs e)
+        {
+            string code1 = Code1.Text;
+            string code2 = Code2.Text;
+            string code3 = Code3.Text;
+            string code4 = Code4.Text;
+            string code5 = Code5.Text;
+            string code6 = Code6.Text;
+
+            Dictionary<string, string> Codes = new Dictionary<string, string>();
+            Codes.Add("1", code1);
+            Codes.Add("2", code2);
+            Codes.Add("3", code3);
+            Codes.Add("4", code4);
+            Codes.Add("5", code5);
+            Codes.Add("6", code6);
+
+            foreach (KeyValuePair<string, string> item in Codes)
+            {
+                Console.WriteLine(item.Key + " Su valor es: " + item.Value);
+                if (item.Value == "")
+                {
+                    switch (item.Key)
+                    {
+                        case "1":
+                            Code1.AppendText("1");
+                            break;
+                        case "2":
+                            Code2.AppendText("1");
+                            break;
+                        case "3":
+                            Code3.AppendText("1");
+                            break;
+                        case "4":
+                            Code4.AppendText("1");
+                            break;
+                        case "5":
+                            Code5.AppendText("1");
+                            break;
+                        case "6":
+                            Code6.AppendText("1");
+                            break;
+
+                    }
+                    break;
+                }
+            }
+        }
+        private void DosBtn(object sender, RoutedEventArgs e)
+        {
+            string code1 = Code1.Text;
+            string code2 = Code2.Text;
+            string code3 = Code3.Text;
+            string code4 = Code4.Text;
+            string code5 = Code5.Text;
+            string code6 = Code6.Text;
+
+            Dictionary<string, string> Codes = new Dictionary<string, string>();
+            Codes.Add("1", code1);
+            Codes.Add("2", code2);
+            Codes.Add("3", code3);
+            Codes.Add("4", code4);
+            Codes.Add("5", code5);
+            Codes.Add("6", code6);
+
+            foreach (KeyValuePair<string, string> item in Codes)
+            {
+                Console.WriteLine(item.Key + " Su valor es: " + item.Value);
+                if (item.Value == "")
+                {
+                    switch (item.Key)
+                    {
+                        case "1":
+                            Code1.AppendText("2");
+                            break;
+                        case "2":
+                            Code2.AppendText("2");
+                            break;
+                        case "3":
+                            Code3.AppendText("2");
+                            break;
+                        case "4":
+                            Code4.AppendText("2");
+                            break;
+                        case "5":
+                            Code5.AppendText("2");
+                            break;
+                        case "6":
+                            Code6.AppendText("2");
+                            break;
+
+                    }
+                    break;
+                }
+            }
+        }
+        private void TresBtn(object sender, RoutedEventArgs e)
+        {
+            string code1 = Code1.Text;
+            string code2 = Code2.Text;
+            string code3 = Code3.Text;
+            string code4 = Code4.Text;
+            string code5 = Code5.Text;
+            string code6 = Code6.Text;
+
+            Dictionary<string, string> Codes = new Dictionary<string, string>();
+            Codes.Add("1", code1);
+            Codes.Add("2", code2);
+            Codes.Add("3", code3);
+            Codes.Add("4", code4);
+            Codes.Add("5", code5);
+            Codes.Add("6", code6);
+
+            foreach (KeyValuePair<string, string> item in Codes)
+            {
+                Console.WriteLine(item.Key + " Su valor es: " + item.Value);
+                if (item.Value == "")
+                {
+                    switch (item.Key)
+                    {
+                        case "1":
+                            Code1.AppendText("3");
+                            break;
+                        case "2":
+                            Code2.AppendText("3");
+                            break;
+                        case "3":
+                            Code3.AppendText("3");
+                            break;
+                        case "4":
+                            Code4.AppendText("3");
+                            break;
+                        case "5":
+                            Code5.AppendText("3");
+                            break;
+                        case "6":
+                            Code6.AppendText("3");
+                            break;
+
+                    }
+                    break;
+                }
+            }
+        }
+        private void CuatroBtn(object sender, RoutedEventArgs e)
+        {
+            string code1 = Code1.Text;
+            string code2 = Code2.Text;
+            string code3 = Code3.Text;
+            string code4 = Code4.Text;
+            string code5 = Code5.Text;
+            string code6 = Code6.Text;
+
+            Dictionary<string, string> Codes = new Dictionary<string, string>();
+            Codes.Add("1", code1);
+            Codes.Add("2", code2);
+            Codes.Add("3", code3);
+            Codes.Add("4", code4);
+            Codes.Add("5", code5);
+            Codes.Add("6", code6);
+
+            foreach (KeyValuePair<string, string> item in Codes)
+            {
+                Console.WriteLine(item.Key + " Su valor es: " + item.Value);
+                if (item.Value == "")
+                {
+                    switch (item.Key)
+                    {
+                        case "1":
+                            Code1.AppendText("4");
+                            break;
+                        case "2":
+                            Code2.AppendText("4");
+                            break;
+                        case "3":
+                            Code3.AppendText("4");
+                            break;
+                        case "4":
+                            Code4.AppendText("4");
+                            break;
+                        case "5":
+                            Code5.AppendText("4");
+                            break;
+                        case "6":
+                            Code6.AppendText("4");
+                            break;
+
+                    }
+                    break;
+                }
+            }
+        }
+        private void CincoBtn(object sender, RoutedEventArgs e)
+        {
+            string code1 = Code1.Text;
+            string code2 = Code2.Text;
+            string code3 = Code3.Text;
+            string code4 = Code4.Text;
+            string code5 = Code5.Text;
+            string code6 = Code6.Text;
+
+            Dictionary<string, string> Codes = new Dictionary<string, string>();
+            Codes.Add("1", code1);
+            Codes.Add("2", code2);
+            Codes.Add("3", code3);
+            Codes.Add("4", code4);
+            Codes.Add("5", code5);
+            Codes.Add("6", code6);
+
+            foreach (KeyValuePair<string, string> item in Codes)
+            {
+                Console.WriteLine(item.Key + " Su valor es: " + item.Value);
+                if (item.Value == "")
+                {
+                    switch (item.Key)
+                    {
+                        case "1":
+                            Code1.AppendText("5");
+                            break;
+                        case "2":
+                            Code2.AppendText("5");
+                            break;
+                        case "3":
+                            Code3.AppendText("5");
+                            break;
+                        case "4":
+                            Code4.AppendText("5");
+                            break;
+                        case "5":
+                            Code5.AppendText("5");
+                            break;
+                        case "6":
+                            Code6.AppendText("5");
+                            break;
+
+                    }
+                    break;
+                }
+            }
+        }
+        private void SeisBtn(object sender, RoutedEventArgs e)
+        {
+            string code1 = Code1.Text;
+            string code2 = Code2.Text;
+            string code3 = Code3.Text;
+            string code4 = Code4.Text;
+            string code5 = Code5.Text;
+            string code6 = Code6.Text;
+
+            Dictionary<string, string> Codes = new Dictionary<string, string>();
+            Codes.Add("1", code1);
+            Codes.Add("2", code2);
+            Codes.Add("3", code3);
+            Codes.Add("4", code4);
+            Codes.Add("5", code5);
+            Codes.Add("6", code6);
+
+            foreach (KeyValuePair<string, string> item in Codes)
+            {
+                Console.WriteLine(item.Key + " Su valor es: " + item.Value);
+                if (item.Value == "")
+                {
+                    switch (item.Key)
+                    {
+                        case "1":
+                            Code1.AppendText("6");
+                            break;
+                        case "2":
+                            Code2.AppendText("6");
+                            break;
+                        case "3":
+                            Code3.AppendText("6");
+                            break;
+                        case "4":
+                            Code4.AppendText("6");
+                            break;
+                        case "5":
+                            Code5.AppendText("6");
+                            break;
+                        case "6":
+                            Code6.AppendText("6");
+                            break;
+
+                    }
+                    break;
+                }
+            }
+        }
+        private void SieteBtn(object sender, RoutedEventArgs e)
+        {
+            string code1 = Code1.Text;
+            string code2 = Code2.Text;
+            string code3 = Code3.Text;
+            string code4 = Code4.Text;
+            string code5 = Code5.Text;
+            string code6 = Code6.Text;
+
+            Dictionary<string, string> Codes = new Dictionary<string, string>();
+            Codes.Add("1", code1);
+            Codes.Add("2", code2);
+            Codes.Add("3", code3);
+            Codes.Add("4", code4);
+            Codes.Add("5", code5);
+            Codes.Add("6", code6);
+
+            foreach (KeyValuePair<string, string> item in Codes)
+            {
+                Console.WriteLine(item.Key + " Su valor es: " + item.Value);
+                if (item.Value == "")
+                {
+                    switch (item.Key)
+                    {
+                        case "1":
+                            Code1.AppendText("7");
+                            break;
+                        case "2":
+                            Code2.AppendText("7");
+                            break;
+                        case "3":
+                            Code3.AppendText("7");
+                            break;
+                        case "4":
+                            Code4.AppendText("7");
+                            break;
+                        case "5":
+                            Code5.AppendText("7");
+                            break;
+                        case "6":
+                            Code6.AppendText("7");
+                            break;
+
+                    }
+                    break;
+                }
+            }
+        }
+        private void OchoBtn(object sender, RoutedEventArgs e)
+        {
+            string code1 = Code1.Text;
+            string code2 = Code2.Text;
+            string code3 = Code3.Text;
+            string code4 = Code4.Text;
+            string code5 = Code5.Text;
+            string code6 = Code6.Text;
+
+            Dictionary<string, string> Codes = new Dictionary<string, string>();
+            Codes.Add("1", code1);
+            Codes.Add("2", code2);
+            Codes.Add("3", code3);
+            Codes.Add("4", code4);
+            Codes.Add("5", code5);
+            Codes.Add("6", code6);
+
+            foreach (KeyValuePair<string, string> item in Codes)
+            {
+                Console.WriteLine(item.Key + " Su valor es: " + item.Value);
+                if (item.Value == "")
+                {
+                    switch (item.Key)
+                    {
+                        case "1":
+                            Code1.AppendText("8");
+                            break;
+                        case "2":
+                            Code2.AppendText("8");
+                            break;
+                        case "3":
+                            Code3.AppendText("8");
+                            break;
+                        case "4":
+                            Code4.AppendText("8");
+                            break;
+                        case "5":
+                            Code5.AppendText("8");
+                            break;
+                        case "6":
+                            Code6.AppendText("8");
+                            break;
+
+                    }
+                    break;
+                }
+            }
+        }
+        private void NueveBtn(object sender, RoutedEventArgs e)
+        {
+            string code1 = Code1.Text;
+            string code2 = Code2.Text;
+            string code3 = Code3.Text;
+            string code4 = Code4.Text;
+            string code5 = Code5.Text;
+            string code6 = Code6.Text;
+
+            Dictionary<string, string> Codes = new Dictionary<string, string>();
+            Codes.Add("1", code1);
+            Codes.Add("2", code2);
+            Codes.Add("3", code3);
+            Codes.Add("4", code4);
+            Codes.Add("5", code5);
+            Codes.Add("6", code6);
+
+            foreach (KeyValuePair<string, string> item in Codes)
+            {
+                Console.WriteLine(item.Key + " Su valor es: " + item.Value);
+                if (item.Value == "")
+                {
+                    switch (item.Key)
+                    {
+                        case "1":
+                            Code1.AppendText("9");
+                            break;
+                        case "2":
+                            Code2.AppendText("9");
+                            break;
+                        case "3":
+                            Code3.AppendText("9");
+                            break;
+                        case "4":
+                            Code4.AppendText("9");
+                            break;
+                        case "5":
+                            Code5.AppendText("9");
+                            break;
+                        case "6":
+                            Code6.AppendText("9");
+                            break;
+
+                    }
+                    break;
+                }
+            }
+        }
+        private void CeroBtn(object sender, RoutedEventArgs e)
+        {
+            string code1 = Code1.Text;
+            string code2 = Code2.Text;
+            string code3 = Code3.Text;
+            string code4 = Code4.Text;
+            string code5 = Code5.Text;
+            string code6 = Code6.Text;
+
+            Dictionary<string, string> Codes = new Dictionary<string, string>();
+            Codes.Add("1", code1);
+            Codes.Add("2", code2);
+            Codes.Add("3", code3);
+            Codes.Add("4", code4);
+            Codes.Add("5", code5);
+            Codes.Add("6", code6);
+
+            foreach (KeyValuePair<string, string> item in Codes)
+            {
+                Console.WriteLine(item.Key + " Su valor es: " + item.Value);
+                if (item.Value == "")
+                {
+                    switch (item.Key)
+                    {
+                        case "1":
+                            Code1.AppendText("0");
+                            break;
+                        case "2":
+                            Code2.AppendText("0");
+                            break;
+                        case "3":
+                            Code3.AppendText("0");
+                            break;
+                        case "4":
+                            Code4.AppendText("0");
+                            break;
+                        case "5":
+                            Code5.AppendText("0");
+                            break;
+                        case "6":
+                            Code6.AppendText("0");
+                            break;
+
+                    }
+                    break;
+                }
+            }
+        }
         private void QBtn(object sender, RoutedEventArgs e)
         {
             string code1 = Code1.Text;
