@@ -7,8 +7,8 @@
 d:DesignHeight="1665" d:DesignWidth="1082"
       Title="DejarPage">
 
-    <Grid  Background="#FF302E34">
-        <Image Source="Imagenes/TexturaPantallas2a8.png" Margin="-10,-14,10,1401"/>
+    <Grid  Background="#2b2e34">
+        <Image Source="Imagenes/TexturaPantallas2a8.png" Margin="-165,-62,-191,1387"/>
         <Button HorizontalAlignment="Left" Margin="26,28,0,0" VerticalAlignment="Top" Width="74" Height="64" BorderThickness="0" Click="RegresarbBtn" Padding="0">
             <Button.Background>
                 <ImageBrush ImageSource="Imagenes/iconoRegresar-01.png"/>
@@ -26,12 +26,12 @@ d:DesignHeight="1665" d:DesignWidth="1082"
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <TextBox x:Name="Code1" HorizontalAlignment="Left" Height="122" Margin="123,575,0,0" VerticalAlignment="Top" Width="93" TextWrapping="Wrap" MaxLines="2147483646" Background="#FFBFBFBF" BorderBrush="#FFCCCCCC" Text="" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="Code2" HorizontalAlignment="Left" Height="122" Margin="268,575,0,0" VerticalAlignment="Top" Width="93" TextWrapping="Wrap" MaxLines="2147483646" Background="#FFBFBFBF" BorderBrush="#FFCCCCCC" Text="" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="Code3" HorizontalAlignment="Left" Height="122" Margin="412,575,0,0" VerticalAlignment="Top" Width="94" TextWrapping="Wrap" MaxLines="2147483646" Background="#FFBFBFBF" BorderBrush="#FFCCCCCC" Text="" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="Code4" HorizontalAlignment="Left" Height="122" Margin="557,575,0,0" VerticalAlignment="Top" Width="94" TextWrapping="Wrap" MaxLines="2147483646" Background="#FFBFBFBF" BorderBrush="#FFCCCCCC" Text="" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="Code5" HorizontalAlignment="Left" Height="122" Margin="702,575,0,0" VerticalAlignment="Top" Width="93" TextWrapping="Wrap" MaxLines="2147483646" Background="#FFBFBFBF" BorderBrush="#FFCCCCCC" Text="" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="Code6" HorizontalAlignment="Left" Height="122" Margin="847,575,0,0" VerticalAlignment="Top" Width="93" TextWrapping="Wrap" MaxLines="2147483646" Background="#FFBFBFBF" BorderBrush="#FFCCCCCC" Text="" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="Code1" HorizontalAlignment="Left" Height="122" Margin="123,575,0,0" VerticalAlignment="Top" Width="93" TextWrapping="Wrap" MaxLines="1" Background="#FFBFBFBF" BorderBrush="#FFCCCCCC" Text="" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="Code2" HorizontalAlignment="Left" Height="122" Margin="268,575,0,0" VerticalAlignment="Top" Width="93" TextWrapping="Wrap" MaxLines="1" Background="#FFBFBFBF" BorderBrush="#FFCCCCCC" Text="" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="Code3" HorizontalAlignment="Left" Height="122" Margin="412,575,0,0" VerticalAlignment="Top" Width="94" TextWrapping="Wrap" MaxLines="1" Background="#FFBFBFBF" BorderBrush="#FFCCCCCC" Text="" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="Code4" HorizontalAlignment="Left" Height="122" Margin="557,575,0,0" VerticalAlignment="Top" Width="94" TextWrapping="Wrap" MaxLines="1" Background="#FFBFBFBF" BorderBrush="#FFCCCCCC" Text="" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="Code5" HorizontalAlignment="Left" Height="122" Margin="702,575,0,0" VerticalAlignment="Top" Width="93" TextWrapping="Wrap" MaxLines="1" Background="#FFBFBFBF" BorderBrush="#FFCCCCCC" Text="" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="Code6" HorizontalAlignment="Left" Height="122" Margin="847,575,0,0" VerticalAlignment="Top" Width="93" TextWrapping="Wrap" MaxLines="1" Background="#FFBFBFBF" BorderBrush="#FFCCCCCC" Text="" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <Label Content="Es un código alfanumérico de 6 caracteres que se genera a través de nuestra&#xD;&#xA;app o sitio web." HorizontalAlignment="Left" Margin="116,741,0,0" VerticalAlignment="Top" Height="64" Width="810" FontSize="23" FontFamily="Manrope blod" Foreground="White" FontWeight="SemiBold" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
                 <TransformGroup>
@@ -63,7 +63,7 @@ d:DesignHeight="1665" d:DesignWidth="1082"
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Button Content="No tengo un código" HorizontalAlignment="Left" Margin="118,1026,0,0" VerticalAlignment="Top" Width="156" Background="{x:Null}" Foreground="#FF1CDBF2" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="16"/>
+        <Button Content="No tengo un código" HorizontalAlignment="Left" Margin="118,1026,0,0" VerticalAlignment="Top" Width="156" Background="{x:Null}" Foreground="#FF1CDBF2" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="16" Click="NoCodeBtn"/>
         <Rectangle Fill="#FF727176" HorizontalAlignment="Left" Height="565" Margin="0,1119,0,-19" Stroke="Black" VerticalAlignment="Top" Width="1082"/>
         <Button Content="Q" HorizontalAlignment="Left" Margin="7,1240,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="QBtn"/>
         <Button Content="W" HorizontalAlignment="Left" Margin="102,1240,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="WBtn"/>

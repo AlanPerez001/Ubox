@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO.Ports;
+using System.Threading;
 
 namespace Ubox
 {
@@ -23,9 +24,15 @@ namespace Ubox
         public RecogerPage()
         {
             InitializeComponent();
-            Console.WriteLine("Escanenado");
-            string Start = "02 54 0d 02 55";
+            Thread thr1 = new Thread(ScannerQR);
+            thr1.Start();
+        }
 
+        private void ScannerQR()
+        {
+            Console.WriteLine("Escanenado");
+            /*string Start = "02 54 0d 02 55";
+           
             byte[] ByteMessage = Start
               .Split(' ')
               .Select(item => Convert.ToByte(item, 16))
@@ -33,14 +40,24 @@ namespace Ubox
             string HexMessage = string.Join("-", ByteMessage
               .Select(item => item.ToString("X2")));
             Console.WriteLine("El Hex es... " + HexMessage);
-            /* SerialPort spPuertoSerie = new SerialPort(
+             SerialPort spPuertoSerie = new SerialPort(
                    "COM6", 115200, Parity.None, 8, StopBits.One);
              spPuertoSerie.Open();
              spPuertoSerie.Write(ByteMessage, 0, ByteMessage.Length);
              spPuertoSerie.Close();
-             spPuertoSerie.Close();*/
+            string code = "A19HG5";
+            Console.WriteLine(code.Length);
+            if (code.Length == 6)
+            {
+                Code1.Dispatcher.Invoke(new Action(() => Code1.AppendText(code.Substring(0, 1))));
+                Code2.Dispatcher.Invoke(new Action(() => Code2.AppendText(code.Substring(1, 1))));
+                Code3.Dispatcher.Invoke(new Action(() => Code3.AppendText(code.Substring(2, 1))));
+                Code4.Dispatcher.Invoke(new Action(() => Code4.AppendText(code.Substring(3, 1))));
+                Code5.Dispatcher.Invoke(new Action(() => Code5.AppendText(code.Substring(4, 1))));
+                Code6.Dispatcher.Invoke(new Action(() => Code6.AppendText(code.Substring(5, 1))));
+            }
+            */
         }
-
         private void RegresarbBtn(object sender, RoutedEventArgs e)
         {
             Uri uri = new Uri("Home.xaml", UriKind.Relative);
@@ -1498,7 +1515,7 @@ namespace Ubox
         }
         private void ENTERBtn(object sender, RoutedEventArgs e)
         {
-//Enter
+            //Enter
         }
         private void SHIFTIBtn(object sender, RoutedEventArgs e)
         {

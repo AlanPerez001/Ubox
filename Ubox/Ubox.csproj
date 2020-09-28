@@ -57,6 +57,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="GenerarCodigo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="RecogerPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -75,6 +79,9 @@
     </Compile>
     <Compile Include="DejarPage.xaml.cs">
       <DependentUpon>DejarPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GenerarCodigo.xaml.cs">
+      <DependentUpon>GenerarCodigo.xaml</DependentUpon>
     </Compile>
     <Compile Include="RecogerPage.xaml.cs">
       <DependentUpon>RecogerPage.xaml</DependentUpon>
@@ -133,6 +140,12 @@
     <Resource Include="Imagenes\TexturaPantallas2a8.png" />
     <Resource Include="Imagenes\TexturasPantalla9y10.png" />
     <Resource Include="Imagenes\TexturasPantallas12a14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

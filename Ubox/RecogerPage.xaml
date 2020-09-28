@@ -7,8 +7,7 @@
 d:DesignHeight="1665" d:DesignWidth="1082"
       Title="RecogerPage">
 
-    <Grid  Background="#FF302E34">
-        <Image Source="Imagenes/TexturaPantallas2a8.png" Margin="-10,-14,10,1401"/>
+    <Grid  Background="#2b2e34">
         <Button HorizontalAlignment="Left" Margin="26,28,0,0" VerticalAlignment="Top" Width="74" Height="64" BorderThickness="0" Click="RegresarbBtn" Padding="0">
             <Button.Background>
                 <ImageBrush ImageSource="Imagenes/iconoRegresar-01.png"/>
@@ -26,12 +25,12 @@ d:DesignHeight="1665" d:DesignWidth="1082"
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <TextBox x:Name="Code1" HorizontalAlignment="Left" Height="122" Margin="123,573,0,0" VerticalAlignment="Top" Width="93" TextWrapping="Wrap" MaxLines="2147483646" Background="#FFBFBFBF" BorderBrush="#FFCCCCCC" Text="" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="Code2" HorizontalAlignment="Left" Height="122" Margin="268,573,0,0" VerticalAlignment="Top" Width="93" TextWrapping="Wrap" MaxLines="2147483646" Background="#FFBFBFBF" BorderBrush="#FFCCCCCC" Text="" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="Code3" HorizontalAlignment="Left" Height="122" Margin="412,573,0,0" VerticalAlignment="Top" Width="94" TextWrapping="Wrap" MaxLines="2147483646" Background="#FFBFBFBF" BorderBrush="#FFCCCCCC" Text="" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="Code4" HorizontalAlignment="Left" Height="122" Margin="557,573,0,0" VerticalAlignment="Top" Width="94" TextWrapping="Wrap" MaxLines="2147483646" Background="#FFBFBFBF" BorderBrush="#FFCCCCCC" Text="" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="Code5" HorizontalAlignment="Left" Height="122" Margin="702,573,0,0" VerticalAlignment="Top" Width="93" TextWrapping="Wrap" MaxLines="2147483646" Background="#FFBFBFBF" BorderBrush="#FFCCCCCC" Text="" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="Code6" HorizontalAlignment="Left" Height="122" Margin="847,573,0,0" VerticalAlignment="Top" Width="93" TextWrapping="Wrap" MaxLines="2147483646" Background="#FFBFBFBF" BorderBrush="#FFCCCCCC" Text="" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="Code1" HorizontalAlignment="Left" Height="122" Margin="123,573,0,0" VerticalAlignment="Top" Width="93" TextWrapping="Wrap" MaxLines="1" Background="#FFBFBFBF" BorderBrush="#FFCCCCCC" Text="" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" IsUndoEnabled="True"/>
+        <TextBox x:Name="Code2" HorizontalAlignment="Left" Height="122" Margin="268,573,0,0" VerticalAlignment="Top" Width="93" TextWrapping="Wrap" MaxLines="1" Background="#FFBFBFBF" BorderBrush="#FFCCCCCC" Text="" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="Code3" HorizontalAlignment="Left" Height="122" Margin="412,573,0,0" VerticalAlignment="Top" Width="94" TextWrapping="Wrap" MaxLines="1" Background="#FFBFBFBF" BorderBrush="#FFCCCCCC" Text="" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="Code4" HorizontalAlignment="Left" Height="122" Margin="557,573,0,0" VerticalAlignment="Top" Width="94" TextWrapping="Wrap" MaxLines="1" Background="#FFBFBFBF" BorderBrush="#FFCCCCCC" Text="" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="Code5" HorizontalAlignment="Left" Height="122" Margin="702,573,0,0" VerticalAlignment="Top" Width="93" TextWrapping="Wrap" MaxLines="1" Background="#FFBFBFBF" BorderBrush="#FFCCCCCC" Text="" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="Code6" HorizontalAlignment="Left" Height="122" Margin="847,573,0,0" VerticalAlignment="Top" Width="93" TextWrapping="Wrap" MaxLines="1" Background="#FFBFBFBF" BorderBrush="#FFCCCCCC" Text="" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <Label Content="Es un código alfanumérico de 6 caracteres que debió proporcionarte la&#xA;persona o servicio de mensajería que te está enviando el paquete." HorizontalAlignment="Left" Margin="116,739,0,0" VerticalAlignment="Top" Height="64" Width="748" FontSize="23" FontFamily="Manrope blod" Foreground="White" FontWeight="SemiBold" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
                 <TransformGroup>
@@ -120,5 +119,6 @@ d:DesignHeight="1665" d:DesignWidth="1082"
         <Button Content="8" HorizontalAlignment="Left" Margin="730,1145,0,0" VerticalAlignment="Top"  Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="OchoBtn"/>
         <Button Content="9" HorizontalAlignment="Left" Margin="825,1145,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="NueveBtn"/>
         <Button Content="0" HorizontalAlignment="Left" Margin="920,1145,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="CeroBtn"/>
+        <Image Source="Imagenes/TexturaPantallas2a8.png" Margin="-165,-62,-191,1387"/>
     </Grid>
 </Page>

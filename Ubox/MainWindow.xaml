@@ -8,8 +8,8 @@
         Title="Home" Height="1920" Width="1090">
     <Grid Background="White">
         <Rectangle Fill="#5c5f67" HorizontalAlignment="Left" Height="265" Stroke="Black" VerticalAlignment="Top" Width="1082"/>
-        <Image Source="Imagenes/LogoSuperior-01.png" Margin="243,26,183,1653" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <TextBlock HorizontalAlignment="Left" Margin="906,232,-4,0" TextWrapping="Wrap" Text="Powered by ZION" VerticalAlignment="Top" Foreground="White" Width="170" FontSize="20" FontFamily="/Ubox;component/Fonts/#Manrope-medium.ttf"/>
         <Frame  HorizontalAlignment="Left"  Margin="0,265,0,-8" VerticalAlignment="Top" Height="1632" Width="1082" Source="Home.xaml" NavigationUIVisibility="Hidden" Background="#FF5F5F5F"/>
+        <Image Source="Imagenes/LogoSuperior-01.png" Margin="248,24,256,1680" HorizontalAlignment="Center" VerticalAlignment="Center" Height="185" Width="578"/>
     </Grid>
 </Window>

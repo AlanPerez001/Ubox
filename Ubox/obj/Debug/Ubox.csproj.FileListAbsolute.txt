@@ -18,3 +18,5 @@ C:\Users\Developer\OneDrive\Ubox\Ubox\Ubox\obj\Debug\RecogerPage.baml
 C:\Users\Developer\OneDrive\Ubox\Ubox\Ubox\obj\Debug\RecogerPage.g.cs
 C:\Users\Developer\OneDrive\Ubox\Ubox\Ubox\obj\Debug\DejarPage.baml
 C:\Users\Developer\OneDrive\Ubox\Ubox\Ubox\obj\Debug\DejarPage.g.cs
+C:\Users\Developer\OneDrive\Ubox\Ubox\Ubox\obj\Debug\GenerarCodigo.baml
+C:\Users\Developer\OneDrive\Ubox\Ubox\Ubox\obj\Debug\GenerarCodigo.g.cs
