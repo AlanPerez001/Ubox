@@ -13,11 +13,24 @@
             <Setter Property="Background" Value="#FFE2E2E2"/>
             <Setter Property= "Height" Value="83"/>
         </Style>
-        <Style x:Key="RoundedButtonStyle" TargetType="{x:Type Button}">
+        <Style x:Key="ButtonFill" TargetType="{x:Type Button}">
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border CornerRadius="15" Background="White" BorderThickness="1" Padding="2">
+                        <Border CornerRadius="15" Background="#2b2e34" BorderThickness="1" Padding="2" BorderBrush ="White">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+        <Style x:Key="ButtonEmpty" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="15" Background="#1cdbf2" BorderThickness="1" Padding="2" BorderBrush ="White">
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                         </Border>
                     </ControlTemplate>

@@ -42,7 +42,7 @@ d:DesignHeight="1665" d:DesignWidth="1082"
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Button Content="Continuar" HorizontalAlignment="Left" Margin="746,958,0,0" VerticalAlignment="Top" Width="194" Height="66" Background="#1cdbf2" Foreground="White" FontFamily="./#Manrope" FontSize="30" FontWeight="SemiBold"/>
+        <Button Content="Continuar" HorizontalAlignment="Left" Margin="746,958,0,0" VerticalAlignment="Top" Width="194" Height="66" Background="#1cdbf2" Foreground="White" FontFamily="./#Manrope" FontSize="30" FontWeight="SemiBold" Click="CheckCode"/>
         <Label Content="&#x9;    &#x9;    !Ups!      &#xA;      El código que ingresaste es incorrecto.&#xA;Verifica la información y vuelve a intentarlo." HorizontalAlignment="Center" Margin="260,799,262,728" VerticalAlignment="Center" Height="138" Width="560" FontSize="23" FontFamily="/Ubox;component/Fonts/#IBM Plex Serif" Foreground="#1cdbf2" FontWeight="SemiBold" RenderTransformOrigin="0.5,0.5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
             <Label.RenderTransform>
                 <TransformGroup>
@@ -115,5 +115,6 @@ d:DesignHeight="1665" d:DesignWidth="1082"
         <Button Content="8" HorizontalAlignment="Left" Margin="730,1145,0,0" VerticalAlignment="Top"  Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="OchoBtn"/>
         <Button Content="9" HorizontalAlignment="Left" Margin="825,1145,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="NueveBtn"/>
         <Button Content="0" HorizontalAlignment="Left" Margin="920,1145,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="CeroBtn"/>
+        <Frame x:Name="NotificacionFrame" Source="Notificacion.xaml" Content="" HorizontalAlignment="Left" Height="694" Margin="310,425,0,0" VerticalAlignment="Top" Width="436" Visibility="Hidden" Background="#FFD12121"/>
     </Grid>
 </Page>

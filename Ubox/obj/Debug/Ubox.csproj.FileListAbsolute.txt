@@ -20,3 +20,5 @@ C:\Users\Developer\OneDrive\Ubox\Ubox\Ubox\obj\Debug\DejarPage.baml
 C:\Users\Developer\OneDrive\Ubox\Ubox\Ubox\obj\Debug\DejarPage.g.cs
 C:\Users\Developer\OneDrive\Ubox\Ubox\Ubox\obj\Debug\GenerarCodigo.baml
 C:\Users\Developer\OneDrive\Ubox\Ubox\Ubox\obj\Debug\GenerarCodigo.g.cs
+C:\Users\Developer\OneDrive\Ubox\Ubox\Ubox\obj\Debug\Notificacion.g.cs
+C:\Users\Developer\OneDrive\Ubox\Ubox\Ubox\obj\Debug\Notificacion.baml

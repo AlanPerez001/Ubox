@@ -10,8 +10,14 @@ d:DesignHeight="1665" d:DesignWidth="1082"
     <Grid  Background="#FF2B2E34">
 
         <Image Source="Imagenes/TexturaPantallas2a8.png" Margin="-165,-62,-191,1387"/>
-
-        <Image Margin="118,1222,360,195" Source="Image1.png" Stretch="Fill"/>
+        <DataGrid AutoGenerateColumns="False" Height="223" HorizontalAlignment="Left" Margin="152,1236,0,0" Name="dataGrid1" VerticalAlignment="Top" Width="565" ItemsSource="{Binding}" Padding="0" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="20" ColumnWidth="SizeToHeader" UseLayoutRounding="True" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden" Background="{x:Null}" VerticalGridLinesBrush="#FF1CDBF2" HorizontalGridLinesBrush="#FF1CDBF2">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Tamaño" Binding="{Binding Path=Columna1}" Width="141" Foreground="{x:Null}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Alto" Binding="{Binding Path=Columna2}" Width="141" Foreground="{x:Null}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Ancho" Binding="{Binding Path=Columna3}" Width="141" Foreground="{x:Null}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Costo/día" Binding="{Binding Path=Columna4}" Width="141" Foreground="{x:Null}" IsReadOnly="True"/>
+            </DataGrid.Columns>
+        </DataGrid>
         <Button HorizontalAlignment="Left" Margin="26,28,0,0" VerticalAlignment="Top" Width="74" Height="64" BorderThickness="0" Click="RegresarbBtn" Padding="0">
             <Button.Background>
                 <ImageBrush ImageSource="Imagenes/iconoRegresar-01.png"/>
@@ -29,7 +35,7 @@ d:DesignHeight="1665" d:DesignWidth="1082"
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Button Content="Continuar" HorizontalAlignment="Left" Margin="722,1510,0,0" VerticalAlignment="Top" Width="288" Height="80" Background="#1cdbf2" Foreground="White" FontFamily="./#Manrope" FontSize="50" FontWeight="SemiBold" />
+        <Button Content="Continuar" HorizontalAlignment="Left" Margin="722,1510,0,0" VerticalAlignment="Top" Width="288" Height="80" Background="#1cdbf2" Foreground="White" FontFamily="./#Manrope" FontSize="50" FontWeight="SemiBold"/>
         <CheckBox Content="1 día" HorizontalAlignment="Left" Margin="133,420,0,0" VerticalAlignment="Top" Height="41" Width="130.664" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="25" Foreground="White" VerticalContentAlignment="Center" RenderTransformOrigin="1,0" UseLayoutRounding="False" Background="{x:Null}"/>
         <CheckBox Content="6 días" HorizontalAlignment="Left" Margin="787,420,0,0" VerticalAlignment="Top" Height="41" Width="133" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="25" Foreground="White" VerticalContentAlignment="Center" Background="{x:Null}"/>
         <CheckBox Content="5 días" HorizontalAlignment="Left" Margin="657,420,0,0" VerticalAlignment="Top" Height="41" Width="130" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="25" Foreground="White" VerticalContentAlignment="Center" Background="{x:Null}"/>
@@ -59,49 +65,48 @@ d:DesignHeight="1665" d:DesignWidth="1082"
             </Label.RenderTransform>
         </Label>
         <Label Content="Tu selección:" HorizontalAlignment="Left" Margin="722,1296,0,0" VerticalAlignment="Top" Height="68" Width="270" FontSize="45" FontFamily="Manrope blod" Foreground="White" FontWeight="SemiBold"/>
-        <Button Style="{DynamicResource RoundedButtonStyle}" Height="162" VerticalAlignment="Top" Content="    J&#xA;001" Margin="138,576,730,0" FontFamily="/Ubox;component/Fonts/#Manrope" HorizontalContentAlignment="Center" Click="Button_Click" />
-        <Button Style="{DynamicResource RoundedButtonStyle}" Height="162" VerticalAlignment="Top" Content="    J&#xA;011" Margin="354,576,516,0" FontFamily="/Ubox;component/Fonts/#Manrope" Click="Button_Click_1" />
-        <Button Style="{DynamicResource RoundedButtonStyle}" Height="162" VerticalAlignment="Top" Content="    J&#xA;001" Margin="567,1048,301,0" FontFamily="/Ubox;component/Fonts/#Manrope" HorizontalContentAlignment="Center" Click="Button_Click" />
-        <Button Style="{DynamicResource RoundedButtonStyle}" Height="162" VerticalAlignment="Top" Content="    J&#xA;011" Margin="783,1048,87,0" FontFamily="/Ubox;component/Fonts/#Manrope" Click="Button_Click_1" />
-        <Button Style="{DynamicResource RoundedButtonStyle}" Height="80" VerticalAlignment="Top" Content="Locker 1" Margin="138,1048,730,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
-        <Button Style="{DynamicResource RoundedButtonStyle}" Height="80" VerticalAlignment="Top" Content="Locker 1" Margin="353,1048,517,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
-        <Button Style="{DynamicResource RoundedButtonStyle}" Height="82" VerticalAlignment="Top" Content="Locker 1" Margin="138,1128,730,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
-        <Button Style="{DynamicResource RoundedButtonStyle}" Height="82" VerticalAlignment="Top" Content="Locker 1" Margin="353,1128,517,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
-        <Button Style="{DynamicResource RoundedButtonStyle}" Height="44" VerticalAlignment="Top" Content="Locker 1" Margin="138,915,730,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
-        <Button Style="{DynamicResource RoundedButtonStyle}" Height="44" VerticalAlignment="Top" Content="Locker 1" Margin="353,915,517,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
-        <Button Style="{DynamicResource RoundedButtonStyle}" Height="45" VerticalAlignment="Top" Content="Locker 1" Margin="138,959,730,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
-        <Button Style="{DynamicResource RoundedButtonStyle}" Height="45" VerticalAlignment="Top" Content="Locker 1" Margin="353,959,517,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
-        <Button Style="{DynamicResource RoundedButtonStyle}" Height="44" VerticalAlignment="Top" Content="Locker 1" Margin="138,1004,730,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
-        <Button Style="{DynamicResource RoundedButtonStyle}" Height="44" VerticalAlignment="Top" Content="Locker 1" Margin="353,1004,517,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
-        <Button Style="{DynamicResource RoundedButtonStyle}" Height="44" VerticalAlignment="Top" Content="Locker 1" Margin="568,915,394,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
-        <Button Style="{DynamicResource RoundedButtonStyle}" Height="45" VerticalAlignment="Top" Content="Locker 1" Margin="568,959,300,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
-        <Button Style="{DynamicResource RoundedButtonStyle}" Height="45" VerticalAlignment="Top" Content="Locker 1" Margin="783,959,87,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
-        <Button Style="{DynamicResource RoundedButtonStyle}" Height="44" VerticalAlignment="Top" Content="Locker 1" Margin="568,1004,300,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
-        <Button Style="{DynamicResource RoundedButtonStyle}" Height="44" VerticalAlignment="Top" Content="Locker 1" Margin="783,1004,87,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
-        <Button Style="{DynamicResource RoundedButtonStyle}" Height="44" VerticalAlignment="Top" Content="Locker 1" Margin="138,915,730,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
-        <Button Style="{DynamicResource RoundedButtonStyle}" Height="44" VerticalAlignment="Top" Content="Locker 1" Margin="353,915,517,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
-        <Button Style="{DynamicResource RoundedButtonStyle}" Height="44" VerticalAlignment="Top" Content="Locker 1" Margin="138,782,730,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
-        <Button Style="{DynamicResource RoundedButtonStyle}" Height="44" VerticalAlignment="Top" Content="Locker 1" Margin="353,782,517,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
-        <Button Style="{DynamicResource RoundedButtonStyle}" Height="45" VerticalAlignment="Top" Content="Locker 1" Margin="138,826,730,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
-        <Button Style="{DynamicResource RoundedButtonStyle}" Height="45" VerticalAlignment="Top" Content="Locker 1" Margin="353,826,517,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
-        <Button Style="{DynamicResource RoundedButtonStyle}" Height="44" VerticalAlignment="Top" Content="Locker 1" Margin="138,871,730,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
-        <Button Style="{DynamicResource RoundedButtonStyle}" Height="44" VerticalAlignment="Top" Content="Locker 1" Margin="353,871,517,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
-        <Button Style="{DynamicResource RoundedButtonStyle}" Height="44" VerticalAlignment="Top" Content="Locker 1" Margin="137,738,731,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
-        <Button Style="{DynamicResource RoundedButtonStyle}" Height="44" VerticalAlignment="Top" Content="Locker 1" Margin="352,738,518,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
-        <Button Style="{DynamicResource RoundedButtonStyle}" Height="44" VerticalAlignment="Top" Content="Locker 1" Margin="568,782,394,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
-        <Button Style="{DynamicResource RoundedButtonStyle}" Height="45" VerticalAlignment="Top" Content="Locker 1" Margin="568,826,394,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
-        <Button Style="{DynamicResource RoundedButtonStyle}" Height="44" VerticalAlignment="Top" Content="Locker 1" Margin="568,871,394,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
-        <Button Style="{DynamicResource RoundedButtonStyle}" Height="45" VerticalAlignment="Top" Content="Locker 1" Margin="568,693,300,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
-        <Button Style="{DynamicResource RoundedButtonStyle}" Height="45" VerticalAlignment="Top" Content="Locker 1" Margin="783,693,87,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
-        <Button Style="{DynamicResource RoundedButtonStyle}" Height="44" VerticalAlignment="Top" Content="Locker 1" Margin="568,738,394,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
-        <Button Style="{DynamicResource RoundedButtonStyle}" Height="114" VerticalAlignment="Top" Content="Locker 1" Margin="569,579,299,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
-        <Button Style="{DynamicResource RoundedButtonStyle}" Height="114" VerticalAlignment="Top" Content="Locker 1" Margin="784,579,86,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
-        <Button Style="{DynamicResource RoundedButtonStyle}" Height="44" VerticalAlignment="Top" Content="Locker 1" Margin="875,915,87,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
-        <Button Style="{DynamicResource RoundedButtonStyle}" Height="44" VerticalAlignment="Top" Content="Locker 1" Margin="875,782,87,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
-        <Button Style="{DynamicResource RoundedButtonStyle}" Height="45" VerticalAlignment="Top" Content="Locker 1" Margin="875,826,87,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
-        <Button Style="{DynamicResource RoundedButtonStyle}" Height="44" VerticalAlignment="Top" Content="Locker 1" Margin="875,871,87,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
-        <Button Style="{DynamicResource RoundedButtonStyle}" Height="44" VerticalAlignment="Top" Content="Locker 1" Margin="875,738,87,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
+        <Button x:Name="Locker1" Style="{DynamicResource ButtonFill}" Height="162" VerticalAlignment="Top" Content="    J&#xA;001" Margin="138,576,730,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
+        <Button x:Name="Locker11" Style="{DynamicResource ButtonFill}" Height="162" VerticalAlignment="Top" Content="    J&#xA;011" Margin="354,576,516,0" FontFamily="/Ubox;component/Fonts/#Manrope"/>
+        <Button x:Name="Locker30" Style="{DynamicResource ButtonFill}" Height="162" VerticalAlignment="Top" Content="  Ex&#xA;030" Margin="567,1048,301,0" FontFamily="/Ubox;component/Fonts/#Manrope"/>
+        <Button x:Name="Locker40" Style="{DynamicResource ButtonFill}" Height="162" VerticalAlignment="Top" Content="  Ex&#xA;040" Margin="783,1048,87,0" FontFamily="/Ubox;component/Fonts/#Manrope"/>
+        <Button x:Name="Locker9" Style="{DynamicResource ButtonFill}" Height="80" VerticalAlignment="Top" Content="   M&#xA;009" Margin="138,1048,730,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
+        <Button x:Name="Locker19" Style="{DynamicResource ButtonFill}" Height="80" VerticalAlignment="Top" Content="   M&#xA;019" Margin="353,1048,517,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
+        <Button x:Name="Locker10" Style="{DynamicResource ButtonFill}" Height="82" VerticalAlignment="Top" Content="   M&#xA;010" Margin="138,1128,730,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
+        <Button x:Name="Locker20" Style="{DynamicResource ButtonFill}" Height="82" VerticalAlignment="Top" Content="   M&#xA;020" Margin="353,1128,517,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
+        <Button x:Name="Locker7" Style="{DynamicResource ButtonFill}" Height="45" VerticalAlignment="Top" Content=" Ch&#xA;007" Margin="138,959,730,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
+        <Button x:Name="Locker17" Style="{DynamicResource ButtonFill}" Height="45" VerticalAlignment="Top" Content=" Ch&#xA;017" Margin="353,959,517,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
+        <Button x:Name="Locker8" Style="{DynamicResource ButtonFill}" Height="44" VerticalAlignment="Top" Content=" Ch&#xA;008" Margin="138,1004,730,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
+        <Button x:Name="Locker18" Style="{DynamicResource ButtonFill}" Height="44" VerticalAlignment="Top" Content=" Ch&#xA;018" Margin="353,1004,517,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
+        <Button x:Name="Locker27" Style="{DynamicResource ButtonFill}" Height="44" VerticalAlignment="Top" Content="  Mi&#xA;027" Margin="568,915,394,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
+        <Button x:Name="Locker28" Style="{DynamicResource ButtonFill}" Height="45" VerticalAlignment="Top" Content="  Ch&#xA;028" Margin="568,959,300,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
+        <Button x:Name="Locker38" Style="{DynamicResource ButtonFill}" Height="45" VerticalAlignment="Top" Content="  Mi&#xA;038" Margin="783,959,87,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
+        <Button x:Name="Locker29" Style="{DynamicResource ButtonFill}" Height="44" VerticalAlignment="Top" Content="  Ch&#xA;029" Margin="568,1004,300,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
+        <Button x:Name="Locker39" Style="{DynamicResource ButtonFill}" Height="44" VerticalAlignment="Top" Content="  Mi&#xA;039" Margin="783,1004,87,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
+        <Button x:Name="Locker6" Style="{DynamicResource ButtonFill}" Height="44" VerticalAlignment="Top" Content=" Ch&#xA;006" Margin="138,915,730,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
+        <Button x:Name="Locker16" Style="{DynamicResource ButtonFill}" Height="44" VerticalAlignment="Top" Content=" Ch&#xA;016" Margin="353,915,517,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
+        <Button x:Name="Locker3" Style="{DynamicResource ButtonFill}" Height="44" VerticalAlignment="Top" Content=" Ch&#xA;003" Margin="138,782,730,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
+        <Button x:Name="Locker13" Style="{DynamicResource ButtonFill}" Height="44" VerticalAlignment="Top" Content=" Ch&#xA;013" Margin="353,782,517,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
+        <Button x:Name="Locker4" Style="{DynamicResource ButtonFill}" Height="45" VerticalAlignment="Top" Content=" Ch&#xA;004" Margin="138,826,730,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
+        <Button x:Name="Locker14" Style="{DynamicResource ButtonFill}" Height="45" VerticalAlignment="Top" Content=" Ch&#xA;014" Margin="353,826,517,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
+        <Button x:Name="Locker5" Style="{DynamicResource ButtonFill}" Height="44" VerticalAlignment="Top" Content=" Ch&#xA;005" Margin="138,871,730,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
+        <Button x:Name="Locker15" Style="{DynamicResource ButtonFill}" Height="44" VerticalAlignment="Top" Content=" Ch&#xA;015" Margin="353,871,517,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
+        <Button x:Name="Locker2" Style="{DynamicResource ButtonFill}" Height="44" VerticalAlignment="Top" Content=" Ch&#xA;002" Margin="137,738,731,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
+        <Button x:Name="Locker12" Style="{DynamicResource ButtonFill}" Height="44" VerticalAlignment="Top" Content=" Ch&#xA;012" Margin="352,738,518,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
+        <Button x:Name="Locker24" Style="{DynamicResource ButtonFill}" Height="44" VerticalAlignment="Top" Content="  Mi&#xA;024" Margin="568,782,394,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
+        <Button x:Name="Locker25" Style="{DynamicResource ButtonFill}" Height="45" VerticalAlignment="Top" Content="  Mi&#xA;025" Margin="568,826,394,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
+        <Button x:Name="Locker26" Style="{DynamicResource ButtonFill}" Height="44" VerticalAlignment="Top" Content="  Mi&#xA;026" Margin="568,871,394,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
+        <Button x:Name="Locker22" Style="{DynamicResource ButtonFill}" Height="45" VerticalAlignment="Top" Content=" Ch&#xA;022" Margin="568,693,300,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
+        <Button x:Name="Locker32" Style="{DynamicResource ButtonFill}" Height="45" VerticalAlignment="Top" Content=" Ch&#xA;032" Margin="783,693,87,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
+        <Button x:Name="Locker23" Style="{DynamicResource ButtonFill}" Height="44" VerticalAlignment="Top" Content="  Mi&#xA;023" Margin="568,738,394,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
+        <Button x:Name="Locker21" Style="{DynamicResource ButtonFill}" Height="114" VerticalAlignment="Top" Content="   G&#xA;021" Margin="569,579,299,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
+        <Button x:Name="Locker31" Style="{DynamicResource ButtonFill}" Height="114" VerticalAlignment="Top" Content="   G&#xA;031" Margin="784,579,86,0" FontFamily="/Ubox;component/Fonts/#Manrope"/>
+        <Button x:Name="Locker37" Style="{DynamicResource ButtonFill}" Height="44" VerticalAlignment="Top" Content="  Mi&#xA;037" Margin="875,915,87,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
+        <Button x:Name="Locker34" Style="{DynamicResource ButtonFill}" Height="44" VerticalAlignment="Top" Content="  Mi&#xA;034" Margin="875,782,87,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
+        <Button x:Name="Locker35" Style="{DynamicResource ButtonFill}" Height="45" VerticalAlignment="Top" Content="  Mi&#xA;035" Margin="875,826,87,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
+        <Button x:Name="Locker36" Style="{DynamicResource ButtonFill}" Height="44" VerticalAlignment="Top" Content="  Mi&#xA;036" Margin="875,871,87,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
+        <Button x:Name="Locker33" Style="{DynamicResource ButtonFill}" Height="44" VerticalAlignment="Top" Content="  Mi&#xA;033" Margin="875,738,87,0" FontFamily="/Ubox;component/Fonts/#Manrope" />
         <Rectangle Fill="#FF727176" HorizontalAlignment="Left" Height="221" Margin="693,738,0,0" Stroke="Black" VerticalAlignment="Top" Width="177"/>
+        
 
     </Grid>
 </Page>

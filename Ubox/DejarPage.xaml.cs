@@ -156,7 +156,6 @@ namespace Ubox
                         case "6":
                             Code6.AppendText("2");
                             break;
-
                     }
                     break;
                 }

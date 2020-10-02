@@ -2032,5 +2032,10 @@ namespace Ubox
             //ENG
         }
 
+        private void CheckCode(object sender, RoutedEventArgs e)
+        {
+            NotificacionFrame.Visibility = Visibility.Visible;
+
+        }
     }
 }
