@@ -6,9 +6,34 @@
       xmlns:local="clr-namespace:Ubox"
       mc:Ignorable="d" 
       d:DesignHeight="694" d:DesignWidth="436"
-      Title="Notificacion">
+      Title="Notificacion" Background="#1cdbf2" >
 
-    <Grid Background="#FFFF0606">
-        
+    <Grid>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="299" Margin="0,395,0,0" Stroke="Black" VerticalAlignment="Top" Width="436" StrokeThickness="0"/>
+        <Label Content="¡Listo!" HorizontalAlignment="Left" Margin="60,21,0,0" VerticalAlignment="Top" Height="53" Width="102" FontSize="25" FontFamily="/Ubox;component/Fonts/#IBM Plex Serif Medium" Foreground="Black"/>
+        <Label Content="Recoge tu&#xA;paquete en&#xA;el locker" HorizontalAlignment="Left" Margin="60,62,0,0" VerticalAlignment="Top" Height="221" Width="293" FontSize="50" FontFamily="/Ubox;component/Fonts/#IBM Plex Serif Medium" Foreground="Black"/>
+        <Label Content="No. 012" HorizontalAlignment="Left" Margin="60,260,0,0" VerticalAlignment="Top" Height="70" Width="263" FontSize="50" FontFamily="/Ubox;component/Fonts/#IBM Plex Serif Medium" Foreground="Black"/>
+        <Label Content="      Ayúdanos a mantener el&#xA;   funcionamiento correcto de&#xA;Ubox, por favor cierra el locker&#xA; después de retirar tu paquete." HorizontalAlignment="Left" Margin="24,421,0,0" VerticalAlignment="Top" Height="164" Width="388" FontSize="25" FontFamily="/Ubox;component/Fonts/#IBM Plex Serif Medium" Foreground="Black" FontWeight="SemiBold" RenderTransformOrigin="0.5,0.5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="-0.1"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="-0.748"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label Content="¡Gracias!" HorizontalAlignment="Left" Margin="150,597,0,0" VerticalAlignment="Top" Height="45" Width="108" FontSize="25" FontFamily="Manrope blod" Foreground="Black" FontWeight="SemiBold" RenderTransformOrigin="0.5,0.5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="-0.1"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="-0.748"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Button Content="X" HorizontalAlignment="Left" Margin="385,0,0,0" VerticalAlignment="Top" Width="41" Background="{x:Null}" Padding="0" BorderThickness="0" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="40" Foreground="White" Click="CloseNotificacion"/>
+
     </Grid>
 </Page>

@@ -95,7 +95,7 @@ namespace Ubox
 
         private void PassMd5(object sender, RoutedEventArgs e)
         {
-            var text = "Esta es una cadena de prueba";
+            var text = "9H21Z0";
             Console.WriteLine("Cadena: " + text);
 
             var cipher = Encrypt(text);
@@ -161,7 +161,7 @@ namespace Ubox
                             int locker = Convert.ToInt32(reader["NoLocker"]);
                             int disponible = Convert.ToInt32(reader["Disponible"]);
                             Console.WriteLine(locker);
-                            if (disponible != 0)
+                            if (disponible != 1)
                             {
 
                                 switch (locker)
@@ -295,6 +295,24 @@ namespace Ubox
                     }
                 }
             }
+        }
+
+        private void Locker1_Click(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine(Locker1.Content.ToString());
+            string seleccion = Locker1.Content.ToString();
+            string[] words = seleccion.Split(' ');
+
+            foreach (var word in words)
+            {
+                System.Console.WriteLine($"<{word}>");
+            }
+            /*switch (seleccion)
+            {
+                case "j":
+                    SeleccionLocker.Content = "";
+                    break;
+            }*/
         }
     }
 }

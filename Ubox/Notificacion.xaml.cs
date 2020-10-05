@@ -23,5 +23,10 @@ namespace Ubox
         {
             InitializeComponent();
         }
+
+        private void CloseNotificacion(object sender, RoutedEventArgs e)
+        {
+            _ = NavigationService.CanGoBack;
+        }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Security.Cryptography;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -11,7 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO.Ports;
 using System.Threading;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace Ubox
 {
@@ -33,7 +37,7 @@ namespace Ubox
         private void ScannerQR()
         {
             Console.WriteLine("Escanenado");
-            /*string Start = "02 54 0d 02 55";
+            string Start = "02 54 0d 02 55";
            
             byte[] ByteMessage = Start
               .Split(' ')
@@ -58,7 +62,7 @@ namespace Ubox
                 Code5.Dispatcher.Invoke(new Action(() => Code5.AppendText(code.Substring(4, 1))));
                 Code6.Dispatcher.Invoke(new Action(() => Code6.AppendText(code.Substring(5, 1))));
             }
-            */
+            
         }
 
         private void RegresarbBtn(object sender, RoutedEventArgs e)

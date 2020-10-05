@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ubox"
         mc:Ignorable="d"
-        Title="Home" Height="1920" Width="1090">
+        Title="Home" Height="1920" Width="1090"
+        ResizeMode="NoResize" WindowState="Maximized"
+        ShowInTaskbar="False"
+        >
     <Grid Background="White">
         <Rectangle Fill="#5c5f67" HorizontalAlignment="Left" Height="265" Stroke="Black" VerticalAlignment="Top" Width="1082"/>
         <TextBlock HorizontalAlignment="Left" Margin="906,232,-4,0" TextWrapping="Wrap" Text="Powered by ZION" VerticalAlignment="Top" Foreground="White" Width="170" FontSize="20" FontFamily="/Ubox;component/Fonts/#Manrope-medium.ttf"/>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Security.Cryptography;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -13,6 +14,10 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO.Ports;
 using System.Threading;
+using System.Data.SqlClient;
+using System.Data;
+
+
 
 namespace Ubox
 {
@@ -21,6 +26,7 @@ namespace Ubox
     /// </summary>
     public partial class RecogerPage : Page
     {
+        static string key { get; set; } = "A!9HHhi%XjjYY4YP2@Nob009X";
         public RecogerPage()
         {
             InitializeComponent();
@@ -31,8 +37,8 @@ namespace Ubox
         private void ScannerQR()
         {
             Console.WriteLine("Escanenado");
-            /*string Start = "02 54 0d 02 55";
-           
+            string Start = "02 54 0d 02 55";
+
             byte[] ByteMessage = Start
               .Split(' ')
               .Select(item => Convert.ToByte(item, 16))
@@ -40,12 +46,12 @@ namespace Ubox
             string HexMessage = string.Join("-", ByteMessage
               .Select(item => item.ToString("X2")));
             Console.WriteLine("El Hex es... " + HexMessage);
-             SerialPort spPuertoSerie = new SerialPort(
-                   "COM6", 115200, Parity.None, 8, StopBits.One);
-             spPuertoSerie.Open();
-             spPuertoSerie.Write(ByteMessage, 0, ByteMessage.Length);
-             spPuertoSerie.Close();
-            string code = "A19HG5";
+            SerialPort spPuertoSerie = new SerialPort(
+                  "COM6", 115200, Parity.None, 8, StopBits.One);
+            spPuertoSerie.Open();
+            spPuertoSerie.Write(ByteMessage, 0, ByteMessage.Length);
+            string code = spPuertoSerie.ReadLine();
+            Console.WriteLine(code);
             Console.WriteLine(code.Length);
             if (code.Length == 6)
             {
@@ -56,7 +62,7 @@ namespace Ubox
                 Code5.Dispatcher.Invoke(new Action(() => Code5.AppendText(code.Substring(4, 1))));
                 Code6.Dispatcher.Invoke(new Action(() => Code6.AppendText(code.Substring(5, 1))));
             }
-            */
+
         }
         private void RegresarbBtn(object sender, RoutedEventArgs e)
         {
@@ -2019,6 +2025,7 @@ namespace Ubox
                 }
             }
         }
+
         private void FLECHA_IZQBtn(object sender, RoutedEventArgs e)
         {
             //Flecha Izquierda
@@ -2032,10 +2039,95 @@ namespace Ubox
             //ENG
         }
 
+        private void PassMd5(object sender, RoutedEventArgs e)
+        {
+            var text = "9H21Z0";
+            Console.WriteLine("Cadena: " + text);
+
+            var cipher = Encrypt(text);
+            Console.WriteLine("Codificado: " + cipher);
+
+            text = Decrypt(cipher);
+            Console.WriteLine("Decodificado: " + text);
+        }
+
+        public static string Encrypt(string text)
+        {
+            using (var md5 = new MD5CryptoServiceProvider())
+            {
+                using (var tdes = new TripleDESCryptoServiceProvider())
+                {
+                    tdes.Key = md5.ComputeHash(UTF8Encoding.UTF8.GetBytes(key));
+                    tdes.Mode = CipherMode.ECB;
+                    tdes.Padding = PaddingMode.PKCS7;
+
+                    using (var transform = tdes.CreateEncryptor())
+                    {
+                        byte[] textBytes = UTF8Encoding.UTF8.GetBytes(text);
+                        byte[] bytes = transform.TransformFinalBlock(textBytes, 0, textBytes.Length);
+                        return Convert.ToBase64String(bytes, 0, bytes.Length);
+                    }
+                }
+            }
+        }
+
+        public static string Decrypt(string cipher)
+        {
+            using (var md5 = new MD5CryptoServiceProvider())
+            {
+                using (var tdes = new TripleDESCryptoServiceProvider())
+                {
+                    tdes.Key = md5.ComputeHash(UTF8Encoding.UTF8.GetBytes(key));
+                    tdes.Mode = CipherMode.ECB;
+                    tdes.Padding = PaddingMode.PKCS7;
+
+                    using (var transform = tdes.CreateDecryptor())
+                    {
+                        byte[] cipherBytes = Convert.FromBase64String(cipher);
+                        byte[] bytes = transform.TransformFinalBlock(cipherBytes, 0, cipherBytes.Length);
+                        return UTF8Encoding.UTF8.GetString(bytes);
+                    }
+                }
+            }
+        }
         private void CheckCode(object sender, RoutedEventArgs e)
         {
-            NotificacionFrame.Visibility = Visibility.Visible;
+            string Codigo = Code1.Text + Code2.Text + Code3.Text + Code4.Text + Code5.Text + Code6.Text;
+            Console.WriteLine("El codigo ingresado es: " + Codigo);
+            var cipher = Encrypt(Codigo);
+            Console.WriteLine("Codificado: " + cipher);
 
+            string ConnectionString = (App.Current as App).ConnectionString;
+            string sql = @"SELECT NoLocker, Trama, Codigo FROM Lockers where Codigo ='" + cipher + "'";
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+                SqlCommand queryCommand = new SqlCommand(sql, conn);
+                using (SqlDataReader reader = queryCommand.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        String CodigoSQL = Convert.ToString(reader["Codigo"]);
+                        Console.WriteLine("Entrando     " + CodigoSQL);
+                        if (CodigoSQL == cipher)
+                        {
+                            Console.WriteLine("Codigo correcto");
+                            CodigoIncorrectolabel.Visibility = Visibility.Hidden;
+                            NotificacionFrame.Visibility = Visibility.Visible;
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Codigo Incorrecto");
+                        CodigoIncorrectolabel.Visibility = Visibility.Visible;
+                    }
+
+                }
+            }
         }
     }
 }
+
+
+
+
