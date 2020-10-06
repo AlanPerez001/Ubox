@@ -25,7 +25,8 @@ namespace Ubox
 
     public partial class DejarPage : Page
     {
-        [System.ComponentModel.Browsable(false)]
+        static string key { get; set; } = "A!9HHhi%XjjYY4YP2@Nob009X";
+
         public DejarPage()
         {
 
@@ -38,19 +39,20 @@ namespace Ubox
         {
             Console.WriteLine("Escanenado");
             string Start = "02 54 0d 02 55";
-           
-            byte[] ByteMessage = Start
+
+            /*byte[] ByteMessage = Start
               .Split(' ')
               .Select(item => Convert.ToByte(item, 16))
               .ToArray();
             string HexMessage = string.Join("-", ByteMessage
               .Select(item => item.ToString("X2")));
             Console.WriteLine("El Hex es... " + HexMessage);
-             SerialPort spPuertoSerie = new SerialPort(
-                   "COM6", 115200, Parity.None, 8, StopBits.One);
-             spPuertoSerie.Open();
-             spPuertoSerie.Write(ByteMessage, 0, ByteMessage.Length);
-             spPuertoSerie.Close();
+            SerialPort spPuertoSerie = new SerialPort(
+                  "COM3", 115200, Parity.None, 8, StopBits.One);
+            spPuertoSerie.Open();
+            spPuertoSerie.Write(ByteMessage, 0, ByteMessage.Length);
+            spPuertoSerie.ReadLine();
+            spPuertoSerie.Close();
             string code = "A19HG5";
             Console.WriteLine(code.Length);
             if (code.Length == 6)
@@ -61,8 +63,8 @@ namespace Ubox
                 Code4.Dispatcher.Invoke(new Action(() => Code4.AppendText(code.Substring(3, 1))));
                 Code5.Dispatcher.Invoke(new Action(() => Code5.AppendText(code.Substring(4, 1))));
                 Code6.Dispatcher.Invoke(new Action(() => Code6.AppendText(code.Substring(5, 1))));
-            }
-            
+            }*/
+
         }
 
         private void RegresarbBtn(object sender, RoutedEventArgs e)
@@ -2041,6 +2043,64 @@ namespace Ubox
         {
             Uri uri = new Uri("GenerarCodigo.xaml", UriKind.Relative);
             this.NavigationService.Navigate(uri);
+        }
+        public static string Encrypt(string text)
+        {
+            using (var md5 = new MD5CryptoServiceProvider())
+            {
+                using (var tdes = new TripleDESCryptoServiceProvider())
+                {
+                    tdes.Key = md5.ComputeHash(UTF8Encoding.UTF8.GetBytes(key));
+                    tdes.Mode = CipherMode.ECB;
+                    tdes.Padding = PaddingMode.PKCS7;
+
+                    using (var transform = tdes.CreateEncryptor())
+                    {
+                        byte[] textBytes = UTF8Encoding.UTF8.GetBytes(text);
+                        byte[] bytes = transform.TransformFinalBlock(textBytes, 0, textBytes.Length);
+                        return Convert.ToBase64String(bytes, 0, bytes.Length);
+                    }
+                }
+            }
+        }
+
+        private void CheckCode(object sender, RoutedEventArgs e)
+        {
+            string Codigo = Code1.Text + Code2.Text + Code3.Text + Code4.Text + Code5.Text + Code6.Text;
+            Console.WriteLine("El codigo ingresado es: " + Codigo);
+            var cipher = Encrypt(Codigo);
+            Console.WriteLine("Codificado: " + cipher);
+
+            string ConnectionString = (App.Current as App).ConnectionString;
+            string sql = @"SELECT Usuario, NoLocker, Codigo FROM Usuarios where Codigo ='" + cipher + "'";
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+                SqlCommand queryCommand = new SqlCommand(sql, conn);
+                using (SqlDataReader reader = queryCommand.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        String CodigoSQL = Convert.ToString(reader["Codigo"]);
+                        String Usuario = Convert.ToString(reader["Usuario"]);
+                        int NoLockerSQL = Convert.ToInt32(reader["NoLocker"]);
+                        Console.WriteLine("Entrando     " + CodigoSQL);
+                        if (CodigoSQL == cipher)
+                        {
+                            Console.WriteLine("El Numero de Locker es: " + NoLockerSQL);
+                            CodigoIncorrectolabel.Visibility = Visibility.Hidden;
+                            Uri uri = new Uri("IngresarPaquetePage.xaml", UriKind.Relative);
+                            this.NavigationService.Navigate(uri);
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Codigo Incorrecto");
+                        CodigoIncorrectolabel.Visibility = Visibility.Visible;
+                    }
+
+                }
+            }
         }
     }
 }

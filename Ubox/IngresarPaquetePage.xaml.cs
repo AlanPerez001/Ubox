@@ -15,18 +15,19 @@ using System.Windows.Shapes;
 namespace Ubox
 {
     /// <summary>
-    /// Lógica de interacción para Notificacion.xaml
+    /// Lógica de interacción para IngresarPaquetePage.xaml
     /// </summary>
-    public partial class Notificacion : Page
+    public partial class IngresarPaquetePage : Page
     {
-        public Notificacion()
+        public IngresarPaquetePage()
         {
             InitializeComponent();
         }
 
-        private void CloseNotificacion(object sender, RoutedEventArgs e)
+        private void RegresarbBtn(object sender, RoutedEventArgs e)
         {
-            _ = NavigationService.CanGoBack;
+            Uri uri = new Uri("Home.xaml", UriKind.Relative);
+            this.NavigationService.Navigate(uri);
         }
     }
 }

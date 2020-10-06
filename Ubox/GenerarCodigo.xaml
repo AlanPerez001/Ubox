@@ -35,7 +35,7 @@ d:DesignHeight="1665" d:DesignWidth="1082"
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Button Content="Continuar" HorizontalAlignment="Left" Margin="722,1510,0,0" VerticalAlignment="Top" Width="288" Height="80" Background="#1cdbf2" Foreground="White" FontFamily="./#Manrope" FontSize="50" FontWeight="SemiBold" Click="PassMd5"/>
+        <Button Content="Continuar" HorizontalAlignment="Left" Margin="722,1510,0,0" VerticalAlignment="Top" Width="288" Height="80" Background="#1cdbf2" Foreground="White" FontFamily="./#Manrope" FontSize="50" FontWeight="SemiBold" Click="IngresarPaquete"/>
         <CheckBox Content="1 día" HorizontalAlignment="Left" Margin="133,420,0,0" VerticalAlignment="Top" Height="41" Width="130.664" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="25" Foreground="White" VerticalContentAlignment="Center" RenderTransformOrigin="1,0" UseLayoutRounding="False" Background="{x:Null}"/>
         <CheckBox Content="6 días" HorizontalAlignment="Left" Margin="787,420,0,0" VerticalAlignment="Top" Height="41" Width="133" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="25" Foreground="White" VerticalContentAlignment="Center" Background="{x:Null}"/>
         <CheckBox Content="5 días" HorizontalAlignment="Left" Margin="657,420,0,0" VerticalAlignment="Top" Height="41" Width="130" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="25" Foreground="White" VerticalContentAlignment="Center" Background="{x:Null}"/>
@@ -64,7 +64,7 @@ d:DesignHeight="1665" d:DesignWidth="1082"
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Label Content="Tu selección:" HorizontalAlignment="Left" Margin="708,1236,0,0" VerticalAlignment="Top" Height="68" Width="270" FontSize="45" FontFamily="Manrope blod" Foreground="White" FontWeight="SemiBold"/>
+        <Label Content="Tu selección:" HorizontalAlignment="Left" Margin="722,1236,0,0" VerticalAlignment="Top" Height="68" Width="270" FontSize="45" FontFamily="Manrope blod" Foreground="White" FontWeight="SemiBold"/>
         <Button x:Name="Locker1" Style="{DynamicResource ButtonFill}" Height="162" VerticalAlignment="Top" Content="    J&#xA;001" Margin="138,576,730,0" FontFamily="/Ubox;component/Fonts/#Manrope" Click="Locker1_Click" />
         <Button x:Name="Locker11" Style="{DynamicResource ButtonFill}" Height="162" VerticalAlignment="Top" Content="    J&#xA;011" Margin="354,576,516,0" FontFamily="/Ubox;component/Fonts/#Manrope"/>
         <Button x:Name="Locker30" Style="{DynamicResource ButtonFill}" Height="162" VerticalAlignment="Top" Content="  Ex&#xA;030" Margin="567,1048,301,0" FontFamily="/Ubox;component/Fonts/#Manrope"/>

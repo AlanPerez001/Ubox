@@ -1,0 +1,24 @@
+﻿<Page x:Class="Ubox.IngresarPaquetePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Ubox"
+      mc:Ignorable="d" 
+      d:DesignHeight="1665" d:DesignWidth="1082"
+      Title="IngresarPaquetePage">
+
+    <Grid  Background="#FF2B2E34">
+        <Image Source="Imagenes/TexturasPantalla9y10.png" Margin="-181,-60,-149,-115"/>
+        <Label HorizontalAlignment="Left" Margin="118,214,0,0" VerticalAlignment="Top" Height="132" Width="712" FontSize="90" FontFamily="/Ubox;component/Fonts/#IBM Plex Serif" Foreground="White" Content="Deja tu paquete"/>
+        <Label Content="Coloca tu paquete en el locker No." HorizontalAlignment="Left" Margin="118,371,0,0" VerticalAlignment="Top" Height="68" Width="874" FontSize="50" FontFamily="Manrope blod" Foreground="White" FontWeight="SemiBold"/>
+        <Label HorizontalAlignment="Left" Margin="118,476,0,0" VerticalAlignment="Top" Height="198" Width="220" FontSize="110" FontFamily="/Ubox;component/Fonts/#IBM Plex Serif" Foreground="White" Content="012"/>
+        <Label Content="Cierra la puerta y da clic en el botón siguiente para&#xD;&#xA;recibir el código de recepción, con este, el dueño&#xD;&#xA;del paquete podrá recogerlo." HorizontalAlignment="Right" Margin="0,754,136,0" VerticalAlignment="Top" Height="156" Width="836" FontFamily="Manrope blod" Foreground="White" FontWeight="SemiBold" FontSize="35"/>
+        <Button HorizontalAlignment="Left" Margin="26,28,0,0" VerticalAlignment="Top" Width="74" Height="64" BorderThickness="0" Click="RegresarbBtn" Padding="0">
+            <Button.Background>
+                <ImageBrush ImageSource="Imagenes/iconoRegresar-01.png"/>
+            </Button.Background>
+        </Button>
+        <Button Content="Siguiente" HorizontalAlignment="Left" Margin="798,976,0,0" VerticalAlignment="Top" Width="194" Height="66" Background="#1cdbf2" Foreground="White" FontFamily="./#Manrope" FontSize="30" FontWeight="SemiBold"/>
+    </Grid>
+</Page>

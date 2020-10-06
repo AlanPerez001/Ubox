@@ -314,5 +314,10 @@ namespace Ubox
                     break;
             }*/
         }
+
+        private void IngresarPaquete(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

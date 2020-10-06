@@ -39,7 +39,7 @@ namespace Ubox
             Console.WriteLine("Escanenado");
             string Start = "02 54 0d 02 55";
 
-            byte[] ByteMessage = Start
+            /*byte[] ByteMessage = Start
               .Split(' ')
               .Select(item => Convert.ToByte(item, 16))
               .ToArray();
@@ -61,10 +61,10 @@ namespace Ubox
                 Code4.Dispatcher.Invoke(new Action(() => Code4.AppendText(code.Substring(3, 1))));
                 Code5.Dispatcher.Invoke(new Action(() => Code5.AppendText(code.Substring(4, 1))));
                 Code6.Dispatcher.Invoke(new Action(() => Code6.AppendText(code.Substring(5, 1))));
-            }
+            }*/
 
         }
-        private void RegresarbBtn(object sender, RoutedEventArgs e)
+        public void RegresarbBtn(object sender, RoutedEventArgs e)
         {
             Uri uri = new Uri("Home.xaml", UriKind.Relative);
             this.NavigationService.Navigate(uri);
@@ -2090,6 +2090,7 @@ namespace Ubox
                 }
             }
         }
+
         private void CheckCode(object sender, RoutedEventArgs e)
         {
             string Codigo = Code1.Text + Code2.Text + Code3.Text + Code4.Text + Code5.Text + Code6.Text;
@@ -2108,12 +2109,17 @@ namespace Ubox
                     if (reader.Read())
                     {
                         String CodigoSQL = Convert.ToString(reader["Codigo"]);
+                        String trama = Convert.ToString(reader["Trama"]);
+                        int NoLockerSQL = Convert.ToInt32(reader["NoLocker"]);
                         Console.WriteLine("Entrando     " + CodigoSQL);
                         if (CodigoSQL == cipher)
                         {
-                            Console.WriteLine("Codigo correcto");
+                            Console.WriteLine("El Numero de Locker es: " + NoLockerSQL);
+                            NoLocker.Content = "No." + NoLockerSQL;
                             CodigoIncorrectolabel.Visibility = Visibility.Hidden;
-                            NotificacionFrame.Visibility = Visibility.Visible;
+                            NotificacionGrid.Visibility = Visibility.Visible;
+                            Thread NotifTimer = new Thread(NotificacionTimer);
+                            NotifTimer.Start();
                         }
                     }
                     else
@@ -2124,6 +2130,24 @@ namespace Ubox
 
                 }
             }
+        }
+        private void NotificacionTimer()
+        {
+            for (int i = 1; i <= 15; i++)
+            {
+                Thread.Sleep(1000);
+            }
+            NotificacionGrid.Dispatcher.Invoke(new Action(() => NotificacionGrid.Visibility = Visibility.Collapsed));
+            Uri uri = new Uri("Home.xaml", UriKind.Relative);
+
+            this.Dispatcher.Invoke(new Action(() => this.NavigationService.Navigate(uri))); 
+        }
+
+        private void CloseNotificacion(object sender, RoutedEventArgs e)
+        {
+            NotificacionGrid.Visibility = Visibility.Collapsed;
+            Uri uri = new Uri("Home.xaml", UriKind.Relative);
+            this.NavigationService.Navigate(uri);
         }
     }
 }
