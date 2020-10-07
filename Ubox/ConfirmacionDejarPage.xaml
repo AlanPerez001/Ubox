@@ -1,0 +1,26 @@
+﻿<Page x:Class="Ubox.ConfirmacionDejarPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Ubox"
+      mc:Ignorable="d" 
+      d:DesignHeight="1665" d:DesignWidth="1082"
+      Title="ConfirmacionDejarPage">
+
+    <Grid Background="#FF2B2E34">
+        <Image Source="Imagenes/TexturaPantalla11.png" Margin="-198,-45,-177,-45"/>
+        <Button HorizontalAlignment="Left" Margin="26,28,0,0" VerticalAlignment="Top" Width="74" Height="64" BorderThickness="0" Click="RegresarbBtn" Padding="0">
+            <Button.Background>
+                <ImageBrush ImageSource="Imagenes/iconoRegresar-01.png"/>
+            </Button.Background>
+        </Button>
+        <Label HorizontalAlignment="Left" Margin="118,214,0,0" VerticalAlignment="Top" Height="267" Width="712" FontSize="90" FontFamily="/Ubox;component/Fonts/#IBM Plex Serif" Foreground="White" Content="¡Gracias por &#xD;&#xA;elegir Ubox!"/>
+        <Label Content="Recibirás un mensaje con tu código&#xD;&#xA;de recepción, también puedes&#xD;&#xA;verificarlo dentro de tu cuenta." HorizontalAlignment="Left" Margin="118,511,0,0" VerticalAlignment="Top" Height="172" Width="820" FontSize="45" FontFamily="Manrope blod" Foreground="White" FontWeight="SemiBold"/>
+        <Label Content="El código estará activo hasta" HorizontalAlignment="Left" Margin="118,739,0,0" VerticalAlignment="Top" Height="71" Width="676" FontSize="35" FontFamily="Manrope blod" Foreground="White" FontWeight="SemiBold"/>
+        <Label Content="15/Oct./2020 a las 19:15 hrs." HorizontalAlignment="Left" Margin="118,790,0,0" VerticalAlignment="Top" Height="71" Width="596" FontSize="35" FontFamily="Manrope blod" Foreground="White" FontWeight="SemiBold"/>
+        <Label Content="Si deseas usar el locker por más tiempo deberás&#xD;&#xA;renovar tu código una vez vencido." HorizontalAlignment="Left" Margin="118,907,0,0" VerticalAlignment="Top" Height="103" Width="820" FontSize="35" FontFamily="Manrope blod" Foreground="White" FontWeight="SemiBold"/>
+        <Label Content="Recuerda que los paquetes con más de 72 horas de&#xD;&#xA;vencimiento son recogidos por nuestro equipo y&#xD;&#xA;llevados a nuestro almacén, en espera de ser&#xD;&#xA;reclamados." HorizontalAlignment="Left" Margin="118,1037,0,0" VerticalAlignment="Top" Height="175" Width="842" FontSize="35" FontFamily="Manrope blod" Foreground="White" FontWeight="SemiBold"/>
+        <Button Click="FinalizarBtn" Content="Finalizar" HorizontalAlignment="Left" Margin="766,1272,0,0" VerticalAlignment="Top" Width="194" Height="66" Background="#1cdbf2" Foreground="White" FontFamily="./#Manrope" FontSize="30" FontWeight="SemiBold"/>
+    </Grid>
+</Page>

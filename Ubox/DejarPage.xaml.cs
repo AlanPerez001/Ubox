@@ -46,15 +46,13 @@ namespace Ubox
               .ToArray();
             string HexMessage = string.Join("-", ByteMessage
               .Select(item => item.ToString("X2")));
-            Console.WriteLine("El Hex es... " + HexMessage);
             SerialPort spPuertoSerie = new SerialPort(
                   "COM3", 115200, Parity.None, 8, StopBits.One);
             spPuertoSerie.Open();
             spPuertoSerie.Write(ByteMessage, 0, ByteMessage.Length);
-            spPuertoSerie.ReadLine();
-            spPuertoSerie.Close();
-            string code = "A19HG5";
-            Console.WriteLine(code.Length);
+            Console.WriteLine("Byte: " + spPuertoSerie.ReadByte());
+            string code = spPuertoSerie.ReadExisting();
+            Console.WriteLine(code);
             if (code.Length == 6)
             {
                 Code1.Dispatcher.Invoke(new Action(() => Code1.AppendText(code.Substring(0, 1))));
@@ -63,8 +61,8 @@ namespace Ubox
                 Code4.Dispatcher.Invoke(new Action(() => Code4.AppendText(code.Substring(3, 1))));
                 Code5.Dispatcher.Invoke(new Action(() => Code5.AppendText(code.Substring(4, 1))));
                 Code6.Dispatcher.Invoke(new Action(() => Code6.AppendText(code.Substring(5, 1))));
-            }*/
-
+            }
+            spPuertoSerie.Close();*/
         }
 
         private void RegresarbBtn(object sender, RoutedEventArgs e)
@@ -2089,6 +2087,8 @@ namespace Ubox
                         {
                             Console.WriteLine("El Numero de Locker es: " + NoLockerSQL);
                             CodigoIncorrectolabel.Visibility = Visibility.Hidden;
+                            IngresarPaquetePage ingresar = new IngresarPaquetePage();
+                            ingresar.NoLocker(NoLockerSQL);
                             Uri uri = new Uri("IngresarPaquetePage.xaml", UriKind.Relative);
                             this.NavigationService.Navigate(uri);
                         }

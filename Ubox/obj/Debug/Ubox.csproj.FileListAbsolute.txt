@@ -22,3 +22,5 @@ C:\Users\Developer\OneDrive\Ubox\Ubox\Ubox\obj\Debug\GenerarCodigo.baml
 C:\Users\Developer\OneDrive\Ubox\Ubox\Ubox\obj\Debug\GenerarCodigo.g.cs
 C:\Users\Developer\OneDrive\Ubox\Ubox\Ubox\obj\Debug\IngresarPaquetePage.g.cs
 C:\Users\Developer\OneDrive\Ubox\Ubox\Ubox\obj\Debug\IngresarPaquetePage.baml
+C:\Users\Developer\OneDrive\Ubox\Ubox\Ubox\obj\Debug\ConfirmacionDejarPage.g.cs
+C:\Users\Developer\OneDrive\Ubox\Ubox\Ubox\obj\Debug\ConfirmacionDejarPage.baml

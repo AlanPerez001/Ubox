@@ -45,14 +45,13 @@ namespace Ubox
               .ToArray();
             string HexMessage = string.Join("-", ByteMessage
               .Select(item => item.ToString("X2")));
-            Console.WriteLine("El Hex es... " + HexMessage);
             SerialPort spPuertoSerie = new SerialPort(
-                  "COM6", 115200, Parity.None, 8, StopBits.One);
+                  "COM3", 115200, Parity.None, 8, StopBits.One);
             spPuertoSerie.Open();
             spPuertoSerie.Write(ByteMessage, 0, ByteMessage.Length);
-            string code = spPuertoSerie.ReadLine();
+            Console.WriteLine("Byte: " + spPuertoSerie.ReadByte());
+            string code = spPuertoSerie.ReadExisting();
             Console.WriteLine(code);
-            Console.WriteLine(code.Length);
             if (code.Length == 6)
             {
                 Code1.Dispatcher.Invoke(new Action(() => Code1.AppendText(code.Substring(0, 1))));
@@ -61,7 +60,8 @@ namespace Ubox
                 Code4.Dispatcher.Invoke(new Action(() => Code4.AppendText(code.Substring(3, 1))));
                 Code5.Dispatcher.Invoke(new Action(() => Code5.AppendText(code.Substring(4, 1))));
                 Code6.Dispatcher.Invoke(new Action(() => Code6.AppendText(code.Substring(5, 1))));
-            }*/
+            }
+            spPuertoSerie.Close();*/
 
         }
         public void RegresarbBtn(object sender, RoutedEventArgs e)
@@ -2115,7 +2115,7 @@ namespace Ubox
                         if (CodigoSQL == cipher)
                         {
                             Console.WriteLine("El Numero de Locker es: " + NoLockerSQL);
-                            NoLocker.Content = "No." + NoLockerSQL;
+                            NoLocker.Content = "No. 0" + NoLockerSQL;
                             CodigoIncorrectolabel.Visibility = Visibility.Hidden;
                             NotificacionGrid.Visibility = Visibility.Visible;
                             Thread NotifTimer = new Thread(NotificacionTimer);

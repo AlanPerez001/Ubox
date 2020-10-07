@@ -115,8 +115,28 @@ d:DesignHeight="1665" d:DesignWidth="1082"
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        
-        
+        <Label x:Name="CodigoNoVigente" Content="&#x9;&#x9;    &#x9;    !Ups!      &#xA;El código que ingresaste no se encuentra vigente. Comunicate&#xD;&#xA;      con el emisor del paquete para verificar la información." HorizontalAlignment="Center" Margin="200,794,174,733" Visibility="Hidden" VerticalAlignment="Center" Height="138" Width="708" FontSize="23" FontFamily="/Ubox;component/Fonts/#IBM Plex Serif" Foreground="#1cdbf2" FontWeight="SemiBold" RenderTransformOrigin="0.5,0.5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="-0.1"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="-0.748"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label x:Name="CodigoUsado" Content=" &#x9;   &#x9;                       !Ups!      &#xA;El código que intentas utilizar ya fue ingresado y el paquete&#xD;&#xA;       recogido. Comunicate con el emisor del paquete para&#xD;&#xA;&#x9;&#x9; verificar la información." HorizontalAlignment="Center" Margin="200,794,174,733" Visibility="Hidden" VerticalAlignment="Center" Height="138" Width="708" FontSize="23" FontFamily="/Ubox;component/Fonts/#IBM Plex Serif" Foreground="#1cdbf2" FontWeight="SemiBold" RenderTransformOrigin="0.5,0.5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="-0.1"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="-0.748"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+
+
         <Grid x:Name="NotificacionGrid" Margin="282,416,364,550" Visibility="Collapsed">
             <Rectangle Fill="#FF1CDBF2" HorizontalAlignment="Left" Height="694" VerticalAlignment="Top" Width="436"/>
             <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="299" Stroke="Black" VerticalAlignment="Top" Width="436" StrokeThickness="0" Margin="0,400,0,0"/>
@@ -145,5 +165,6 @@ d:DesignHeight="1665" d:DesignWidth="1082"
             </Label>
             <Button Content="X" HorizontalAlignment="Left" VerticalAlignment="Top" Width="41" Background="{x:Null}" Padding="0" BorderThickness="0" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="40" Foreground="White" Click="CloseNotificacion" Margin="385,5,0,0"/>
         </Grid>
+
     </Grid>
 </Page>

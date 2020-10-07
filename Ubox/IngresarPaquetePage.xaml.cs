@@ -29,5 +29,16 @@ namespace Ubox
             Uri uri = new Uri("Home.xaml", UriKind.Relative);
             this.NavigationService.Navigate(uri);
         }
+        public void NoLocker(int NoLocker)
+        {
+            Console.WriteLine("Entrando y en locker es"+NoLocker);
+            NoLockerIngresar.Dispatcher.Invoke(new Action(() => NoLockerIngresar.Content = "0" + NoLocker));
+        }
+
+        private void ConfirmacionDejar(object sender, RoutedEventArgs e)
+        {
+            Uri uri = new Uri("ConfirmacionDejarPage.xaml", UriKind.Relative);
+            this.NavigationService.Navigate(uri);
+        }
     }
 }
