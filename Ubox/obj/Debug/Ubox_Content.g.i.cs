@@ -8,11 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("texturapantalla1.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("texturapantalla11.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("texturapantalla15.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("texturapantallas2a8.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("texturaspantalla9y10.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("texturaspantallas12a14.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("imagenes/checkmarcado.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("imagenes/checksinmarcar.png")]
 
 

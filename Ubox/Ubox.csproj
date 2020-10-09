@@ -53,6 +53,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Seleccion.xaml.cs">
+      <DependentUpon>Seleccion.xaml</DependentUpon>
+    </Compile>
     <Page Include="ConfirmacionDejarPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -107,6 +110,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Seleccion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -154,6 +161,10 @@
     <Resource Include="Imagenes\TexturaPantallas2a8.png" />
     <Resource Include="Imagenes\TexturasPantalla9y10.png" />
     <Resource Include="Imagenes\TexturasPantallas12a14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\CheckMarcado.png" />
+    <Resource Include="Imagenes\checkSinMarcar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -27,6 +27,7 @@ namespace Ubox
         public ConfirmacionDejarPage()
         {
             InitializeComponent();
+            VencimientoLabel.Content = DejarPage.Vencimiento;
             Thread Finalizar = new Thread(FinalizarTimer);
             Finalizar.Start();
         }
@@ -49,8 +50,16 @@ namespace Ubox
             {
                 Thread.Sleep(1000);
             }
-            Uri uri = new Uri("Home.xaml", UriKind.Relative);
-            this.Dispatcher.Invoke(new Action(() => this.NavigationService.Navigate(uri)));
+            try
+            {
+                Uri uri = new Uri("Home.xaml", UriKind.Relative);
+                this.Dispatcher.Invoke(new Action(() => this.NavigationService.Navigate(uri)));
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+
         }
     }
 }

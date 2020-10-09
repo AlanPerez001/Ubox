@@ -1,69 +1,22 @@
-﻿<Page x:Class="Ubox.DejarPage"
+﻿<Page x:Class="Ubox.Seleccion"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Ubox"
       mc:Ignorable="d" 
 d:DesignHeight="1665" d:DesignWidth="1082"
-      Title="DejarPage">
+      Title="Seleccion">
 
     <Grid  Background="#2b2e34">
-        <Image Source="Imagenes/TexturaPantallas2a8.png" Margin="-165,-62,-191,1387"/>
+        <Image Source="Imagenes/TexturaPantallas2a8.png" Margin="-165,-108,-191,1433"/>
         <Button HorizontalAlignment="Left" Margin="26,28,0,0" VerticalAlignment="Top" Width="74" Height="64" BorderThickness="0" Click="RegresarbBtn" Padding="0">
             <Button.Background>
                 <ImageBrush ImageSource="Imagenes/iconoRegresar-01.png"/>
             </Button.Background>
         </Button>
-        <Label Content="Comencemos." HorizontalAlignment="Left" Margin="118,355,0,0" VerticalAlignment="Top" Height="56" Width="544" FontSize="45" FontFamily="Manrope blod" Foreground="White" FontWeight="SemiBold"/>
-        <Label Content="Deja tu paquete" HorizontalAlignment="Left" Margin="118,230,0,0" VerticalAlignment="Top" Height="140" Width="838" FontSize="90" FontFamily="/Ubox;component/Fonts/#IBM Plex Serif" Foreground="White"/>
-        <Label Content="Ingresa el código de envió." HorizontalAlignment="Left" Margin="118,429,0,0" VerticalAlignment="Top" Height="106" Width="829" FontSize="36" FontFamily="Manrope blod" Foreground="White" FontWeight="SemiBold" RenderTransformOrigin="0.5,0.5">
-            <Label.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleY="-0.1"/>
-                    <RotateTransform/>
-                    <TranslateTransform Y="-0.748"/>
-                </TransformGroup>
-            </Label.RenderTransform>
-        </Label>
-        <TextBox x:Name="Code1" MaxLength="1" HorizontalAlignment="Left" Height="122" Margin="123,575,0,0" VerticalAlignment="Top" Width="93" TextWrapping="Wrap" MaxLines="1" Background="#FFCCCCCC" BorderBrush="#FFCCCCCC" Text="" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="Code2" MaxLength="1" HorizontalAlignment="Left" Height="122" Margin="268,575,0,0" VerticalAlignment="Top" Width="93" TextWrapping="Wrap" MaxLines="1" Background="#FFCCCCCC" BorderBrush="#FFCCCCCC" Text="" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="Code3" MaxLength="1" HorizontalAlignment="Left" Height="122" Margin="412,575,0,0" VerticalAlignment="Top" Width="94" TextWrapping="Wrap" MaxLines="1" Background="#FFCCCCCC" BorderBrush="#FFCCCCCC" Text="" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="Code4" MaxLength="1" HorizontalAlignment="Left" Height="122" Margin="557,575,0,0" VerticalAlignment="Top" Width="94" TextWrapping="Wrap" MaxLines="1" Background="#FFCCCCCC" BorderBrush="#FFCCCCCC" Text="" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="Code5" MaxLength="1" HorizontalAlignment="Left" Height="122" Margin="702,575,0,0" VerticalAlignment="Top" Width="93" TextWrapping="Wrap" MaxLines="1" Background="#FFCCCCCC" BorderBrush="#FFCCCCCC" Text="" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="Code6" MaxLength="1" HorizontalAlignment="Left" Height="122" Margin="847,575,0,0" VerticalAlignment="Top" Width="93" TextWrapping="Wrap" MaxLines="1" Background="#FFCCCCCC" BorderBrush="#FFCCCCCC" Text="" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <Label Content="Es un código alfanumérico de 6 caracteres que se genera a través de nuestra&#xA;app o sitio web." HorizontalAlignment="Left" Margin="116,741,0,0" VerticalAlignment="Top" Height="64" Width="810" FontSize="23" FontFamily="Manrope blod" Foreground="White" FontWeight="SemiBold" RenderTransformOrigin="0.5,0.5">
-            <Label.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleY="-0.1"/>
-                    <RotateTransform/>
-                    <TranslateTransform Y="-0.748"/>
-                </TransformGroup>
-            </Label.RenderTransform>
-        </Label>
-        <Button Click="CheckCode" Content="Continuar" HorizontalAlignment="Left" Margin="746,960,0,0" VerticalAlignment="Top" Width="194" Height="66" Background="#1cdbf2" Foreground="White" FontFamily="./#Manrope" FontSize="30" FontWeight="SemiBold"/>
-        <Label x:Name="CodigoIncorrectolabel" Content="            El código ingresado es incorrecto&#xA;Por favor verifica la información o genera un&#xA;&#x9;        código para continuar." HorizontalAlignment="Center" Margin="262,798,259,743" VerticalAlignment="Center" Height="124" Width="561" FontSize="23" FontFamily="/Ubox;component/Fonts/#IBM Plex Serif" Foreground="#1cdbf2" FontWeight="SemiBold" RenderTransformOrigin="0.5,0.5" HorizontalContentAlignment="Center" Visibility="Hidden" VerticalContentAlignment="Center">
-            <Label.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleY="-0.1"/>
-                    <RotateTransform/>
-                    <TranslateTransform Y="-0.748"/>
-                </TransformGroup>
-            </Label.RenderTransform>
-        </Label>
-        <Label Content="Al escanear el código QR o dar clic en Continuar estás aceptando los terminos y condiciones de&#xA;Ubox y el Aviso de privacidad. Recuerda que estos documentos están disponibles a través de&#xA;nuestra página web ubox.com" HorizontalAlignment="Left" Margin="195,1055,0,0" VerticalAlignment="Top" Height="70" Width="748" FontSize="13" FontFamily="Manrope blod" Foreground="White" FontWeight="SemiBold" RenderTransformOrigin="0.5,0.5" VerticalContentAlignment="Center" FlowDirection="RightToLeft">
-            <Label.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleY="-0.1"/>
-                    <RotateTransform/>
-                    <TranslateTransform Y="-0.748"/>
-                </TransformGroup>
-            </Label.RenderTransform>
-        </Label>
-        <Button Content="No tengo un código" HorizontalAlignment="Left" Margin="118,1026,0,0" VerticalAlignment="Top" Width="156" Background="{x:Null}" Foreground="#FF1CDBF2" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="16" Click="NoCodeBtn"/>
+        <Label Content="Tu seleción" HorizontalAlignment="Left" Margin="118,166,0,0" VerticalAlignment="Top" Height="140" Width="512" FontSize="90" FontFamily="/Ubox;component/Fonts/#IBM Plex Serif" Foreground="White"/>
+        <Button Click="CheckCode" Content="Continuar" HorizontalAlignment="Left" Margin="746,1029,0,0" VerticalAlignment="Top" Width="194" Height="66" Background="#1cdbf2" Foreground="White" FontFamily="./#Manrope" FontSize="30" FontWeight="SemiBold"/>
 
 
         <Rectangle Fill="#FF727176" HorizontalAlignment="Left" Height="565" Margin="0,1119,0,-19" Stroke="Black" VerticalAlignment="Top" Width="1082"/>
@@ -117,5 +70,26 @@ d:DesignHeight="1665" d:DesignWidth="1082"
         <Button Content="8" HorizontalAlignment="Left" Margin="730,1145,0,0" VerticalAlignment="Top"  Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="OchoBtn"/>
         <Button Content="9" HorizontalAlignment="Left" Margin="825,1145,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="NueveBtn"/>
         <Button Content="0" HorizontalAlignment="Left" Margin="920,1145,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="CeroBtn"/>
+        <Label Content="Locker" HorizontalAlignment="Left" Margin="118,274,0,0" VerticalAlignment="Top" Height="106" Width="322" FontSize="80" FontFamily="/Ubox;component/Fonts/#IBM Plex Serif" Foreground="White"/>
+        <Label x:Name="TamañoSeleccion" Content="" HorizontalAlignment="Left" Margin="445,274,0,0" VerticalAlignment="Top" Height="106" Width="322" FontSize="70" FontFamily="/Ubox;component/Fonts/#IBM Plex Serif" Foreground="White"/>
+        <Label x:Name="NoLockerDejar" Content="012" HorizontalAlignment="Left" Margin="117,354,0,0" VerticalAlignment="Top" Height="98" Width="280" FontFamily="/Ubox;component/Fonts/#IBM Plex Serif" FontSize="75" Foreground="White"/>
+        <Label x:Name="VencimientoLabel" Content="15/Oct./2020 a las 19:15 hrs." HorizontalAlignment="Left" Margin="254,536,0,0" VerticalAlignment="Top" Height="71" Width="596" FontSize="35" FontFamily="Manrope blod" Foreground="White" FontWeight="SemiBold"/>
+        <Label x:Name="VencimientoLabel_Copy" Content="15/Oct./2020 a las 19:15 hrs." HorizontalAlignment="Left" Margin="222,465,0,0" VerticalAlignment="Top" Height="71" Width="596" FontSize="35" FontFamily="Manrope blod" Foreground="White" FontWeight="SemiBold"/>
+        <Label x:Name="VencimientoLabel_Copy1" Content="Finaliza: " HorizontalAlignment="Left" Margin="118,536,0,0" VerticalAlignment="Top" Height="71" Width="169" FontSize="35" FontFamily="Manrope blod" Foreground="White" FontWeight="SemiBold"/>
+        <Label x:Name="VencimientoLabel_Copy2" Content="Inicia: " HorizontalAlignment="Left" Margin="117,465,0,0" VerticalAlignment="Top" Height="71" Width="133" FontSize="35" FontFamily="Manrope blod" Foreground="White" FontWeight="SemiBold"/>
+        <Label Content="Total a pagar:" HorizontalAlignment="Left" Margin="591,582,0,0" VerticalAlignment="Top" Height="80" Width="349" FontSize="50" FontFamily="/Ubox;component/Fonts/#IBM Plex Serif" Foreground="White"/>
+        <Label x:Name="CostoSeleccion" Content="" HorizontalAlignment="Left" Margin="618,662,0,0" VerticalAlignment="Top" Height="80" Width="322" FontSize="50" FontFamily="/Ubox;component/Fonts/#IBM Plex Serif" Foreground="White"/>
+        <Label x:Name="VencimientoLabel_Copy3" Content="Ingresa un celular de contacto para recibir&#xD;&#xA;notificaciones sobre tu paquete" HorizontalAlignment="Left" Margin="117,750,0,0" VerticalAlignment="Top" Height="96" Width="682" FontSize="35" FontFamily="Manrope blod" Foreground="White" FontWeight="SemiBold"/>
+        <TextBox x:Name="NumeroTelefono" MaxLength="10" HorizontalAlignment="Left" Height="91" Margin="118,856,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="564" FontSize="70" HorizontalContentAlignment="Center" Background="#FFCCCCCC"/>
+        <Label x:Name="CodigoIncorrectolabel" Content="Introduce un número válido, de lo&#xD;&#xA;contrario no podremos avisarte&#xD;&#xA;cuando el paquete sea recogido." HorizontalAlignment="Center" Margin="117,965,560,576" VerticalAlignment="Center" Height="124" Width="405" FontSize="23" FontFamily="/Ubox;component/Fonts/#IBM Plex Serif" Foreground="#1cdbf2" FontWeight="SemiBold" RenderTransformOrigin="0.5,0.5" HorizontalContentAlignment="Center" Visibility="Hidden" VerticalContentAlignment="Center">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="-0.1"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="-0.748"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
     </Grid>
 </Page>

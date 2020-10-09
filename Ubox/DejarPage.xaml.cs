@@ -25,6 +25,9 @@ namespace Ubox
 
     public partial class DejarPage : Page
     {
+        public static int NoLockerSQL { get; set; }
+        public static string Vencimiento { get; set; }
+        public static string DiaRenta { get; set; }
         static string key { get; set; } = "A!9HHhi%XjjYY4YP2@Nob009X";
 
         public DejarPage()
@@ -2070,7 +2073,7 @@ namespace Ubox
             Console.WriteLine("Codificado: " + cipher);
 
             string ConnectionString = (App.Current as App).ConnectionString;
-            string sql = @"SELECT Usuario, NoLocker, Codigo FROM Usuarios where Codigo ='" + cipher + "'";
+            string sql = @"SELECT Usuario, NoLocker,Tiempo,DiaRenta, Codigo FROM Usuarios where Codigo ='" + cipher + "'";
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -2081,14 +2084,15 @@ namespace Ubox
                     {
                         String CodigoSQL = Convert.ToString(reader["Codigo"]);
                         String Usuario = Convert.ToString(reader["Usuario"]);
-                        int NoLockerSQL = Convert.ToInt32(reader["NoLocker"]);
+                        Vencimiento = Convert.ToString(reader["Tiempo"]);
+                        DiaRenta = Convert.ToString(reader["DiaRenta"]);
+                        NoLockerSQL = Convert.ToInt32(reader["NoLocker"]);
                         Console.WriteLine("Entrando     " + CodigoSQL);
                         if (CodigoSQL == cipher)
                         {
-                            Console.WriteLine("El Numero de Locker es: " + NoLockerSQL);
+                            Console.WriteLine("El Numero de Locker es: " + NoLockerSQL+ ", El dia de la renta fue: "+ DiaRenta + ", El dia de vencimiento es: "+Vencimiento);
                             CodigoIncorrectolabel.Visibility = Visibility.Hidden;
                             IngresarPaquetePage ingresar = new IngresarPaquetePage();
-                            ingresar.NoLocker(NoLockerSQL);
                             Uri uri = new Uri("IngresarPaquetePage.xaml", UriKind.Relative);
                             this.NavigationService.Navigate(uri);
                         }
@@ -2102,5 +2106,9 @@ namespace Ubox
                 }
             }
         }
+
+
+
+
     }
 }

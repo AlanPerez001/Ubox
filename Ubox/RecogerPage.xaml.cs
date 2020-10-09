@@ -2137,10 +2137,18 @@ namespace Ubox
             {
                 Thread.Sleep(1000);
             }
-            NotificacionGrid.Dispatcher.Invoke(new Action(() => NotificacionGrid.Visibility = Visibility.Collapsed));
-            Uri uri = new Uri("Home.xaml", UriKind.Relative);
+            try
+            {
+                NotificacionGrid.Dispatcher.Invoke(new Action(() => NotificacionGrid.Visibility = Visibility.Collapsed));
+                Uri uri = new Uri("Home.xaml", UriKind.Relative);
 
-            this.Dispatcher.Invoke(new Action(() => this.NavigationService.Navigate(uri))); 
+                this.Dispatcher.Invoke(new Action(() => this.NavigationService.Navigate(uri)));
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+
         }
 
         private void CloseNotificacion(object sender, RoutedEventArgs e)
