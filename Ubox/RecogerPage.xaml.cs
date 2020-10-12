@@ -16,7 +16,7 @@ using System.IO.Ports;
 using System.Threading;
 using System.Data.SqlClient;
 using System.Data;
-
+using System.Timers;
 
 
 namespace Ubox
@@ -29,6 +29,7 @@ namespace Ubox
         static string key { get; set; } = "A!9HHhi%XjjYY4YP2@Nob009X";
         public static string Trama { get; set; }
         public static int NoLockerSQL { get; set; }
+        private static System.Timers.Timer aTimer;
         public RecogerPage()
         {
             InitializeComponent();
@@ -2141,8 +2142,11 @@ namespace Ubox
                             CodigoIncorrectolabel.Visibility = Visibility.Hidden;
                             NotificacionGrid.Visibility = Visibility.Visible;
 
-                            Thread NotifTimer = new Thread(NotificacionTimer);
-                            NotifTimer.Start();
+                            aTimer = new System.Timers.Timer(15000);
+                            // Hook up the Elapsed event for the timer. 
+                            aTimer.Elapsed += NotificacionTimer;
+                            aTimer.AutoReset = false;
+                            aTimer.Enabled = true;
                         }
                     }
                     else
@@ -2155,19 +2159,16 @@ namespace Ubox
             }
         }
 
-        private void NotificacionTimer()
+        private void NotificacionTimer(object sender, ElapsedEventArgs e)
         {
-            for (int i = 1; i <= 15; i++)
-            {
-                Thread.Sleep(1000);
-            }
+
+            NotificacionGrid.Dispatcher.Invoke(new Action(() => NotificacionGrid.Visibility = Visibility.Collapsed));
+            Uri uri = new Uri("Home.xaml", UriKind.Relative);
             try
             {
-                NotificacionGrid.Dispatcher.Invoke(new Action(() => NotificacionGrid.Visibility = Visibility.Collapsed));
-                Uri uri = new Uri("Home.xaml", UriKind.Relative);
                 this.Dispatcher.Invoke(new Action(() => this.NavigationService.Navigate(uri)));
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex);
             }

@@ -26,63 +26,41 @@ namespace Ubox
     public partial class ConfirmacionDejarPage : Page
     {
         private static System.Timers.Timer aTimer;
-        public Thread Finalizar { get; set; }
         public ConfirmacionDejarPage()
         {
             InitializeComponent();
-            Uri uri = new Uri("Home.xaml", UriKind.Relative);
             VencimientoLabel.Content = DejarPage.Vencimiento;
-            /*aTimer = new System.Timers.Timer(60000);
+            aTimer = new System.Timers.Timer(60000);
             // Hook up the Elapsed event for the timer. 
-            aTimer.Elapsed += FinalizarBtn;
-            aTimer.AutoReset = true;
-            aTimer.Enabled = true;*/
-
-            Finalizar = new Thread(FinalizarTimer);
-            Finalizar.Start();
+            aTimer.Elapsed += Timer_Elapsed;
+            aTimer.AutoReset = false;
+            aTimer.Enabled = true;
+        }
+        private void Timer_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            Uri uri = new Uri("Home.xaml", UriKind.Relative);
+            try
+            {
+                this.Dispatcher.Invoke(new Action(() => this.NavigationService.Navigate(uri)));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
 
         private void RegresarbBtn(object sender, RoutedEventArgs e)
         {
+            aTimer.Stop();
             Uri uri = new Uri("Home.xaml", UriKind.Relative);
             this.NavigationService.Navigate(uri);
         }
 
         private void FinalizarBtn(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                Finalizar.Abort();
-
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine("Finalizar Exception: " + ex);
-            }
-            finally
-            {
-                Uri uri = new Uri("Home.xaml", UriKind.Relative);
-                this.NavigationService.Navigate(uri);
-            }
-
-        }
-
-        private void FinalizarTimer()
-        {
-            for (int i = 1; i <=60;i++)
-            {
-                Thread.Sleep(1000);
-            }
-            try
-            {
-                Uri uri = new Uri("Home.xaml", UriKind.Relative);
-                this.Dispatcher.Invoke(new Action(() => this.NavigationService.Navigate(uri)));
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine(ex);
-            }
-
+            aTimer.Enabled = false;
+            Uri uri = new Uri("Home.xaml", UriKind.Relative);
+            this.NavigationService.Navigate(uri);
         }
     }
 }

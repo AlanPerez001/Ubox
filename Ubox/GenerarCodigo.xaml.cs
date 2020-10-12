@@ -439,6 +439,7 @@ namespace Ubox
                 }
             }
         }
+
         private void Locker5Seleccion(object sender, RoutedEventArgs e)
         {
             string ConnectionString = (App.Current as App).ConnectionString;
@@ -460,6 +461,7 @@ namespace Ubox
                 }
             }
         }
+
         private void Locker6Seleccion(object sender, RoutedEventArgs e)
         {
             string ConnectionString = (App.Current as App).ConnectionString;
