@@ -28,34 +28,35 @@ namespace Ubox
         public static int NoLockerSQL { get; set; }
         public static string Vencimiento { get; set; }
         public static string DiaRenta { get; set; }
+        public static string Trama { get; set; }
         static string key { get; set; } = "A!9HHhi%XjjYY4YP2@Nob009X";
-
+        static SerialPort ScannerQRSerial { get; set; }
+        static SerialPort DoorSerial { get; set; }
+        public Thread thr1 { get; set; }
         public DejarPage()
         {
 
             InitializeComponent();
-            Thread thr1 = new Thread(ScannerQR);
+            thr1 = new Thread(ScannerQR);
             thr1.Start();
         }
 
-        private void ScannerQR()
+        public void ScannerQR()
         {
             Console.WriteLine("Escanenado");
-            string Start = "02 54 0d 02 55";
+            /*string Start = "02 54 0d 02 55";
 
-            /*byte[] ByteMessage = Start
+            byte[] ByteMessage = Start
               .Split(' ')
               .Select(item => Convert.ToByte(item, 16))
               .ToArray();
             string HexMessage = string.Join("-", ByteMessage
               .Select(item => item.ToString("X2")));
-            SerialPort spPuertoSerie = new SerialPort(
+            ScannerQRSerial = new SerialPort(
                   "COM3", 115200, Parity.None, 8, StopBits.One);
-            spPuertoSerie.Open();
-            spPuertoSerie.Write(ByteMessage, 0, ByteMessage.Length);
-            Console.WriteLine("Byte: " + spPuertoSerie.ReadByte());
-            string code = spPuertoSerie.ReadExisting();
-            Console.WriteLine(code);
+            ScannerQRSerial.Open();
+            ScannerQRSerial.Write(ByteMessage, 0, ByteMessage.Length);
+            string code = ScannerQRSerial.ReadExisting();
             if (code.Length == 6)
             {
                 Code1.Dispatcher.Invoke(new Action(() => Code1.AppendText(code.Substring(0, 1))));
@@ -65,11 +66,29 @@ namespace Ubox
                 Code5.Dispatcher.Invoke(new Action(() => Code5.AppendText(code.Substring(4, 1))));
                 Code6.Dispatcher.Invoke(new Action(() => Code6.AppendText(code.Substring(5, 1))));
             }
-            spPuertoSerie.Close();*/
+            try
+            {
+                ScannerQRSerial.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ScannerQR Exception: " + ex);
+            }*/
+
         }
 
         private void RegresarbBtn(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                ScannerQRSerial.Close();
+                thr1.Abort();
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
             Uri uri = new Uri("Home.xaml", UriKind.Relative);
             this.NavigationService.Navigate(uri);
         }
@@ -2042,8 +2061,20 @@ namespace Ubox
 
         private void NoCodeBtn(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                ScannerQRSerial.Close();
+                thr1.Abort();
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
             Uri uri = new Uri("GenerarCodigo.xaml", UriKind.Relative);
             this.NavigationService.Navigate(uri);
+
+
         }
         public static string Encrypt(string text)
         {
@@ -2064,6 +2095,25 @@ namespace Ubox
                 }
             }
         }
+        public static string Decrypt(string cipher)
+        {
+            using (var md5 = new MD5CryptoServiceProvider())
+            {
+                using (var tdes = new TripleDESCryptoServiceProvider())
+                {
+                    tdes.Key = md5.ComputeHash(UTF8Encoding.UTF8.GetBytes(key));
+                    tdes.Mode = CipherMode.ECB;
+                    tdes.Padding = PaddingMode.PKCS7;
+
+                    using (var transform = tdes.CreateDecryptor())
+                    {
+                        byte[] cipherBytes = Convert.FromBase64String(cipher);
+                        byte[] bytes = transform.TransformFinalBlock(cipherBytes, 0, cipherBytes.Length);
+                        return UTF8Encoding.UTF8.GetString(bytes);
+                    }
+                }
+            }
+        }
 
         private void CheckCode(object sender, RoutedEventArgs e)
         {
@@ -2071,9 +2121,11 @@ namespace Ubox
             Console.WriteLine("El codigo ingresado es: " + Codigo);
             var cipher = Encrypt(Codigo);
             Console.WriteLine("Codificado: " + cipher);
+            var decode = Decrypt("g6Q2MRKkSs0=");
+            Console.WriteLine("Codigo decodificado: " + decode);
 
             string ConnectionString = (App.Current as App).ConnectionString;
-            string sql = @"SELECT Usuario, NoLocker,Tiempo,DiaRenta, Codigo FROM Usuarios where Codigo ='" + cipher + "'";
+            string sql = @"SELECT Lockers.NoLocker, Lockers.Codigo, Usuarios.Usuario, Lockers.Trama, Usuarios.Tiempo,Usuarios.DiaRenta FROM Usuarios INNER JOIN Lockers on Usuarios.NoLocker = Lockers.NoLocker Where Usuarios.Codigo ='" + cipher + "'";
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -2087,11 +2139,32 @@ namespace Ubox
                         Vencimiento = Convert.ToString(reader["Tiempo"]);
                         DiaRenta = Convert.ToString(reader["DiaRenta"]);
                         NoLockerSQL = Convert.ToInt32(reader["NoLocker"]);
+                        Trama = Convert.ToString(reader["Trama"]);
                         Console.WriteLine("Entrando     " + CodigoSQL);
                         if (CodigoSQL == cipher)
                         {
-                            Console.WriteLine("El Numero de Locker es: " + NoLockerSQL+ ", El dia de la renta fue: "+ DiaRenta + ", El dia de vencimiento es: "+Vencimiento);
+                            Console.WriteLine("El Numero de Locker es: " + NoLockerSQL + ", La trama es: "+ Trama);
                             CodigoIncorrectolabel.Visibility = Visibility.Hidden;
+
+                            // Abre la puerta del locker correspondiente
+                            /*string InicioTrama = "10 02 57 4f 02 00 ";
+                            string FinTrama = " 10 03";
+                            string hex = InicioTrama + Trama + FinTrama;
+                            byte[] ByteMessage = hex
+                              .Split(' ')
+                              .Select(item => Convert.ToByte(item, 16))
+                              .ToArray();
+                            string HexMessage = string.Join("-", ByteMessage
+                              .Select(item => item.ToString("X2")));
+                            Console.WriteLine("boton precionado  el Hex es... " + HexMessage);
+                            Thread.Sleep(300);
+                            DoorSerial = new SerialPort(
+                              "COM6", 115200, Parity.None, 8, StopBits.One);
+                            DoorSerial.Open();
+                            DoorSerial.Write(ByteMessage, 0, ByteMessage.Length);
+                            DoorSerial.Close();
+                            DoorSerial.Close();*/
+
                             IngresarPaquetePage ingresar = new IngresarPaquetePage();
                             Uri uri = new Uri("IngresarPaquetePage.xaml", UriKind.Relative);
                             this.NavigationService.Navigate(uri);
@@ -2106,9 +2179,5 @@ namespace Ubox
                 }
             }
         }
-
-
-
-
     }
 }

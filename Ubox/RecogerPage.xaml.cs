@@ -27,6 +27,8 @@ namespace Ubox
     public partial class RecogerPage : Page
     {
         static string key { get; set; } = "A!9HHhi%XjjYY4YP2@Nob009X";
+        public static string Trama { get; set; }
+        public static int NoLockerSQL { get; set; }
         public RecogerPage()
         {
             InitializeComponent();
@@ -2099,7 +2101,7 @@ namespace Ubox
             Console.WriteLine("Codificado: " + cipher);
 
             string ConnectionString = (App.Current as App).ConnectionString;
-            string sql = @"SELECT NoLocker, Trama, Codigo FROM Lockers where Codigo ='" + cipher + "'";
+            string sql = @"SELECT Lockers.NoLocker, Lockers.Codigo, Usuarios.Usuario, Lockers.Trama, Usuarios.Tiempo,Usuarios.DiaRenta FROM Lockers INNER JOIN Usuarios on Lockers.NoLocker = Usuarios.NoLocker Where Lockers.Codigo ='" + cipher + "'";
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -2109,15 +2111,36 @@ namespace Ubox
                     if (reader.Read())
                     {
                         String CodigoSQL = Convert.ToString(reader["Codigo"]);
-                        String trama = Convert.ToString(reader["Trama"]);
-                        int NoLockerSQL = Convert.ToInt32(reader["NoLocker"]);
+                        Trama = Convert.ToString(reader["Trama"]);
+                        NoLockerSQL = Convert.ToInt32(reader["NoLocker"]);
                         Console.WriteLine("Entrando     " + CodigoSQL);
                         if (CodigoSQL == cipher)
                         {
-                            Console.WriteLine("El Numero de Locker es: " + NoLockerSQL);
+                            Console.WriteLine("El Numero de Locker es: " + NoLockerSQL + ", La trama es: " + Trama);
+
+                            // Abre la puerta del locker correspondiente
+                            /*string InicioTrama = "10 02 57 4f 02 00 ";
+                            string FinTrama = " 10 03";
+                            string hex = InicioTrama + Trama + FinTrama;
+                            byte[] ByteMessage = hex
+                              .Split(' ')
+                              .Select(item => Convert.ToByte(item, 16))
+                              .ToArray();
+                            string HexMessage = string.Join("-", ByteMessage
+                              .Select(item => item.ToString("X2")));
+                            Console.WriteLine("boton precionado  el Hex es... " + HexMessage);
+                            Thread.Sleep(300);
+                            DoorSerial = new SerialPort(
+                              "COM6", 115200, Parity.None, 8, StopBits.One);
+                            DoorSerial.Open();
+                            DoorSerial.Write(ByteMessage, 0, ByteMessage.Length);
+                            DoorSerial.Close();
+                            DoorSerial.Close();*/
+
                             NoLocker.Content = "No. 0" + NoLockerSQL;
                             CodigoIncorrectolabel.Visibility = Visibility.Hidden;
                             NotificacionGrid.Visibility = Visibility.Visible;
+
                             Thread NotifTimer = new Thread(NotificacionTimer);
                             NotifTimer.Start();
                         }
@@ -2131,6 +2154,7 @@ namespace Ubox
                 }
             }
         }
+
         private void NotificacionTimer()
         {
             for (int i = 1; i <= 15; i++)
@@ -2141,14 +2165,12 @@ namespace Ubox
             {
                 NotificacionGrid.Dispatcher.Invoke(new Action(() => NotificacionGrid.Visibility = Visibility.Collapsed));
                 Uri uri = new Uri("Home.xaml", UriKind.Relative);
-
                 this.Dispatcher.Invoke(new Action(() => this.NavigationService.Navigate(uri)));
             }
             catch(Exception ex)
             {
                 Console.WriteLine(ex);
             }
-
         }
 
         private void CloseNotificacion(object sender, RoutedEventArgs e)

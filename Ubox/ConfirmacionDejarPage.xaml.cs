@@ -16,6 +16,7 @@ using System.IO.Ports;
 using System.Threading;
 using System.Data.SqlClient;
 using System.Data;
+using System.Timers;
 
 namespace Ubox
 {
@@ -24,11 +25,20 @@ namespace Ubox
     /// </summary>
     public partial class ConfirmacionDejarPage : Page
     {
+        private static System.Timers.Timer aTimer;
+        public Thread Finalizar { get; set; }
         public ConfirmacionDejarPage()
         {
             InitializeComponent();
+            Uri uri = new Uri("Home.xaml", UriKind.Relative);
             VencimientoLabel.Content = DejarPage.Vencimiento;
-            Thread Finalizar = new Thread(FinalizarTimer);
+            /*aTimer = new System.Timers.Timer(60000);
+            // Hook up the Elapsed event for the timer. 
+            aTimer.Elapsed += FinalizarBtn;
+            aTimer.AutoReset = true;
+            aTimer.Enabled = true;*/
+
+            Finalizar = new Thread(FinalizarTimer);
             Finalizar.Start();
         }
 
@@ -40,8 +50,21 @@ namespace Ubox
 
         private void FinalizarBtn(object sender, RoutedEventArgs e)
         {
-            Uri uri = new Uri("Home.xaml", UriKind.Relative);
-            this.NavigationService.Navigate(uri);
+            try
+            {
+                Finalizar.Abort();
+
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Finalizar Exception: " + ex);
+            }
+            finally
+            {
+                Uri uri = new Uri("Home.xaml", UriKind.Relative);
+                this.NavigationService.Navigate(uri);
+            }
+
         }
 
         private void FinalizarTimer()

@@ -25,10 +25,11 @@ namespace Ubox
     public partial class GenerarCodigo : Page
     {
         static string key { get; set; } = "A!9HHhi%XjjYY4YP2@Nob009X";
-        public static int NoLocker { get;set;}
+        public static int NoLocker { get; set; }
         public static string Tamaño { get; set; }
         public static int Costo { get; set; }
         public static string DiaRenta { get; set; }
+
         public GenerarCodigo()
         {
             InitializeComponent();
@@ -51,12 +52,10 @@ namespace Ubox
                 {
                     if (reader != null)
                     {
-
                         List<Filas> filas = new List<Filas>();
                         Filas fila = new Filas();
                         while (reader.Read())
                         {
-
                             Tamaño = Convert.ToString(reader["Tamaño"]);
                             int Alto = Convert.ToInt32(reader["Alto"]);
                             int Ancho = Convert.ToInt32(reader["Ancho"]);
