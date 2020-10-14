@@ -26,3 +26,5 @@ C:\Users\Developer\OneDrive\Ubox\Ubox\Ubox\obj\Debug\ConfirmacionDejarPage.g.cs
 C:\Users\Developer\OneDrive\Ubox\Ubox\Ubox\obj\Debug\ConfirmacionDejarPage.baml
 C:\Users\Developer\OneDrive\Ubox\Ubox\Ubox\obj\Debug\Seleccion.g.cs
 C:\Users\Developer\OneDrive\Ubox\Ubox\Ubox\obj\Debug\Seleccion.baml
+C:\Users\Developer\OneDrive\Ubox\Ubox\Ubox\obj\Debug\ReservaPage.g.cs
+C:\Users\Developer\OneDrive\Ubox\Ubox\Ubox\obj\Debug\ReservaPage.baml

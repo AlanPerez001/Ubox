@@ -329,8 +329,6 @@ namespace Ubox
                                         Locker40.Dispatcher.Invoke(new Action(() => Locker40.Style = (Style)Application.Current.Resources["ButtonEmpty"]));
                                         Locker40.Dispatcher.Invoke(new Action(() => Locker40.IsEnabled = true));
                                         break;
-
-
                                 }
                             }
 
@@ -375,7 +373,6 @@ namespace Ubox
             }
         }
 
-
         private void Locker2Seleccion(object sender, RoutedEventArgs e)
         {
             string ConnectionString = (App.Current as App).ConnectionString;
@@ -397,6 +394,7 @@ namespace Ubox
                 }
             }
         }
+
         private void Locker3Seleccion(object sender, RoutedEventArgs e)
         {
             string ConnectionString = (App.Current as App).ConnectionString;
@@ -418,6 +416,7 @@ namespace Ubox
                 }
             }
         }
+         
         private void Locker4Seleccion(object sender, RoutedEventArgs e)
         {
             string ConnectionString = (App.Current as App).ConnectionString;

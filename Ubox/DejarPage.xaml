@@ -43,7 +43,7 @@ d:DesignHeight="1665" d:DesignWidth="1082"
             </Label.RenderTransform>
         </Label>
         <Button Click="CheckCode" Content="Continuar" HorizontalAlignment="Left" Margin="746,960,0,0" VerticalAlignment="Top" Width="194" Height="66" Background="#1cdbf2" Foreground="White" FontFamily="./#Manrope" FontSize="30" FontWeight="SemiBold"/>
-        <Label x:Name="CodigoIncorrectolabel" Content="            El código ingresado es incorrecto&#xA;Por favor verifica la información o genera un&#xA;&#x9;        código para continuar." HorizontalAlignment="Center" Margin="262,798,259,743" VerticalAlignment="Center" Height="124" Width="561" FontSize="23" FontFamily="/Ubox;component/Fonts/#IBM Plex Serif" Foreground="#1cdbf2" FontWeight="SemiBold" RenderTransformOrigin="0.5,0.5" HorizontalContentAlignment="Center" Visibility="Hidden" VerticalContentAlignment="Center">
+        <Label x:Name="CodigoIncorrectolabel" Content="            El código ingresado es incorrecto&#xA;Por favor verifica la información o genera un&#xA;&#x9;        código para continuar." HorizontalAlignment="Center" Margin="262,798,259,743" VerticalAlignment="Center" Height="124" Width="561" FontSize="23" FontFamily="/Ubox;component/Fonts/#IBM Plex Serif" Foreground="#1cdbf2" FontWeight="SemiBold" RenderTransformOrigin="0.5,0.5" HorizontalContentAlignment="Center" Visibility="Visible" VerticalContentAlignment="Center">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

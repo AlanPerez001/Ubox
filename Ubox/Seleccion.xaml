@@ -16,7 +16,7 @@ d:DesignHeight="1665" d:DesignWidth="1082"
             </Button.Background>
         </Button>
         <Label Content="Tu seleción" HorizontalAlignment="Left" Margin="118,166,0,0" VerticalAlignment="Top" Height="140" Width="512" FontSize="90" FontFamily="/Ubox;component/Fonts/#IBM Plex Serif" Foreground="White"/>
-        <Button Click="CheckCode" Content="Continuar" HorizontalAlignment="Left" Margin="746,1029,0,0" VerticalAlignment="Top" Width="194" Height="66" Background="#1cdbf2" Foreground="White" FontFamily="./#Manrope" FontSize="30" FontWeight="SemiBold"/>
+        <Button Click="ReservarBtn" Content="Continuar" HorizontalAlignment="Left" Margin="746,1029,0,0" VerticalAlignment="Top" Width="194" Height="66" Background="#1cdbf2" Foreground="White" FontFamily="./#Manrope" FontSize="30" FontWeight="SemiBold"/>
 
 
         <Rectangle Fill="#FF727176" HorizontalAlignment="Left" Height="565" Margin="0,1119,0,-19" Stroke="Black" VerticalAlignment="Top" Width="1082"/>
@@ -71,7 +71,7 @@ d:DesignHeight="1665" d:DesignWidth="1082"
         <Button Content="9" HorizontalAlignment="Left" Margin="825,1145,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="NueveBtn"/>
         <Button Content="0" HorizontalAlignment="Left" Margin="920,1145,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="CeroBtn"/>
         <Label Content="Locker" HorizontalAlignment="Left" Margin="118,274,0,0" VerticalAlignment="Top" Height="106" Width="322" FontSize="80" FontFamily="/Ubox;component/Fonts/#IBM Plex Serif" Foreground="White"/>
-        <Label x:Name="TamañoSeleccion" Content="" HorizontalAlignment="Left" Margin="445,274,0,0" VerticalAlignment="Top" Height="106" Width="322" FontSize="70" FontFamily="/Ubox;component/Fonts/#IBM Plex Serif" Foreground="White"/>
+        <Label x:Name="TamañoSeleccion" Content="" HorizontalAlignment="Left" Margin="424,274,0,0" VerticalAlignment="Top" Height="106" Width="586" FontSize="70" FontFamily="/Ubox;component/Fonts/#IBM Plex Serif" Foreground="White"/>
         <Label x:Name="NoLockerDejar" Content="012" HorizontalAlignment="Left" Margin="117,354,0,0" VerticalAlignment="Top" Height="98" Width="280" FontFamily="/Ubox;component/Fonts/#IBM Plex Serif" FontSize="75" Foreground="White"/>
         <Label x:Name="VencimientoLabel" Content="15/Oct./2020 a las 19:15 hrs." HorizontalAlignment="Left" Margin="254,536,0,0" VerticalAlignment="Top" Height="71" Width="596" FontSize="35" FontFamily="Manrope blod" Foreground="White" FontWeight="SemiBold"/>
         <Label x:Name="VencimientoLabel_Copy" Content="15/Oct./2020 a las 19:15 hrs." HorizontalAlignment="Left" Margin="222,465,0,0" VerticalAlignment="Top" Height="71" Width="596" FontSize="35" FontFamily="Manrope blod" Foreground="White" FontWeight="SemiBold"/>
@@ -80,8 +80,18 @@ d:DesignHeight="1665" d:DesignWidth="1082"
         <Label Content="Total a pagar:" HorizontalAlignment="Left" Margin="591,582,0,0" VerticalAlignment="Top" Height="80" Width="349" FontSize="50" FontFamily="/Ubox;component/Fonts/#IBM Plex Serif" Foreground="White"/>
         <Label x:Name="CostoSeleccion" Content="" HorizontalAlignment="Left" Margin="618,662,0,0" VerticalAlignment="Top" Height="80" Width="322" FontSize="50" FontFamily="/Ubox;component/Fonts/#IBM Plex Serif" Foreground="White"/>
         <Label x:Name="VencimientoLabel_Copy3" Content="Ingresa un celular de contacto para recibir&#xD;&#xA;notificaciones sobre tu paquete" HorizontalAlignment="Left" Margin="117,750,0,0" VerticalAlignment="Top" Height="96" Width="682" FontSize="35" FontFamily="Manrope blod" Foreground="White" FontWeight="SemiBold"/>
-        <TextBox x:Name="NumeroTelefono" MaxLength="10" HorizontalAlignment="Left" Height="91" Margin="118,856,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="564" FontSize="70" HorizontalContentAlignment="Center" Background="#FFCCCCCC"/>
         <Label x:Name="CodigoIncorrectolabel" Content="Introduce un número válido, de lo&#xD;&#xA;contrario no podremos avisarte&#xD;&#xA;cuando el paquete sea recogido." HorizontalAlignment="Center" Margin="117,965,560,576" VerticalAlignment="Center" Height="124" Width="405" FontSize="23" FontFamily="/Ubox;component/Fonts/#IBM Plex Serif" Foreground="#1cdbf2" FontWeight="SemiBold" RenderTransformOrigin="0.5,0.5" HorizontalContentAlignment="Center" Visibility="Hidden" VerticalContentAlignment="Center">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="-0.1"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="-0.748"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <TextBox x:Name="NumeroTelefono" MaxLength="10" HorizontalAlignment="Left" Height="110" Margin="118,851,0,0" VerticalAlignment="Top" Width="627" TextWrapping="Wrap" MaxLines="1" Background="#FFCCCCCC" BorderBrush="#FFCCCCCC" Text="" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label x:Name="NumeroIncorrecto" Content="Introduce un número válido, de lo&#xA;contrario no podremos avisarte&#xA;cuando el paquete sea recogido." HorizontalAlignment="Center" Margin="240,964,439,549" VerticalAlignment="Center" Height="152" Width="403" FontSize="23" FontFamily="/Ubox;component/Fonts/#IBM Plex Serif" Foreground="#1cdbf2" FontWeight="SemiBold" RenderTransformOrigin="0.5,0.5" HorizontalContentAlignment="Center" Visibility="Hidden" VerticalContentAlignment="Center">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

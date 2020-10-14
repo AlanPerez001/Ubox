@@ -1,0 +1,27 @@
+﻿<Page x:Class="Ubox.ReservaPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Ubox"
+      mc:Ignorable="d" 
+      d:DesignHeight="1665" d:DesignWidth="1085"
+      Title="ReservaPage">
+
+    <Grid Background="#2b2e34">
+        <Image Source="Imagenes/TexturaPantalla15.png" Margin="-122,-68,-113,-31"/>
+        <Button HorizontalAlignment="Left" Margin="26,28,0,0" VerticalAlignment="Top" Width="74" Height="64" BorderThickness="0" Click="RegresarbBtn" Padding="0">
+            <Button.Background>
+                <ImageBrush ImageSource="Imagenes/iconoRegresar-01.png"/>
+            </Button.Background>
+        </Button>
+        <Label HorizontalAlignment="Left" Margin="110,217,0,0" VerticalAlignment="Top" Height="144" Width="798" FontSize="90" FontFamily="/Ubox;component/Fonts/#IBM Plex Serif" Foreground="White" Content="Locker reservado"/>
+        <Label Content="Para activar tu locker, realiza el pago por&#xD;&#xA;proporcionando el siguiente código al cajero del&#xD;&#xA;GoMart." HorizontalAlignment="Left" Margin="110,610,0,0" VerticalAlignment="Top" Height="196" Width="798" FontSize="35" FontFamily="Manrope blod" Foreground="White" FontWeight="SemiBold"/>
+        <Button Click="FinalizarBtn" Content="Finalizar" HorizontalAlignment="Left" Margin="779,1360,0,0" VerticalAlignment="Top" Width="201" Height="74" Background="#1cdbf2" Foreground="White" FontFamily="./#Manrope" FontSize="30" FontWeight="SemiBold"/>
+        <Label x:Name="NoLockerReservado" Content="012" HorizontalAlignment="Left" Margin="117,392,0,0" VerticalAlignment="Top" Height="139" Width="337" FontFamily="/Ubox;component/Fonts/#IBM Plex Serif" FontSize="90" Foreground="White"/>
+        <Label x:Name="CostoReservado" Content="$75" HorizontalAlignment="Left" Margin="779,590,0,0" VerticalAlignment="Top" Height="68" Width="102" FontFamily="/Ubox;component/Fonts/#IBM Plex Serif" FontSize="45" Foreground="White"/>
+        <Label x:Name="CodeGenerate" Content="aB56H8" HorizontalAlignment="Left" Margin="264,811,0,0" VerticalAlignment="Top" Height="139" Width="536" FontFamily="/Ubox;component/Fonts/#IBM Plex Serif" FontSize="90" Foreground="White" HorizontalContentAlignment="Center"/>
+        <Label Content="Deberás realizar el pago en los próximos 10&#xD;&#xA;minutos, de lo contrario volveremos a liberar el&#xD;&#xA;locker y tu código quedará inhabilitado." Margin="110,1006,0,0" VerticalAlignment="Top" Height="148" FontSize="35" FontFamily="Manrope blod" Foreground="White" FontWeight="SemiBold" HorizontalAlignment="Left" Width="798"/>
+        <Label Content="Una vez realizado el pago regresa e introduce el&#xD;&#xA;mismo código como código de envío para dejar tu&#xD;&#xA;paquete." Margin="110,1159,0,0" VerticalAlignment="Top" Height="148" FontSize="35" FontFamily="Manrope blod" Foreground="White" FontWeight="SemiBold" HorizontalAlignment="Left" Width="813"/>
+    </Grid>
+</Page>
