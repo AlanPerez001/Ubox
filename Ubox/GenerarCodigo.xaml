@@ -10,14 +10,7 @@ d:DesignHeight="1665" d:DesignWidth="1082"
     <Grid  Background="#FF2B2E34">
 
         <Image Source="Imagenes/TexturaPantallas2a8.png" Margin="-165,-62,-191,1387"/>
-        <DataGrid AutoGenerateColumns="False" Height="223" HorizontalAlignment="Left" Margin="138,1236,0,0" Name="dataGrid1" VerticalAlignment="Top" Width="565" ItemsSource="{Binding}" Padding="0" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="20" ColumnWidth="SizeToHeader" UseLayoutRounding="True" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden" Background="{x:Null}" VerticalGridLinesBrush="#FF1CDBF2" HorizontalGridLinesBrush="#FF1CDBF2">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Tamaño" Binding="{Binding Path=Columna1}" Width="141" Foreground="{x:Null}" IsReadOnly="True"/>
-                <DataGridTextColumn Header="Alto" Binding="{Binding Path=Columna2}" Width="141" Foreground="{x:Null}" IsReadOnly="True"/>
-                <DataGridTextColumn Header="Ancho" Binding="{Binding Path=Columna3}" Width="141" Foreground="{x:Null}" IsReadOnly="True"/>
-                <DataGridTextColumn Header="Costo/día" Binding="{Binding Path=Columna4}" Width="141" Foreground="{x:Null}" IsReadOnly="True"/>
-            </DataGrid.Columns>
-        </DataGrid>
+        <DataGrid AutoGenerateColumns="True" Height="213" HorizontalAlignment="Left" Margin="148,1236,0,0" Name="dataGrid1" VerticalAlignment="Top" Width="540" ItemsSource="{Binding}" Background="#FF2B2E34" BorderBrush="#FF1CDBF2" Foreground="White" FontSize="17" FontFamily="/Ubox;component/Fonts/#Manrope" HorizontalGridLinesBrush="#FF1CDBF2" VerticalGridLinesBrush="#FF1CDBF2" AlternatingRowBackground="#FF2B2E34" RowBackground="#FF2B2E34" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False" IsReadOnly="True" ScrollViewer.CanContentScroll="False" />
         <Button HorizontalAlignment="Left" Margin="26,28,0,0" VerticalAlignment="Top" Width="74" Height="64" BorderThickness="0" Click="RegresarbBtn" Padding="0">
             <Button.Background>
                 <ImageBrush ImageSource="Imagenes/iconoRegresar-01.png"/>
@@ -59,7 +52,7 @@ d:DesignHeight="1665" d:DesignWidth="1082"
         </Label>
         <Label Content="Tu selección:" HorizontalAlignment="Left" Margin="722,1236,0,0" VerticalAlignment="Top" Height="68" Width="270" FontSize="45" FontFamily="Manrope blod" Foreground="White" FontWeight="SemiBold"/>
 
-        <Button x:Name="Locker1" Style="{DynamicResource ButtonFill}" Height="162" VerticalAlignment="Top" Content="    J&#xA;001" Margin="138,576,730,0" FontFamily="/Ubox;component/Fonts/#Manrope" Click="Locker1Seleccion" IsEnabled="False"/>
+        <Button x:Name="Locker1" Style="{DynamicResource ButtonEmpty}" Height="162" VerticalAlignment="Top" Content="    J&#xA;001" Margin="138,576,730,0" FontFamily="/Ubox;component/Fonts/#Manrope" Click="Locker1Seleccion" IsEnabled="False"/>
         <Button x:Name="Locker2" Style="{DynamicResource ButtonFill}" Height="44" VerticalAlignment="Top" Content=" Ch&#xA;002" Margin="137,738,731,0" FontFamily="/Ubox;component/Fonts/#Manrope" Click="Locker2Seleccion" IsEnabled="False"/>
         <Button x:Name="Locker3" Style="{DynamicResource ButtonFill}" Height="44" VerticalAlignment="Top" Content=" Ch&#xA;003" Margin="138,782,730,0" FontFamily="/Ubox;component/Fonts/#Manrope" Click="Locker3Seleccion" IsEnabled="False"/>
         <Button x:Name="Locker4" Style="{DynamicResource ButtonFill}" Height="45" VerticalAlignment="Top" Content=" Ch&#xA;004" Margin="138,826,730,0" FontFamily="/Ubox;component/Fonts/#Manrope" Click="Locker4Seleccion" IsEnabled="False"/>
@@ -140,5 +133,35 @@ d:DesignHeight="1665" d:DesignWidth="1082"
         <CheckBox x:Name="Check7Dia" Content="  7 días" HorizontalAlignment="Left" Margin="920,420,0,0" VerticalAlignment="Top" Height="41" Width="99" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="25" Foreground="White" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" Checked="Check7Dia_Checked"/>
         <Image x:Name="CheckMarcado7Dia" Source="Imagenes/CheckMarcado.png" Margin="902,423,125,1175" Visibility="Hidden"/>
 
+        <!--
+         <Image x:Name="CheckSinMarcar1Dia" Source="Imagenes/checkSinMarcar.png" Margin="112,40,915,1177" Grid.Row="1"/>
+        <CheckBox x:Name="Check1Dia" Content="  1 día" HorizontalAlignment="Left" Margin="133,39.333,0,0" VerticalAlignment="Top" Height="41" Width="99" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="25" Foreground="White" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" Checked="Check1Dia_Checked" Grid.Row="1" />
+        <Image x:Name="CheckMarcado1Dia" Source="Imagenes/CheckMarcado.png" Margin="112,40,915,1177" Visibility="Visible" Grid.Row="1"/>
+
+        <Image x:Name="CheckSinMarcar2Dia" Source="Imagenes/checkSinMarcar.png" Margin="242,40,785,1177" Grid.Row="1"/>
+        <CheckBox x:Name="Check2Dia" Content="  2 días" HorizontalAlignment="Left" Margin="263,39.333,0,0" VerticalAlignment="Top" Height="41" Width="99" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="25" Foreground="White" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" Checked="Check2Dia_Checked" Grid.Row="1"/>
+        <Image x:Name="CheckMarcado2Dia" Source="Imagenes/CheckMarcado.png" Margin="242,40,785,1177" Visibility="Visible" Grid.Row="1"/>
+
+        <Image x:Name="CheckSinMarcar3Dia" Source="Imagenes/checkSinMarcar.png" Margin="375,40,652,1177" Grid.Row="1"/>
+        <CheckBox x:Name="Check3Dia" Content="  3 días" HorizontalAlignment="Left" Margin="396,39.333,0,0" VerticalAlignment="Top" Height="41" Width="99" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="25" Foreground="White" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" Checked="Check3Dia_Checked" Grid.Row="1"/>
+        <Image x:Name="CheckMarcado3Dia" Source="Imagenes/CheckMarcado.png" Margin="375,40,652,1177" Visibility="Visible" Grid.Row="1"/>
+
+        <Image x:Name="CheckSinMarcar4Dia" Source="Imagenes/checkSinMarcar.png" Margin="505,40,522,1177" Grid.Row="1"/>
+        <CheckBox x:Name="Check4Dia" Content="  4 días" HorizontalAlignment="Left" Margin="526,39.333,0,0" VerticalAlignment="Top" Height="41" Width="99" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="25" Foreground="White" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" Checked="Check4Dia_Checked" Grid.Row="1"/>
+        <Image x:Name="CheckMarcado4Dia" Source="Imagenes/CheckMarcado.png" Margin="505,40,522,1177" Visibility="Visible" Grid.Row="1"/>
+
+        <Image x:Name="CheckSinMarcar5Dia" Source="Imagenes/checkSinMarcar.png" Margin="636,40,391,1177" Grid.Row="1"/>
+        <CheckBox x:Name="Check5Dia" Content="  5 días" HorizontalAlignment="Left" Margin="657,39.333,0,0" VerticalAlignment="Top" Height="41" Width="99" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="25" Foreground="White" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" Checked="Check5Dia_Checked" Grid.Row="1"/>
+        <Image x:Name="CheckMarcado5Dia" Source="Imagenes/CheckMarcado.png" Margin="636,40,391,1177" Visibility="Visible" Grid.Row="1"/>
+
+        <Image x:Name="CheckSinMarcar6Dia" Source="Imagenes/checkSinMarcar.png" Margin="766,40,261,1177" Grid.Row="1"/>
+        <CheckBox x:Name="Check6Dia" Content="  6 días" HorizontalAlignment="Left" Margin="787,39.333,0,0" VerticalAlignment="Top" Height="41" Width="99" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="25" Foreground="White" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" Checked="Check6Dia_Checked" Grid.Row="1"/>
+        <Image x:Name="CheckMarcado6Dia" Source="Imagenes/CheckMarcado.png" Margin="766,40,261,1177" Visibility="Visible" Grid.Row="1"/>
+
+        <Image x:Name="CheckSinMarcar7Dia" Source="Imagenes/checkSinMarcar.png" Margin="898,40,129,1177" Grid.Row="1"/>
+        <CheckBox x:Name="Check7Dia" Content="  7 días" HorizontalAlignment="Left" Margin="920,39.333,0,0" VerticalAlignment="Top" Height="41" Width="99" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="25" Foreground="White" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" Checked="Check7Dia_Checked" Grid.Row="1"/>
+        <Image x:Name="CheckMarcado7Dia" Source="Imagenes/CheckMarcado.png" Margin="898,40,129,1177" Visibility="Visible" Grid.Row="1"/>
+
+        -->
     </Grid>
 </Page>

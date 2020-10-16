@@ -2161,21 +2161,16 @@ namespace Ubox
 
         private void NotificacionTimer(object sender, ElapsedEventArgs e)
         {
-
+            
             NotificacionGrid.Dispatcher.Invoke(new Action(() => NotificacionGrid.Visibility = Visibility.Collapsed));
             Uri uri = new Uri("Home.xaml", UriKind.Relative);
-            try
-            {
-                this.Dispatcher.Invoke(new Action(() => this.NavigationService.Navigate(uri)));
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
-            }
+            this.Dispatcher.Invoke(new Action(() => this.NavigationService.Navigate(uri)));
+
         }
 
         private void CloseNotificacion(object sender, RoutedEventArgs e)
         {
+            aTimer.Stop();
             NotificacionGrid.Visibility = Visibility.Collapsed;
             Uri uri = new Uri("Home.xaml", UriKind.Relative);
             this.NavigationService.Navigate(uri);
