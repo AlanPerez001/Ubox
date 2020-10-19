@@ -11,7 +11,7 @@ d:DesignHeight="1665" d:DesignWidth="1082"
 
         <Image Source="Imagenes/TexturaPantallas2a8.png" Margin="-165,-62,-191,1387"/>
         <DataGrid AutoGenerateColumns="True" Height="213" HorizontalAlignment="Left" Margin="148,1236,0,0" Name="dataGrid1" VerticalAlignment="Top" Width="540" ItemsSource="{Binding}" Background="#FF2B2E34" BorderBrush="#FF1CDBF2" Foreground="White" FontSize="17" FontFamily="/Ubox;component/Fonts/#Manrope" HorizontalGridLinesBrush="#FF1CDBF2" VerticalGridLinesBrush="#FF1CDBF2" AlternatingRowBackground="#FF2B2E34" RowBackground="#FF2B2E34" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False" IsReadOnly="True" ScrollViewer.CanContentScroll="False" />
-        <Button HorizontalAlignment="Left" Margin="26,28,0,0" VerticalAlignment="Top" Width="74" Height="64" BorderThickness="0" Click="RegresarbBtn" Padding="0">
+        <Button HorizontalAlignment="Left" Margin="26,28,0,0" VerticalAlignment="Top" Width="74" Height="64" BorderThickness="0" Click="RegresarbBtn" Padding="0" BorderBrush="{x:Null}" Foreground="{x:Null}">
             <Button.Background>
                 <ImageBrush ImageSource="Imagenes/iconoRegresar-01.png"/>
             </Button.Background>
@@ -105,64 +105,78 @@ d:DesignHeight="1665" d:DesignWidth="1082"
         <Label  x:Name="SeleccionDias" Content="" HorizontalAlignment="Left" Margin="715,1385,0,0" VerticalAlignment="Top" Height="52" Width="155" FontSize="36" FontFamily="Manrope blod" Foreground="White" FontWeight="SemiBold" RenderTransformOrigin="0.5,0.5"/>
 
 
-        <Image x:Name="CheckSinMarcar1Dia" Source="Imagenes/checkSinMarcarRelleno.png" Margin="116,424,911,1174"/>
+        <!--
         <CheckBox x:Name="Check1Dia" Content="  1 día" HorizontalAlignment="Left" Margin="133,420,0,0" VerticalAlignment="Top" Height="41" Width="99" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="25" Foreground="White" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" Checked="Check1Dia_Checked" />
+        <Image x:Name="CheckSinMarcar1Dia" Source="Imagenes/checkSinMarcarRelleno.png" Margin="116,424,911,1174"/>
         <Image x:Name="CheckMarcado1Dia" Source="Imagenes/CheckMarcado.png" Margin="116,424,911,1174" Visibility="Hidden"/>
 
-        <Image x:Name="CheckSinMarcar2Dia" Source="Imagenes/checkSinMarcarRelleno.png" Margin="246,424,781,1174"/>
+        
         <CheckBox x:Name="Check2Dia" Content="  2 días" HorizontalAlignment="Left" Margin="263,420,0,0" VerticalAlignment="Top" Height="41" Width="99" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="25" Foreground="White" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" Checked="Check2Dia_Checked"/>
+        <Image x:Name="CheckSinMarcar2Dia" Source="Imagenes/checkSinMarcarRelleno.png" Margin="246,424,781,1174"/>
         <Image x:Name="CheckMarcado2Dia" Source="Imagenes/CheckMarcado.png" Margin="246,424,781,1174" Visibility="Hidden"/>
 
-        <Image x:Name="CheckSinMarcar3Dia" Source="Imagenes/checkSinMarcarRelleno.png" Margin="379,424,648,1174"/>
+        
         <CheckBox x:Name="Check3Dia" Content="  3 días" HorizontalAlignment="Left" Margin="396,420,0,0" VerticalAlignment="Top" Height="41" Width="99" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="25" Foreground="White" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" Checked="Check3Dia_Checked"/>
+        <Image x:Name="CheckSinMarcar3Dia" Source="Imagenes/checkSinMarcarRelleno.png" Margin="379,424,648,1174"/>
         <Image x:Name="CheckMarcado3Dia" Source="Imagenes/CheckMarcado.png" Margin="379,424,648,1174" Visibility="Hidden"/>
 
-        <Image x:Name="CheckSinMarcar4Dia" Source="Imagenes/checkSinMarcarRelleno.png" Margin="509,424,518,1174"/>
+        
         <CheckBox x:Name="Check4Dia" Content="  4 días" HorizontalAlignment="Left" Margin="526,420,0,0" VerticalAlignment="Top" Height="41" Width="99" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="25" Foreground="White" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" Checked="Check4Dia_Checked"/>
+        <Image x:Name="CheckSinMarcar4Dia" Source="Imagenes/checkSinMarcarRelleno.png" Margin="509,424,518,1174"/>
         <Image x:Name="CheckMarcado4Dia" Source="Imagenes/CheckMarcado.png" Margin="509,424,518,1174" Visibility="Hidden"/>
 
-        <Image x:Name="CheckSinMarcar5Dia" Source="Imagenes/checkSinMarcarRelleno.png" Margin="640,424,387,1174"/>
+        
         <CheckBox x:Name="Check5Dia" Content="  5 días" HorizontalAlignment="Left" Margin="657,420,0,0" VerticalAlignment="Top" Height="41" Width="99" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="25" Foreground="White" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" Checked="Check5Dia_Checked"/>
+        <Image x:Name="CheckSinMarcar5Dia" Source="Imagenes/checkSinMarcarRelleno.png" Margin="640,424,387,1174"/>
         <Image x:Name="CheckMarcado5Dia" Source="Imagenes/CheckMarcado.png" Margin="640,424,387,1174" Visibility="Hidden"/>
 
-        <Image x:Name="CheckSinMarcar6Dia" Source="Imagenes/checkSinMarcarRelleno.png" Margin="770,424,257,1174"/>
+        
         <CheckBox x:Name="Check6Dia" Content="  6 días" HorizontalAlignment="Left" Margin="787,420,0,0" VerticalAlignment="Top" Height="41" Width="99" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="25" Foreground="White" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" Checked="Check6Dia_Checked"/>
+        <Image x:Name="CheckSinMarcar6Dia" Source="Imagenes/checkSinMarcarRelleno.png" Margin="770,424,257,1174"/>
         <Image x:Name="CheckMarcado6Dia" Source="Imagenes/CheckMarcado.png" Margin="770,424,257,1174" Visibility="Hidden"/>
 
-        <Image x:Name="CheckSinMarcar7Dia" Source="Imagenes/checkSinMarcarRelleno.png" Margin="902,423,125,1175"/>
-        <CheckBox x:Name="Check7Dia" Content="  7 días" HorizontalAlignment="Left" Margin="920,420,0,0" VerticalAlignment="Top" Height="41" Width="99" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="25" Foreground="White" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" Checked="Check7Dia_Checked"/>
-        <Image x:Name="CheckMarcado7Dia" Source="Imagenes/CheckMarcado.png" Margin="902,423,125,1175" Visibility="Hidden"/>
-
-        <!--
         
-        <Image x:Name="CheckSinMarcar1Dia" Source="Imagenes/checkSinMarcar.png" Margin="102,417,924,1179"/>
+        <CheckBox x:Name="Check7Dia" Content="  7 días" HorizontalAlignment="Left" Margin="920,420,0,0" VerticalAlignment="Top" Height="41" Width="99" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="25" Foreground="White" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" Checked="Check7Dia_Checked"/>
+        <Image x:Name="CheckSinMarcar7Dia" Source="Imagenes/checkSinMarcarRelleno.png" Margin="902,423,125,1175"/>
+        <Image x:Name="CheckMarcado7Dia" Source="Imagenes/CheckMarcado.png" Margin="902,423,125,1175" Visibility="Hidden"/>
+        -->
+
+
+
         <CheckBox x:Name="Check1Dia" Content="  1 día" HorizontalAlignment="Left" Margin="124,415,0,0" VerticalAlignment="Top" Height="41" Width="99" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="25" Foreground="White" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" Checked="Check1Dia_Checked" />
+        <Image x:Name="CheckSinMarcar1Dia" Source="Imagenes/checkSinMarcarRelleno.png" Margin="102,417,924,1179"/>
         <Image x:Name="CheckMarcado1Dia" Source="Imagenes/CheckMarcado.png" Margin="102,417,924,1179" Visibility="Visible"/>
 
-        <Image x:Name="CheckSinMarcar2Dia" Source="Imagenes/checkSinMarcar.png" Margin="233,417,794,1179"/>
+
         <CheckBox x:Name="Check2Dia" Content="  2 días" HorizontalAlignment="Left" Margin="254,415,0,0" VerticalAlignment="Top" Height="41" Width="99" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="25" Foreground="White" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" Checked="Check2Dia_Checked"/>
+        <Image x:Name="CheckSinMarcar2Dia" Source="Imagenes/checkSinMarcarRelleno.png" Margin="233,417,794,1179"/>
         <Image x:Name="CheckMarcado2Dia" Source="Imagenes/CheckMarcado.png" Margin="233,417,794,1179" Visibility="Visible"/>
 
-        <Image x:Name="CheckSinMarcar3Dia" Source="Imagenes/checkSinMarcar.png" Margin="366,417,660,1179"/>
+
         <CheckBox x:Name="Check3Dia" Content="  3 días" HorizontalAlignment="Left" Margin="387,415,0,0" VerticalAlignment="Top" Height="41" Width="99" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="25" Foreground="White" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" Checked="Check3Dia_Checked"/>
+        <Image x:Name="CheckSinMarcar3Dia" Source="Imagenes/checkSinMarcarRelleno.png" Margin="366,417,660,1179"/>
         <Image x:Name="CheckMarcado3Dia" Source="Imagenes/CheckMarcado.png" Margin="366,417,660,1179" Visibility="Visible"/>
 
-        <Image x:Name="CheckSinMarcar4Dia" Source="Imagenes/checkSinMarcar.png" Margin="495,417,531,1179"/>
+
         <CheckBox x:Name="Check4Dia" Content="  4 días" HorizontalAlignment="Left" Margin="517,415,0,0" VerticalAlignment="Top" Height="41" Width="99" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="25" Foreground="White" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" Checked="Check4Dia_Checked"/>
+        <Image x:Name="CheckSinMarcar4Dia" Source="Imagenes/checkSinMarcarRelleno.png" Margin="495,417,531,1179"/>
         <Image x:Name="CheckMarcado4Dia" Source="Imagenes/CheckMarcado.png" Margin="495,417,531,1179" Visibility="Visible"/>
 
-        <Image x:Name="CheckSinMarcar5Dia" Source="Imagenes/checkSinMarcar.png" Margin="626,417,400,1179"/>
+
         <CheckBox x:Name="Check5Dia" Content="  5 días" HorizontalAlignment="Left" Margin="648,415,0,0" VerticalAlignment="Top" Height="41" Width="99" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="25" Foreground="White" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" Checked="Check5Dia_Checked"/>
+        <Image x:Name="CheckSinMarcar5Dia" Source="Imagenes/checkSinMarcarRelleno.png" Margin="626,417,400,1179"/>
         <Image x:Name="CheckMarcado5Dia" Source="Imagenes/CheckMarcado.png" Margin="626,417,400,1179" Visibility="Visible"/>
 
-        <Image x:Name="CheckSinMarcar6Dia" Source="Imagenes/checkSinMarcar.png" Margin="758,417,269,1179"/>
+
         <CheckBox x:Name="Check6Dia" Content="  6 días" HorizontalAlignment="Left" Margin="778,415,0,0" VerticalAlignment="Top" Height="41" Width="99" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="25" Foreground="White" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" Checked="Check6Dia_Checked"/>
+        <Image x:Name="CheckSinMarcar6Dia" Source="Imagenes/checkSinMarcarRelleno.png" Margin="758,417,269,1179"/>
         <Image x:Name="CheckMarcado6Dia" Source="Imagenes/CheckMarcado.png" Margin="758,417,269,1179" Visibility="Visible"/>
 
-        <Image x:Name="CheckSinMarcar7Dia" Source="Imagenes/checkSinMarcar.png" Margin="890,415,136,1181"/>
-        <CheckBox x:Name="Check7Dia" Content="  7 días" HorizontalAlignment="Left" Margin="911,415,0,0" VerticalAlignment="Top" Height="41" Width="99" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="25" Foreground="White" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" Checked="Check7Dia_Checked"/>
-        <Image x:Name="CheckMarcado7Dia" Source="Imagenes/CheckMarcado.png" Margin="890,415,136,1181" Visibility="Visible"/>
 
-        -->
+        <CheckBox x:Name="Check7Dia" Content="  7 días" HorizontalAlignment="Left" Margin="911,415,0,0" VerticalAlignment="Top" Height="41" Width="99" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="25" Foreground="White" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" Checked="Check7Dia_Checked"/>
+        <Image x:Name="CheckSinMarcar7Dia" Source="Imagenes/checkSinMarcarRelleno.png" Margin="890,417,136,1179"/>
+        <Image x:Name="CheckMarcado7Dia" Source="Imagenes/CheckMarcado.png" Margin="890,417,136,1179" Visibility="Visible"/>
+
+
     </Grid>
 </Page>

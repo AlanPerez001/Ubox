@@ -27,6 +27,8 @@ namespace Ubox
             CostoSeleccion.Content = "$" + GenerarCodigo.Costo;
             NoLockerDejar.Content = GenerarCodigo.NoLocker;
             TamañoSeleccion.Content = GenerarCodigo.Tamaño;
+            InicioReserva.Content = DejarPage.Vencimiento;
+            VencimientoReserva.Content = DejarPage.Vencimiento;
         }
 
         private void RegresarbBtn(object sender, RoutedEventArgs e)

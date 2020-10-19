@@ -30,6 +30,12 @@ namespace Ubox
         public static string Tamaño { get; set; }
         public static int Costo { get; set; }
         public static string DiaRenta { get; set; }
+        public static string Selecciontamañolabel { get; set; }
+        public static string SeleccionLockerlabel { get; set; }
+        public static string SeleccionDialabel { get; set; }
+
+
+
         private static System.Timers.Timer aTimer;
 
         public GenerarCodigo()
@@ -355,12 +361,12 @@ namespace Ubox
 
         private void IngresarPaquete(object sender, RoutedEventArgs e)
         {
-            string Selecciontamaño = SeleccionTamañoLoccker.Content.ToString();
-            string SeleccionLocker = SeleccionNolocker.Content.ToString();
-            string SeleccionDia = SeleccionDias.Content.ToString();
-            if (Selecciontamaño != "" && SeleccionLocker != "" && SeleccionDia != "")
+            Selecciontamañolabel = SeleccionTamañoLoccker.Content.ToString();
+            SeleccionLockerlabel = SeleccionNolocker.Content.ToString();
+            SeleccionDialabel = SeleccionDias.Content.ToString();
+            if (Selecciontamañolabel != "" && SeleccionLockerlabel != "" && SeleccionDialabel != "")
             {
-                Console.WriteLine("El locker es: " + SeleccionLocker + ", El tamaño es: " + Selecciontamaño + ", Los dias son: " + SeleccionDia);
+                Console.WriteLine("El locker es: " + SeleccionLockerlabel + ", El tamaño es: " + Selecciontamañolabel + ", Los dias son: " + SeleccionDialabel);
                 Uri uri = new Uri("Seleccion.xaml", UriKind.Relative);
                 this.NavigationService.Navigate(uri);
             }
