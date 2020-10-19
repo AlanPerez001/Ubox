@@ -30,6 +30,7 @@ namespace Ubox
         public static string Trama { get; set; }
         public static int NoLockerSQL { get; set; }
         private static System.Timers.Timer aTimer;
+        static SerialPort DoorSerial { get; set; }
         public RecogerPage()
         {
             InitializeComponent();
@@ -42,7 +43,7 @@ namespace Ubox
             Console.WriteLine("Escanenado");
             string Start = "02 54 0d 02 55";
 
-            /*byte[] ByteMessage = Start
+            byte[] ByteMessage = Start
               .Split(' ')
               .Select(item => Convert.ToByte(item, 16))
               .ToArray();
@@ -64,7 +65,7 @@ namespace Ubox
                 Code5.Dispatcher.Invoke(new Action(() => Code5.AppendText(code.Substring(4, 1))));
                 Code6.Dispatcher.Invoke(new Action(() => Code6.AppendText(code.Substring(5, 1))));
             }
-            spPuertoSerie.Close();*/
+            spPuertoSerie.Close();
 
         }
         public void RegresarbBtn(object sender, RoutedEventArgs e)
@@ -2120,7 +2121,7 @@ namespace Ubox
                             Console.WriteLine("El Numero de Locker es: " + NoLockerSQL + ", La trama es: " + Trama);
 
                             // Abre la puerta del locker correspondiente
-                            /*string InicioTrama = "10 02 57 4f 02 00 ";
+                            string InicioTrama = "10 02 57 4f 02 00 ";
                             string FinTrama = " 10 03";
                             string hex = InicioTrama + Trama + FinTrama;
                             byte[] ByteMessage = hex
@@ -2136,7 +2137,7 @@ namespace Ubox
                             DoorSerial.Open();
                             DoorSerial.Write(ByteMessage, 0, ByteMessage.Length);
                             DoorSerial.Close();
-                            DoorSerial.Close();*/
+                            DoorSerial.Close();
 
                             NoLocker.Content = "No. 0" + NoLockerSQL;
                             CodigoIncorrectolabel.Visibility = Visibility.Hidden;

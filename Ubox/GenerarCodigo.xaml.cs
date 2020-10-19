@@ -370,8 +370,8 @@ namespace Ubox
                 Uri uri = new Uri("Seleccion.xaml", UriKind.Relative);
                 this.NavigationService.Navigate(uri);
             }
-
         }
+
 
 
         private void Locker1Seleccion(object sender, RoutedEventArgs e)
@@ -405,16 +405,17 @@ namespace Ubox
 
         private void Locker2Seleccion(object sender, RoutedEventArgs e)
         {
-            Locker2.Opacity = 0.5;
+
+            Locker11.Opacity = 0.5;
             aTimer = new System.Timers.Timer(2000);
             aTimer.Elapsed += OpacityBtn;
             aTimer.AutoReset = false;
             aTimer.Enabled = true;
 
             string ConnectionString = (App.Current as App).ConnectionString;
-            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Lockers where NoLocker = " + 2;
+            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Lockers where NoLocker = " + 11;
             using (SqlConnection conn = new SqlConnection(ConnectionString))
-            {   
+            {
                 conn.Open();
                 SqlCommand queryCommand = new SqlCommand(sql, conn);
                 using (SqlDataReader reader = queryCommand.ExecuteReader())
@@ -653,14 +654,14 @@ namespace Ubox
 
         private void Locker11Seleccion(object sender, RoutedEventArgs e)
         {
-            Locker11.Opacity = 0.5;
+            Locker2.Opacity = 0.5;
             aTimer = new System.Timers.Timer(2000);
             aTimer.Elapsed += OpacityBtn;
             aTimer.AutoReset = false;
             aTimer.Enabled = true;
 
             string ConnectionString = (App.Current as App).ConnectionString;
-            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Lockers where NoLocker = " + 11;
+            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Lockers where NoLocker = " + 2;
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();

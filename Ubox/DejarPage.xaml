@@ -63,7 +63,7 @@ d:DesignHeight="1665" d:DesignWidth="1082"
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Button Content="No tengo un código" HorizontalAlignment="Left" Margin="118,1026,0,0" VerticalAlignment="Top" Width="156" Background="{x:Null}" Foreground="#FF1CDBF2" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="16" Click="NoCodeBtn" BorderBrush="{x:Null}"/>
+        <Button Content="No tengo un código" HorizontalAlignment="Left" Margin="118,1026,0,0" VerticalAlignment="Top" Width="156" Background="{x:Null}" Foreground="#FF1CDBF2" FontFamily="/Ubox;component/Fonts/#Manrope" FontSize="16" Click="NoCodeBtn" BorderBrush="{x:Null}" Padding="0" BorderThickness="0" ClickMode="Press"/>
 
 
         <Rectangle Fill="#5c5f67" HorizontalAlignment="Left" Height="565" Margin="0,1119,0,-19" Stroke="Black" VerticalAlignment="Top" Width="1082"/>

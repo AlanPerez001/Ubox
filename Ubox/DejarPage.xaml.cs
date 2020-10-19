@@ -30,8 +30,6 @@ namespace Ubox
         public static string DiaRenta { get; set; }
         public static string Trama { get; set; }
         static string key { get; set; } = "A!9HHhi%XjjYY4YP2@Nob009X";
-        static SerialPort ScannerQRSerial { get; set; }
-        static SerialPort DoorSerial { get; set; }
         public Thread thr1 { get; set; }
         public DejarPage()
         {
@@ -41,10 +39,10 @@ namespace Ubox
             thr1.Start();
         }
 
-        public void ScannerQR()
+        private void ScannerQR()
         {
             Console.WriteLine("Escanenado");
-            /*string Start = "02 54 0d 02 55";
+            string Start = "02 54 0d 02 55";
 
             byte[] ByteMessage = Start
               .Split(' ')
@@ -52,43 +50,29 @@ namespace Ubox
               .ToArray();
             string HexMessage = string.Join("-", ByteMessage
               .Select(item => item.ToString("X2")));
-            ScannerQRSerial = new SerialPort(
-                  "COM3", 115200, Parity.None, 8, StopBits.One);
-            ScannerQRSerial.Open();
-            ScannerQRSerial.Write(ByteMessage, 0, ByteMessage.Length);
-            string code = ScannerQRSerial.ReadExisting();
-            if (code.Length == 6)
+            using (SerialPort ScannerQRSerial = new SerialPort(
+                   "COM3", 115200, Parity.None, 8, StopBits.One))
             {
-                Code1.Dispatcher.Invoke(new Action(() => Code1.AppendText(code.Substring(0, 1))));
-                Code2.Dispatcher.Invoke(new Action(() => Code2.AppendText(code.Substring(1, 1))));
-                Code3.Dispatcher.Invoke(new Action(() => Code3.AppendText(code.Substring(2, 1))));
-                Code4.Dispatcher.Invoke(new Action(() => Code4.AppendText(code.Substring(3, 1))));
-                Code5.Dispatcher.Invoke(new Action(() => Code5.AppendText(code.Substring(4, 1))));
-                Code6.Dispatcher.Invoke(new Action(() => Code6.AppendText(code.Substring(5, 1))));
+                ScannerQRSerial.Open();
+                ScannerQRSerial.Write(ByteMessage, 0, ByteMessage.Length);
+                Console.WriteLine("Byte: " + ScannerQRSerial.ReadByte());
+                string code = ScannerQRSerial.ReadExisting();
+                Console.WriteLine(code);
+                if (code.Length == 6)
+                {
+                    Code1.Dispatcher.Invoke(new Action(() => Code1.AppendText(code.Substring(0, 1))));
+                    Code2.Dispatcher.Invoke(new Action(() => Code2.AppendText(code.Substring(1, 1))));
+                    Code3.Dispatcher.Invoke(new Action(() => Code3.AppendText(code.Substring(2, 1))));
+                    Code4.Dispatcher.Invoke(new Action(() => Code4.AppendText(code.Substring(3, 1))));
+                    Code5.Dispatcher.Invoke(new Action(() => Code5.AppendText(code.Substring(4, 1))));
+                    Code6.Dispatcher.Invoke(new Action(() => Code6.AppendText(code.Substring(5, 1))));
+                }
             }
-            try
-            {
-                ScannerQRSerial.Close();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("ScannerQR Exception: " + ex);
-            }*/
-
         }
 
         private void RegresarbBtn(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                ScannerQRSerial.Close();
-                thr1.Abort();
 
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
-            }
             Uri uri = new Uri("Home.xaml", UriKind.Relative);
             this.NavigationService.Navigate(uri);
         }
@@ -2105,7 +2089,7 @@ namespace Ubox
             }
         }
 
-        private void CheckCode(object sender, RoutedEventArgs e)
+        public void CheckCode(object sender, RoutedEventArgs e)
         {
             string Codigo = Code1.Text + Code2.Text + Code3.Text + Code4.Text + Code5.Text + Code6.Text;
             Console.WriteLine("El codigo ingresado es: " + Codigo);
@@ -2126,8 +2110,8 @@ namespace Ubox
                     {
                         String CodigoSQL = Convert.ToString(reader["Codigo"]);
                         String Usuario = Convert.ToString(reader["Usuario"]);
-                        Vencimiento = Convert.ToString(reader["Tiempo"]);
-                        DiaRenta = Convert.ToString(reader["DiaRenta"]);
+                        DiaRenta = Convert.ToString(reader["Tiempo"]);
+                        Vencimiento = Convert.ToString(reader["DiaRenta"]);
                         NoLockerSQL = Convert.ToInt32(reader["NoLocker"]);
                         Trama = Convert.ToString(reader["Trama"]);
                         Console.WriteLine("Entrando     " + CodigoSQL);
@@ -2137,7 +2121,7 @@ namespace Ubox
                             CodigoIncorrectolabel.Visibility = Visibility.Hidden;
 
                             // Abre la puerta del locker correspondiente
-                            /*string InicioTrama = "10 02 57 4f 02 00 ";
+                            string InicioTrama = "10 02 57 4f 02 00 ";
                             string FinTrama = " 10 03";
                             string hex = InicioTrama + Trama + FinTrama;
                             byte[] ByteMessage = hex
@@ -2148,12 +2132,14 @@ namespace Ubox
                               .Select(item => item.ToString("X2")));
                             Console.WriteLine("boton precionado  el Hex es... " + HexMessage);
                             Thread.Sleep(300);
-                            DoorSerial = new SerialPort(
-                              "COM6", 115200, Parity.None, 8, StopBits.One);
-                            DoorSerial.Open();
-                            DoorSerial.Write(ByteMessage, 0, ByteMessage.Length);
-                            DoorSerial.Close();
-                            DoorSerial.Close();*/
+                            using (SerialPort DoorSerial = new SerialPort(
+                              "COM6", 115200, Parity.None, 8, StopBits.One))
+                            {
+                                DoorSerial.Open();
+                                DoorSerial.Write(ByteMessage, 0, ByteMessage.Length);
+                                DoorSerial.Close();
+                            }
+
 
                             IngresarPaquetePage ingresar = new IngresarPaquetePage();
                             Uri uri = new Uri("IngresarPaquetePage.xaml", UriKind.Relative);
