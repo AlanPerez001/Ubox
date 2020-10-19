@@ -173,5 +173,8 @@
     <Resource Include="Imagenes\CheckMarcado.png" />
     <Resource Include="Imagenes\checkSinMarcar.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\checkSinMarcarRelleno.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

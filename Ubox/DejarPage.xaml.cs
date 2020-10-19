@@ -2061,16 +2061,6 @@ namespace Ubox
 
         private void NoCodeBtn(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                ScannerQRSerial.Close();
-                thr1.Abort();
-
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
-            }
             Uri uri = new Uri("GenerarCodigo.xaml", UriKind.Relative);
             this.NavigationService.Navigate(uri);
 

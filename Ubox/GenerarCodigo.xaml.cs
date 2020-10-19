@@ -352,6 +352,7 @@ namespace Ubox
                 }
             }
         }
+
         private void IngresarPaquete(object sender, RoutedEventArgs e)
         {
             string Selecciontamaño = SeleccionTamañoLoccker.Content.ToString();
@@ -370,7 +371,7 @@ namespace Ubox
         private void Locker1Seleccion(object sender, RoutedEventArgs e)
         {
             Locker1.Opacity = 0.5;
-            aTimer = new System.Timers.Timer(3000);
+            aTimer = new System.Timers.Timer(2000);
             aTimer.Elapsed += OpacityBtn;
             aTimer.AutoReset = false;
             aTimer.Enabled = true;
@@ -385,7 +386,6 @@ namespace Ubox
                 {
                     if (reader.Read())
                     {
-
                         NoLocker = Convert.ToInt32(reader["NoLocker"]);
                         Tamaño = Convert.ToString(reader["Tamaño"]);
                         Costo = Convert.ToInt32(reader["Costo"]);
@@ -394,14 +394,13 @@ namespace Ubox
                     }
                 }
             }
-
         }
 
 
         private void Locker2Seleccion(object sender, RoutedEventArgs e)
         {
             Locker2.Opacity = 0.5;
-            aTimer = new System.Timers.Timer(3000);
+            aTimer = new System.Timers.Timer(2000);
             aTimer.Elapsed += OpacityBtn;
             aTimer.AutoReset = false;
             aTimer.Enabled = true;
@@ -409,7 +408,7 @@ namespace Ubox
             string ConnectionString = (App.Current as App).ConnectionString;
             string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Lockers where NoLocker = " + 2;
             using (SqlConnection conn = new SqlConnection(ConnectionString))
-            {
+            {   
                 conn.Open();
                 SqlCommand queryCommand = new SqlCommand(sql, conn);
                 using (SqlDataReader reader = queryCommand.ExecuteReader())
@@ -424,13 +423,12 @@ namespace Ubox
                     }
                 }
             }
-
         }
 
         private void Locker3Seleccion(object sender, RoutedEventArgs e)
         {
             Locker3.Opacity = 0.5;
-            aTimer = new System.Timers.Timer(3000);
+            aTimer = new System.Timers.Timer(2000);
             aTimer.Elapsed += OpacityBtn;
             aTimer.AutoReset = false;
             aTimer.Enabled = true;
@@ -458,7 +456,7 @@ namespace Ubox
         private void Locker4Seleccion(object sender, RoutedEventArgs e)
         {
             Locker4.Opacity = 0.5;
-            aTimer = new System.Timers.Timer(3000);
+            aTimer = new System.Timers.Timer(2000);
             aTimer.Elapsed += OpacityBtn;
             aTimer.AutoReset = false;
             aTimer.Enabled = true;
@@ -485,7 +483,7 @@ namespace Ubox
         private void Locker5Seleccion(object sender, RoutedEventArgs e)
         {
             Locker5.Opacity = 0.5;
-            aTimer = new System.Timers.Timer(3000);
+            aTimer = new System.Timers.Timer(2000);
             aTimer.Elapsed += OpacityBtn;
             aTimer.AutoReset = false;
             aTimer.Enabled = true; string ConnectionString = (App.Current as App).ConnectionString;
@@ -511,7 +509,7 @@ namespace Ubox
         private void Locker6Seleccion(object sender, RoutedEventArgs e)
         {
             Locker6.Opacity = 0.5;
-            aTimer = new System.Timers.Timer(3000);
+            aTimer = new System.Timers.Timer(2000);
             aTimer.Elapsed += OpacityBtn;
             aTimer.AutoReset = false;
             aTimer.Enabled = true;
@@ -535,10 +533,11 @@ namespace Ubox
                 }
             }
         }
+
         private void Locker7Seleccion(object sender, RoutedEventArgs e)
         {
             Locker7.Opacity = 0.5;
-            aTimer = new System.Timers.Timer(3000);
+            aTimer = new System.Timers.Timer(2000);
             aTimer.Elapsed += OpacityBtn;
             aTimer.AutoReset = false;
             aTimer.Enabled = true;
@@ -562,10 +561,11 @@ namespace Ubox
                 }
             }
         }
+
         private void Locker8Seleccion(object sender, RoutedEventArgs e)
         {
             Locker8.Opacity = 0.5;
-            aTimer = new System.Timers.Timer(3000);
+            aTimer = new System.Timers.Timer(2000);
             aTimer.Elapsed += OpacityBtn;
             aTimer.AutoReset = false;
             aTimer.Enabled = true;
@@ -589,10 +589,11 @@ namespace Ubox
                 }
             }
         }
+
         private void Locker9Seleccion(object sender, RoutedEventArgs e)
         {
             Locker9.Opacity = 0.5;
-            aTimer = new System.Timers.Timer(3000);
+            aTimer = new System.Timers.Timer(2000);
             aTimer.Elapsed += OpacityBtn;
             aTimer.AutoReset = false;
             aTimer.Enabled = true;
@@ -615,10 +616,11 @@ namespace Ubox
                 }
             }
         }
+
         private void Locker10Seleccion(object sender, RoutedEventArgs e)
         {
             Locker10.Opacity = 0.5;
-            aTimer = new System.Timers.Timer(3000);
+            aTimer = new System.Timers.Timer(2000);
             aTimer.Elapsed += OpacityBtn;
             aTimer.AutoReset = false;
             aTimer.Enabled = true;
@@ -642,10 +644,11 @@ namespace Ubox
                 }
             }
         }
+
         private void Locker11Seleccion(object sender, RoutedEventArgs e)
         {
             Locker11.Opacity = 0.5;
-            aTimer = new System.Timers.Timer(3000);
+            aTimer = new System.Timers.Timer(2000);
             aTimer.Elapsed += OpacityBtn;
             aTimer.AutoReset = false;
             aTimer.Enabled = true;
@@ -673,7 +676,7 @@ namespace Ubox
         private void Locker12Seleccion(object sender, RoutedEventArgs e)
         {
             Locker12.Opacity = 0.5;
-            aTimer = new System.Timers.Timer(3000);
+            aTimer = new System.Timers.Timer(2000);
             aTimer.Elapsed += OpacityBtn;
             aTimer.AutoReset = false;
             aTimer.Enabled = true;
@@ -697,11 +700,12 @@ namespace Ubox
                 }
             }
         }
+
         private void Locker13Seleccion(object sender, RoutedEventArgs e)
         {
 
             Locker13.Opacity = 0.5;
-            aTimer = new System.Timers.Timer(3000);
+            aTimer = new System.Timers.Timer(2000);
             aTimer.Elapsed += OpacityBtn;
             aTimer.AutoReset = false;
             aTimer.Enabled = true;
@@ -725,10 +729,11 @@ namespace Ubox
                 }
             }
         }
+
         private void Locker14Seleccion(object sender, RoutedEventArgs e)
         {
             Locker14.Opacity = 0.5;
-            aTimer = new System.Timers.Timer(3000);
+            aTimer = new System.Timers.Timer(2000);
             aTimer.Elapsed += OpacityBtn;
             aTimer.AutoReset = false;
             aTimer.Enabled = true;
@@ -752,10 +757,11 @@ namespace Ubox
                 }
             }
         }
+
         private void Locker15Seleccion(object sender, RoutedEventArgs e)
         {
             Locker15.Opacity = 0.5;
-            aTimer = new System.Timers.Timer(3000);
+            aTimer = new System.Timers.Timer(2000);
             aTimer.Elapsed += OpacityBtn;
             aTimer.AutoReset = false;
             aTimer.Enabled = true;
@@ -779,10 +785,11 @@ namespace Ubox
                 }
             }
         }
+
         private void Locker16Seleccion(object sender, RoutedEventArgs e)
         {
             Locker16.Opacity = 0.5;
-            aTimer = new System.Timers.Timer(3000);
+            aTimer = new System.Timers.Timer(2000);
             aTimer.Elapsed += OpacityBtn;
             aTimer.AutoReset = false;
             aTimer.Enabled = true;
@@ -806,10 +813,11 @@ namespace Ubox
                 }
             }
         }
+
         private void Locker17Seleccion(object sender, RoutedEventArgs e)
         {
             Locker17.Opacity = 0.5;
-            aTimer = new System.Timers.Timer(3000);
+            aTimer = new System.Timers.Timer(2000);
             aTimer.Elapsed += OpacityBtn;
             aTimer.AutoReset = false;
             aTimer.Enabled = true;
@@ -833,10 +841,11 @@ namespace Ubox
                 }
             }
         }
+
         private void Locker18Seleccion(object sender, RoutedEventArgs e)
         {
             Locker18.Opacity = 0.5;
-            aTimer = new System.Timers.Timer(3000);
+            aTimer = new System.Timers.Timer(2000);
             aTimer.Elapsed += OpacityBtn;
             aTimer.AutoReset = false;
             aTimer.Enabled = true;
@@ -860,10 +869,11 @@ namespace Ubox
                 }
             }
         }
+
         private void Locker19Seleccion(object sender, RoutedEventArgs e)
         {
             Locker19.Opacity = 0.5;
-            aTimer = new System.Timers.Timer(3000);
+            aTimer = new System.Timers.Timer(2000);
             aTimer.Elapsed += OpacityBtn;
             aTimer.AutoReset = false;
             aTimer.Enabled = true;
@@ -890,7 +900,7 @@ namespace Ubox
         private void Locker20Seleccion(object sender, RoutedEventArgs e)
         {
             Locker20.Opacity = 0.5;
-            aTimer = new System.Timers.Timer(3000);
+            aTimer = new System.Timers.Timer(2000);
             aTimer.Elapsed += OpacityBtn;
             aTimer.AutoReset = false;
             aTimer.Enabled = true;
@@ -914,10 +924,11 @@ namespace Ubox
                 }
             }
         }
+
         private void Locker21Seleccion(object sender, RoutedEventArgs e)
         {
             Locker21.Opacity = 0.5;
-            aTimer = new System.Timers.Timer(3000);
+            aTimer = new System.Timers.Timer(2000);
             aTimer.Elapsed += OpacityBtn;
             aTimer.AutoReset = false;
             aTimer.Enabled = true;
@@ -944,7 +955,7 @@ namespace Ubox
         private void Locker22Seleccion(object sender, RoutedEventArgs e)
         {
             Locker22.Opacity = 0.5;
-            aTimer = new System.Timers.Timer(3000);
+            aTimer = new System.Timers.Timer(2000);
             aTimer.Elapsed += OpacityBtn;
             aTimer.AutoReset = false;
             aTimer.Enabled = true;
@@ -971,7 +982,7 @@ namespace Ubox
         private void Locker23Seleccion(object sender, RoutedEventArgs e)
         {
             Locker23.Opacity = 0.5;
-            aTimer = new System.Timers.Timer(3000);
+            aTimer = new System.Timers.Timer(2000);
             aTimer.Elapsed += OpacityBtn;
             aTimer.AutoReset = false;
             aTimer.Enabled = true;
@@ -998,7 +1009,7 @@ namespace Ubox
         private void Locker24Seleccion(object sender, RoutedEventArgs e)
         {
             Locker24.Opacity = 0.5;
-            aTimer = new System.Timers.Timer(3000);
+            aTimer = new System.Timers.Timer(2000);
             aTimer.Elapsed += OpacityBtn;
             aTimer.AutoReset = false;
             aTimer.Enabled = true;
@@ -1022,10 +1033,11 @@ namespace Ubox
                 }
             }
         }
+
         private void Locker25Seleccion(object sender, RoutedEventArgs e)
         {
             Locker25.Opacity = 0.5;
-            aTimer = new System.Timers.Timer(3000);
+            aTimer = new System.Timers.Timer(2000);
             aTimer.Elapsed += OpacityBtn;
             aTimer.AutoReset = false;
             aTimer.Enabled = true;
@@ -1049,10 +1061,11 @@ namespace Ubox
                 }
             }
         }
+
         private void Locker26Seleccion(object sender, RoutedEventArgs e)
         {
             Locker26.Opacity = 0.5;
-            aTimer = new System.Timers.Timer(3000);
+            aTimer = new System.Timers.Timer(2000);
             aTimer.Elapsed += OpacityBtn;
             aTimer.AutoReset = false;
             aTimer.Enabled = true;
@@ -1076,10 +1089,11 @@ namespace Ubox
                 }
             }
         }
+
         private void Locker27Seleccion(object sender, RoutedEventArgs e)
         {
             Locker27.Opacity = 0.5;
-            aTimer = new System.Timers.Timer(3000);
+            aTimer = new System.Timers.Timer(2000);
             aTimer.Elapsed += OpacityBtn;
             aTimer.AutoReset = false;
             aTimer.Enabled = true;
@@ -1103,10 +1117,11 @@ namespace Ubox
                 }
             }
         }
+
         private void Locker28Seleccion(object sender, RoutedEventArgs e)
         {
             Locker28.Opacity = 0.5;
-            aTimer = new System.Timers.Timer(3000);
+            aTimer = new System.Timers.Timer(2000);
             aTimer.Elapsed += OpacityBtn;
             aTimer.AutoReset = false;
             aTimer.Enabled = true;
@@ -1133,7 +1148,7 @@ namespace Ubox
         private void Locker29Seleccion(object sender, RoutedEventArgs e)
         {
             Locker29.Opacity = 0.5;
-            aTimer = new System.Timers.Timer(3000);
+            aTimer = new System.Timers.Timer(2000);
             aTimer.Elapsed += OpacityBtn;
             aTimer.AutoReset = false;
             aTimer.Enabled = true;
@@ -1160,7 +1175,7 @@ namespace Ubox
         private void Locker30Seleccion(object sender, RoutedEventArgs e)
         {
             Locker30.Opacity = 0.5;
-            aTimer = new System.Timers.Timer(3000);
+            aTimer = new System.Timers.Timer(2000);
             aTimer.Elapsed += OpacityBtn;
             aTimer.AutoReset = false;
             aTimer.Enabled = true;
@@ -1187,7 +1202,7 @@ namespace Ubox
         private void Locker31Seleccion(object sender, RoutedEventArgs e)
         {
             Locker31.Opacity = 0.5;
-            aTimer = new System.Timers.Timer(3000);
+            aTimer = new System.Timers.Timer(2000);
             aTimer.Elapsed += OpacityBtn;
             aTimer.AutoReset = false;
             aTimer.Enabled = true;
@@ -1214,7 +1229,7 @@ namespace Ubox
         private void Locker32Seleccion(object sender, RoutedEventArgs e)
         {
             Locker32.Opacity = 0.5;
-            aTimer = new System.Timers.Timer(3000);
+            aTimer = new System.Timers.Timer(2000);
             aTimer.Elapsed += OpacityBtn;
             aTimer.AutoReset = false;
             aTimer.Enabled = true;
@@ -1241,7 +1256,7 @@ namespace Ubox
         private void Locker33Seleccion(object sender, RoutedEventArgs e)
         {
             Locker33.Opacity = 0.5;
-            aTimer = new System.Timers.Timer(3000);
+            aTimer = new System.Timers.Timer(2000);
             aTimer.Elapsed += OpacityBtn;
             aTimer.AutoReset = false;
             aTimer.Enabled = true;
@@ -1269,7 +1284,7 @@ namespace Ubox
         private void Locker34Seleccion(object sender, RoutedEventArgs e)
         {
             Locker34.Opacity = 0.5;
-            aTimer = new System.Timers.Timer(3000);
+            aTimer = new System.Timers.Timer(2000);
             aTimer.Elapsed += OpacityBtn;
             aTimer.AutoReset = false;
             aTimer.Enabled = true;
@@ -1295,7 +1310,7 @@ namespace Ubox
         private void Locker35Seleccion(object sender, RoutedEventArgs e)
         {
             Locker35.Opacity = 0.5;
-            aTimer = new System.Timers.Timer(3000);
+            aTimer = new System.Timers.Timer(2000);
             aTimer.Elapsed += OpacityBtn;
             aTimer.AutoReset = false;
             aTimer.Enabled = true;
@@ -1322,7 +1337,7 @@ namespace Ubox
         private void Locker36Seleccion(object sender, RoutedEventArgs e)
         {
             Locker36.Opacity = 0.5;
-            aTimer = new System.Timers.Timer(3000);
+            aTimer = new System.Timers.Timer(2000);
             aTimer.Elapsed += OpacityBtn;
             aTimer.AutoReset = false;
             aTimer.Enabled = true;
@@ -1346,10 +1361,11 @@ namespace Ubox
                 }
             }
         }
+
         private void Locker37Seleccion(object sender, RoutedEventArgs e)
         {
             Locker37.Opacity = 0.5;
-            aTimer = new System.Timers.Timer(3000);
+            aTimer = new System.Timers.Timer(2000);
             aTimer.Elapsed += OpacityBtn;
             aTimer.AutoReset = false;
             aTimer.Enabled = true;
@@ -1373,10 +1389,11 @@ namespace Ubox
                 }
             }
         }
+
         private void Locker38Seleccion(object sender, RoutedEventArgs e)
         {
             Locker38.Opacity = 0.5;
-            aTimer = new System.Timers.Timer(3000);
+            aTimer = new System.Timers.Timer(2000);
             aTimer.Elapsed += OpacityBtn;
             aTimer.AutoReset = false;
             aTimer.Enabled = true;
@@ -1401,10 +1418,11 @@ namespace Ubox
                 }
             }
         }
+
         private void Locker39Seleccion(object sender, RoutedEventArgs e)
         {
             Locker39.Opacity = 0.5;
-            aTimer = new System.Timers.Timer(3000);
+            aTimer = new System.Timers.Timer(2000);
             aTimer.Elapsed += OpacityBtn;
             aTimer.AutoReset = false;
             aTimer.Enabled = true;
@@ -1431,7 +1449,7 @@ namespace Ubox
         private void Locker40Seleccion(object sender, RoutedEventArgs e)
         {
             Locker40.Opacity = 0.5;
-            aTimer = new System.Timers.Timer(3000);
+            aTimer = new System.Timers.Timer(2000);
             aTimer.Elapsed += OpacityBtn;
             aTimer.AutoReset = false;
             aTimer.Enabled = true;
