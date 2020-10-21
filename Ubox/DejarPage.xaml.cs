@@ -16,6 +16,7 @@ using System.IO.Ports;
 using System.Threading;
 using System.Data.SqlClient;
 using System.Data;
+using System.Windows.Threading;
 
 namespace Ubox
 {
@@ -43,31 +44,33 @@ namespace Ubox
         {
             Console.WriteLine("Escanenado");
             string Start = "02 54 0d 02 55";
-
             byte[] ByteMessage = Start
               .Split(' ')
               .Select(item => Convert.ToByte(item, 16))
               .ToArray();
             string HexMessage = string.Join("-", ByteMessage
               .Select(item => item.ToString("X2")));
-            using (SerialPort ScannerQRSerial = new SerialPort(
-                   "COM3", 115200, Parity.None, 8, StopBits.One))
+
+            MainWindow.ScannerQrSerial.Write(ByteMessage, 0, ByteMessage.Length);
+            Console.WriteLine("Byte: " + MainWindow.ScannerQrSerial.ReadByte());
+            string code = MainWindow.ScannerQrSerial.ReadExisting();
+            Console.WriteLine(code);
+            if (code.Length == 6)
             {
-                ScannerQRSerial.Open();
-                ScannerQRSerial.Write(ByteMessage, 0, ByteMessage.Length);
-                Console.WriteLine("Byte: " + ScannerQRSerial.ReadByte());
-                string code = ScannerQRSerial.ReadExisting();
-                Console.WriteLine(code);
-                if (code.Length == 6)
-                {
-                    Code1.Dispatcher.Invoke(new Action(() => Code1.AppendText(code.Substring(0, 1))));
-                    Code2.Dispatcher.Invoke(new Action(() => Code2.AppendText(code.Substring(1, 1))));
-                    Code3.Dispatcher.Invoke(new Action(() => Code3.AppendText(code.Substring(2, 1))));
-                    Code4.Dispatcher.Invoke(new Action(() => Code4.AppendText(code.Substring(3, 1))));
-                    Code5.Dispatcher.Invoke(new Action(() => Code5.AppendText(code.Substring(4, 1))));
-                    Code6.Dispatcher.Invoke(new Action(() => Code6.AppendText(code.Substring(5, 1))));
-                }
+                Code1.Dispatcher.Invoke(new Action(() => Code1.AppendText(code.Substring(0, 1))));
+                Code2.Dispatcher.Invoke(new Action(() => Code2.AppendText(code.Substring(1, 1))));
+                Code3.Dispatcher.Invoke(new Action(() => Code3.AppendText(code.Substring(2, 1))));
+                Code4.Dispatcher.Invoke(new Action(() => Code4.AppendText(code.Substring(3, 1))));
+                Code5.Dispatcher.Invoke(new Action(() => Code5.AppendText(code.Substring(4, 1))));
+                Code6.Dispatcher.Invoke(new Action(() => Code6.AppendText(code.Substring(5, 1))));
+                CheckCodeSQL();
             }
+        }
+
+        private void EscanearBtn(object sender, RoutedEventArgs e)
+        {
+            thr1 = new Thread(ScannerQR);
+            thr1.Start();
         }
 
         private void RegresarbBtn(object sender, RoutedEventArgs e)
@@ -2088,10 +2091,13 @@ namespace Ubox
                 }
             }
         }
+        public void CheckCodeSQL()
 
-        public void CheckCode(object sender, RoutedEventArgs e)
         {
-            string Codigo = Code1.Text + Code2.Text + Code3.Text + Code4.Text + Code5.Text + Code6.Text;
+            string Codigo = string.Empty;
+            System.Windows.Application.Current.Dispatcher.Invoke(
+   DispatcherPriority.Normal,
+   (ThreadStart)delegate { Codigo = Code1.Text + Code2.Text + Code3.Text + Code4.Text + Code5.Text + Code6.Text; }); 
             Console.WriteLine("El codigo ingresado es: " + Codigo);
             var cipher = Encrypt(Codigo);
             Console.WriteLine("Codificado: " + cipher);
@@ -2117,8 +2123,8 @@ namespace Ubox
                         Console.WriteLine("Entrando     " + CodigoSQL);
                         if (CodigoSQL == cipher)
                         {
-                            Console.WriteLine("El Numero de Locker es: " + NoLockerSQL + ", La trama es: "+ Trama);
-                            CodigoIncorrectolabel.Visibility = Visibility.Hidden;
+                            Console.WriteLine("El Numero de Locker es: " + NoLockerSQL + ", La trama es: " + Trama);
+                            CodigoIncorrectolabel.Dispatcher.Invoke(new Action(() => CodigoIncorrectolabel.Visibility = Visibility.Hidden));
 
                             // Abre la puerta del locker correspondiente
                             string InicioTrama = "10 02 57 4f 02 00 ";
@@ -2141,19 +2147,24 @@ namespace Ubox
                             }
 
 
-                            IngresarPaquetePage ingresar = new IngresarPaquetePage();
                             Uri uri = new Uri("IngresarPaquetePage.xaml", UriKind.Relative);
-                            this.NavigationService.Navigate(uri);
+                            this.Dispatcher.Invoke(new Action(() => this.NavigationService.Navigate(uri)));
                         }
                     }
                     else
                     {
                         Console.WriteLine("Codigo Incorrecto");
-                        CodigoIncorrectolabel.Visibility = Visibility.Visible;
+                        CodigoIncorrectolabel.Dispatcher.Invoke(new Action(() => CodigoIncorrectolabel.Visibility = Visibility.Visible));
                     }
 
                 }
             }
+        }
+
+
+        public void CheckCode(object sender, RoutedEventArgs e)
+        {
+            CheckCodeSQL();
         }
     }
 }

@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO.Ports;
 
 namespace Ubox
 {
@@ -19,9 +20,13 @@ namespace Ubox
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static SerialPort ScannerQrSerial { get; set; }
         public MainWindow()
         {
             InitializeComponent();
+            ScannerQrSerial = new SerialPort(
+                  "COM3", 115200, Parity.None, 8, StopBits.One);
+            ScannerQrSerial.Open();
         }
 
     }

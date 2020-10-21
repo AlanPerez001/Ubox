@@ -9,7 +9,7 @@ d:DesignHeight="1665" d:DesignWidth="1082"
 
     <Grid  Background="#2b2e34">
         <Image Source="Imagenes/TexturaPantallas2a8.png" Margin="-165,-62,-191,1387"/>
-        <Button HorizontalAlignment="Left" Margin="26,28,0,0" VerticalAlignment="Top" Width="74" Height="64" BorderThickness="0" Click="RegresarbBtn" Padding="0" BorderBrush="{x:Null}" Foreground="{x:Null}">
+        <Button HorizontalAlignment="Left" Margin="26,28,0,0" VerticalAlignment="Top" Width="74" Height="64" BorderThickness="0" Click="RegresarbBtn" Padding="0" BorderBrush="{x:Null}" Foreground="{x:Null}" ClickMode="Hover">
             <Button.Background>
                 <ImageBrush ImageSource="Imagenes/iconoRegresar-01.png"/>
             </Button.Background>
@@ -117,5 +117,6 @@ d:DesignHeight="1665" d:DesignWidth="1082"
         <Button Content="8" HorizontalAlignment="Left" Margin="730,1145,0,0" VerticalAlignment="Top"  Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="OchoBtn"/>
         <Button Content="9" HorizontalAlignment="Left" Margin="825,1145,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="NueveBtn"/>
         <Button Content="0" HorizontalAlignment="Left" Margin="920,1145,0,0" VerticalAlignment="Top" Width="90" Height="90" HorizontalContentAlignment="Center" FontFamily="./#Manrope" FontSize="60" Click="CeroBtn"/>
+        <Button Click="EscanearBtn" Content="Escanear" HorizontalAlignment="Left" Margin="412,960,0,0" VerticalAlignment="Top" Width="194" Height="66" Background="#1cdbf2" Foreground="White" FontFamily="./#Manrope" FontSize="30" FontWeight="SemiBold"/>
     </Grid>
 </Page>

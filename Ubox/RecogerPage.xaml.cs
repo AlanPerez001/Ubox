@@ -17,7 +17,7 @@ using System.Threading;
 using System.Data.SqlClient;
 using System.Data;
 using System.Timers;
-
+using System.Windows.Threading;
 
 namespace Ubox
 {
@@ -42,19 +42,16 @@ namespace Ubox
         {
             Console.WriteLine("Escanenado");
             string Start = "02 54 0d 02 55";
-
             byte[] ByteMessage = Start
               .Split(' ')
               .Select(item => Convert.ToByte(item, 16))
               .ToArray();
             string HexMessage = string.Join("-", ByteMessage
               .Select(item => item.ToString("X2")));
-            SerialPort spPuertoSerie = new SerialPort(
-                  "COM3", 115200, Parity.None, 8, StopBits.One);
-            spPuertoSerie.Open();
-            spPuertoSerie.Write(ByteMessage, 0, ByteMessage.Length);
-            Console.WriteLine("Byte: " + spPuertoSerie.ReadByte());
-            string code = spPuertoSerie.ReadExisting();
+
+            MainWindow.ScannerQrSerial.Write(ByteMessage, 0, ByteMessage.Length);
+            Console.WriteLine("Byte: " + MainWindow.ScannerQrSerial.ReadByte());
+            string code = MainWindow.ScannerQrSerial.ReadExisting();
             Console.WriteLine(code);
             if (code.Length == 6)
             {
@@ -64,12 +61,35 @@ namespace Ubox
                 Code4.Dispatcher.Invoke(new Action(() => Code4.AppendText(code.Substring(3, 1))));
                 Code5.Dispatcher.Invoke(new Action(() => Code5.AppendText(code.Substring(4, 1))));
                 Code6.Dispatcher.Invoke(new Action(() => Code6.AppendText(code.Substring(5, 1))));
+                CheckCodeSQL();
             }
-            spPuertoSerie.Close();
-
         }
+
+        private void EscanearBtn(object sender, RoutedEventArgs e)
+        {
+            Thread thr1 = new Thread(ScannerQR);
+            thr1.Start();
+        }
+
         public void RegresarbBtn(object sender, RoutedEventArgs e)
         {
+            if (aTimer != null)
+            {
+                Console.WriteLine("Entrando");
+                try
+                {
+                    aTimer.Stop();
+                }
+                catch (System.NullReferenceException Ex)
+                {
+                    Console.Write(Ex);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                }
+            }
+
             Uri uri = new Uri("Home.xaml", UriKind.Relative);
             this.NavigationService.Navigate(uri);
         }
@@ -2094,10 +2114,12 @@ namespace Ubox
                 }
             }
         }
-
-        private void CheckCode(object sender, RoutedEventArgs e)
+        private void CheckCodeSQL()
         {
-            string Codigo = Code1.Text + Code2.Text + Code3.Text + Code4.Text + Code5.Text + Code6.Text;
+            string Codigo = string.Empty;
+            System.Windows.Application.Current.Dispatcher.Invoke(
+   DispatcherPriority.Normal,
+   (ThreadStart)delegate { Codigo = Code1.Text + Code2.Text + Code3.Text + Code4.Text + Code5.Text + Code6.Text; });
             Console.WriteLine("El codigo ingresado es: " + Codigo);
             var cipher = Encrypt(Codigo);
             Console.WriteLine("Codificado: " + cipher);
@@ -2138,11 +2160,9 @@ namespace Ubox
                             DoorSerial.Write(ByteMessage, 0, ByteMessage.Length);
                             DoorSerial.Close();
                             DoorSerial.Close();
-
-                            NoLocker.Content = "No. 0" + NoLockerSQL;
-                            CodigoIncorrectolabel.Visibility = Visibility.Hidden;
-                            NotificacionGrid.Visibility = Visibility.Visible;
-
+                            CodigoIncorrectolabel.Dispatcher.Invoke(new Action(() => CodigoIncorrectolabel.Visibility = Visibility.Hidden));
+                            NoLocker.Dispatcher.Invoke(new Action(() => NoLocker.Content = "No. 0" + NoLockerSQL));
+                            NotificacionGrid.Dispatcher.Invoke(new Action(() => NotificacionGrid.Visibility = Visibility.Visible));
                             aTimer = new System.Timers.Timer(15000);
                             // Hook up the Elapsed event for the timer. 
                             aTimer.Elapsed += NotificacionTimer;
@@ -2153,16 +2173,20 @@ namespace Ubox
                     else
                     {
                         Console.WriteLine("Codigo Incorrecto");
-                        CodigoIncorrectolabel.Visibility = Visibility.Visible;
+                        CodigoIncorrectolabel.Dispatcher.Invoke(new Action(() => CodigoIncorrectolabel.Visibility = Visibility.Visible));
                     }
 
                 }
             }
         }
+        private void CheckCode(object sender, RoutedEventArgs e)
+        {
+            CheckCodeSQL();
+        }
 
         private void NotificacionTimer(object sender, ElapsedEventArgs e)
         {
-            
+
             NotificacionGrid.Dispatcher.Invoke(new Action(() => NotificacionGrid.Visibility = Visibility.Collapsed));
             Uri uri = new Uri("Home.xaml", UriKind.Relative);
             this.Dispatcher.Invoke(new Action(() => this.NavigationService.Navigate(uri)));
@@ -2176,6 +2200,7 @@ namespace Ubox
             Uri uri = new Uri("Home.xaml", UriKind.Relative);
             this.NavigationService.Navigate(uri);
         }
+
     }
 }
 

@@ -51,7 +51,22 @@ namespace Ubox
 
         private void RegresarbBtn(object sender, RoutedEventArgs e)
         {
-            aTimer.Stop();
+            if (aTimer != null)
+            {
+                Console.WriteLine("Entrando");
+                try
+                {
+                    aTimer.Stop();
+                }
+                catch (System.NullReferenceException Ex)
+                {
+                    Console.Write(Ex);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                }
+            }
             Uri uri = new Uri("Home.xaml", UriKind.Relative);
             this.NavigationService.Navigate(uri);
         }
