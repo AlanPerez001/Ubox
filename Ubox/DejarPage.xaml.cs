@@ -121,7 +121,6 @@ namespace Ubox
                         case "6":
                             Code6.AppendText("1");
                             break;
-
                     }
                     break;
                 }
@@ -2136,17 +2135,8 @@ namespace Ubox
                               .ToArray();
                             string HexMessage = string.Join("-", ByteMessage
                               .Select(item => item.ToString("X2")));
-                            Console.WriteLine("boton precionado  el Hex es... " + HexMessage);
-                            Thread.Sleep(300);
-                            using (SerialPort DoorSerial = new SerialPort(
-                              "COM6", 115200, Parity.None, 8, StopBits.One))
-                            {
-                                DoorSerial.Open();
-                                DoorSerial.Write(ByteMessage, 0, ByteMessage.Length);
-                                DoorSerial.Close();
-                            }
 
-
+                            MainWindow.DoorSerial.Write(ByteMessage, 0, ByteMessage.Length);                       
                             Uri uri = new Uri("IngresarPaquetePage.xaml", UriKind.Relative);
                             this.Dispatcher.Invoke(new Action(() => this.NavigationService.Navigate(uri)));
                         }

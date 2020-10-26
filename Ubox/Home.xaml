@@ -14,7 +14,7 @@
         <Label Content="¿Qué quieres hacer el día de hoy?" HorizontalAlignment="Left" Margin="107,476,0,0" VerticalAlignment="Top" Height="94" Width="874" FontFamily="/Ubox;component/Fonts/#IBM Plex Serif Medium" Foreground="White" FontSize="53"/>
         <Label Content="Dejar un paquete" HorizontalAlignment="Left" Margin="116,843,0,0" VerticalAlignment="Top" Height="70" Width="297" FontFamily="/Ubox;component/Fonts/#IBM Plex Serif Medium" Foreground="White" FontSize="35"/>
         <Label Content="Recoger un paquete" HorizontalAlignment="Left" Margin="619,843,0,0" VerticalAlignment="Top" Height="70" Width="349" FontFamily="/Ubox;component/Fonts/#IBM Plex Serif Medium" Foreground="White" FontSize="35"/>
-        <Button Content="&#xA;" HorizontalAlignment="Left" Margin="91,634,0,781" VerticalAlignment="Center" Width="341" Height="209" BorderThickness="0" Padding="0" Click="DejarBtn" ClickMode="Hover">
+        <Button x:Name="DejarBtnName" HorizontalAlignment="Left" Margin="91,634,0,781" VerticalAlignment="Center" Width="341" Height="209" BorderThickness="0" Padding="0" Click="DejarBtn" ClickMode="Press">
             <Button.Background>
                 <ImageBrush ImageSource="Imagenes/BotonDejarPaquete-ConFondo-01.png" Stretch="None"/>
             </Button.Background>

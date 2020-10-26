@@ -21,12 +21,16 @@ namespace Ubox
     public partial class MainWindow : Window
     {
         public static SerialPort ScannerQrSerial { get; set; }
+        public static SerialPort DoorSerial { get; set; }
         public MainWindow()
         {
             InitializeComponent();
             ScannerQrSerial = new SerialPort(
                   "COM3", 115200, Parity.None, 8, StopBits.One);
             ScannerQrSerial.Open();
+            DoorSerial = new SerialPort(
+  "COM6", 115200, Parity.None, 8, StopBits.One);
+            DoorSerial.Open();
         }
 
     }

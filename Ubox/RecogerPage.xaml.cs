@@ -30,7 +30,7 @@ namespace Ubox
         public static string Trama { get; set; }
         public static int NoLockerSQL { get; set; }
         private static System.Timers.Timer aTimer;
-        static SerialPort DoorSerial { get; set; }
+
         public RecogerPage()
         {
             InitializeComponent();
@@ -67,8 +67,30 @@ namespace Ubox
 
         private void EscanearBtn(object sender, RoutedEventArgs e)
         {
-            Thread thr1 = new Thread(ScannerQR);
-            thr1.Start();
+            string InicioTrama = "10 02 57 4f 02 00 ";
+            string Trama = "01 06 1d";
+            string FinTrama = " 10 03"; 
+
+            string hex = "10 02 51 53 02 00 01 12 13 10 03";
+            byte[] ByteMessage = hex
+              .Split(' ')
+              .Select(item => Convert.ToByte(item, 16))
+              .ToArray();
+            string HexMessage = string.Join("-", ByteMessage
+              .Select(item => item.ToString("X2")));
+            MainWindow.DoorSerial.Write(ByteMessage, 0, ByteMessage.Length);
+
+            string hex2 = "10 02 57 4F 02 00 01 01 1A 10 03";
+            byte[] ByteMessage2 = hex2
+              .Split(' ')
+              .Select(item => Convert.ToByte(item, 16))
+              .ToArray();
+            string HexMessage2 = string.Join("-", ByteMessage2
+              .Select(item => item.ToString("X2")));
+            MainWindow.DoorSerial.Write(ByteMessage2, 0, ByteMessage2.Length);
+            Console.WriteLine("Byte: " + MainWindow.DoorSerial.ReadByte());
+            string code = MainWindow.DoorSerial.ReadExisting();
+            Console.WriteLine(code);
         }
 
         public void RegresarbBtn(object sender, RoutedEventArgs e)
@@ -2152,14 +2174,7 @@ namespace Ubox
                               .ToArray();
                             string HexMessage = string.Join("-", ByteMessage
                               .Select(item => item.ToString("X2")));
-                            Console.WriteLine("boton precionado  el Hex es... " + HexMessage);
-                            Thread.Sleep(300);
-                            DoorSerial = new SerialPort(
-                              "COM6", 115200, Parity.None, 8, StopBits.One);
-                            DoorSerial.Open();
-                            DoorSerial.Write(ByteMessage, 0, ByteMessage.Length);
-                            DoorSerial.Close();
-                            DoorSerial.Close();
+                            MainWindow.DoorSerial.Write(ByteMessage, 0, ByteMessage.Length);
                             CodigoIncorrectolabel.Dispatcher.Invoke(new Action(() => CodigoIncorrectolabel.Visibility = Visibility.Hidden));
                             NoLocker.Dispatcher.Invoke(new Action(() => NoLocker.Content = "No. 0" + NoLockerSQL));
                             NotificacionGrid.Dispatcher.Invoke(new Action(() => NotificacionGrid.Visibility = Visibility.Visible));
