@@ -100,6 +100,7 @@ d:DesignHeight="1665" d:DesignWidth="1082"
 
 
         <Rectangle Fill="#FF727176" HorizontalAlignment="Left" Height="221" Margin="693,738,0,0" Stroke="Black" VerticalAlignment="Top" Width="177" IsEnabled="False"/>
+        <Image Source="Imagenes/LogoCentral.png" Margin="717,772,233,738"/>
         <Label  x:Name="SeleccionTamañoLoccker" Content=""  HorizontalAlignment="Left" Margin="827,1291,0,0" VerticalAlignment="Top" Height="52" Width="218" FontSize="36" FontFamily="Manrope blod" Foreground="White" FontWeight="SemiBold" RenderTransformOrigin="0.5,0.5"/>
         <Label  x:Name="SeleccionNolocker" Content="" HorizontalAlignment="Left" Margin="715,1333,0,0" VerticalAlignment="Top" Height="52" Width="132" FontSize="36" FontFamily="Manrope blod" Foreground="White" FontWeight="SemiBold" RenderTransformOrigin="0.5,0.5"/>
         <Label  x:Name="SeleccionDias" Content="" HorizontalAlignment="Left" Margin="715,1385,0,0" VerticalAlignment="Top" Height="52" Width="155" FontSize="36" FontFamily="Manrope blod" Foreground="White" FontWeight="SemiBold" RenderTransformOrigin="0.5,0.5"/>
