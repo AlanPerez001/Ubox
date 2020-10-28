@@ -27,8 +27,9 @@ namespace Ubox
             CostoSeleccion.Content = "$" + GenerarCodigo.Costo;
             NoLockerDejar.Content = GenerarCodigo.NoLocker;
             TamañoSeleccion.Content = GenerarCodigo.Tamaño;
-            InicioReserva.Content = DejarPage.Vencimiento;
-            VencimientoReserva.Content = DejarPage.Vencimiento;
+            
+            InicioReserva.Content = MainWindow.today.ToString("dd/MM/yyyy HH:mm:ss");
+            VencimientoReserva.Content = GenerarCodigo.SumaDias.ToString("dd/MM/yyyy HH:mm:ss");
         }
 
         private void RegresarbBtn(object sender, RoutedEventArgs e)

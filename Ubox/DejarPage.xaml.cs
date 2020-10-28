@@ -2049,8 +2049,6 @@ namespace Ubox
         {
             Uri uri = new Uri("GenerarCodigo.xaml", UriKind.Relative);
             this.NavigationService.Navigate(uri);
-
-
         }
         public static string Encrypt(string text)
         {
@@ -2096,12 +2094,10 @@ namespace Ubox
             string Codigo = string.Empty;
             System.Windows.Application.Current.Dispatcher.Invoke(
    DispatcherPriority.Normal,
-   (ThreadStart)delegate { Codigo = Code1.Text + Code2.Text + Code3.Text + Code4.Text + Code5.Text + Code6.Text; }); 
+   (ThreadStart)delegate { Codigo = Code1.Text + Code2.Text + Code3.Text + Code4.Text + Code5.Text + Code6.Text; });
             Console.WriteLine("El codigo ingresado es: " + Codigo);
             var cipher = Encrypt(Codigo);
             Console.WriteLine("Codificado: " + cipher);
-            var decode = Decrypt("g6Q2MRKkSs0=");
-            Console.WriteLine("Codigo decodificado: " + decode);
 
             string ConnectionString = (App.Current as App).ConnectionString;
             string sql = @"SELECT Lockers.NoLocker, Lockers.Codigo, Usuarios.Usuario, Lockers.Trama, Usuarios.Tiempo,Usuarios.DiaRenta FROM Usuarios INNER JOIN Lockers on Usuarios.NoLocker = Lockers.NoLocker Where Usuarios.Codigo ='" + cipher + "'";
@@ -2136,7 +2132,7 @@ namespace Ubox
                             string HexMessage = string.Join("-", ByteMessage
                               .Select(item => item.ToString("X2")));
 
-                            MainWindow.DoorSerial.Write(ByteMessage, 0, ByteMessage.Length);                       
+                            MainWindow.DoorSerial.Write(ByteMessage, 0, ByteMessage.Length);
                             Uri uri = new Uri("IngresarPaquetePage.xaml", UriKind.Relative);
                             this.Dispatcher.Invoke(new Action(() => this.NavigationService.Navigate(uri)));
                         }

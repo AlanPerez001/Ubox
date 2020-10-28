@@ -22,6 +22,7 @@ namespace Ubox
     {
         public static SerialPort ScannerQrSerial { get; set; }
         public static SerialPort DoorSerial { get; set; }
+        public static DateTime today {get;set;}
         public MainWindow()
         {
             InitializeComponent();
@@ -31,7 +32,8 @@ namespace Ubox
             DoorSerial = new SerialPort(
   "COM6", 115200, Parity.None, 8, StopBits.One);
             DoorSerial.Open();
+            today = Convert.ToDateTime(DateTime.Today) ;
+            
         }
-
     }
 }

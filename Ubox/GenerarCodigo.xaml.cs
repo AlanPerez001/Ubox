@@ -33,6 +33,7 @@ namespace Ubox
         public static string Selecciontamañolabel { get; set; }
         public static string SeleccionLockerlabel { get; set; }
         public static string SeleccionDialabel { get; set; }
+        public static DateTime SumaDias { get; set; }
 
 
 
@@ -364,6 +365,7 @@ namespace Ubox
             Selecciontamañolabel = SeleccionTamañoLoccker.Content.ToString();
             SeleccionLockerlabel = SeleccionNolocker.Content.ToString();
             SeleccionDialabel = SeleccionDias.Content.ToString();
+
             if (Selecciontamañolabel != "" && SeleccionLockerlabel != "" && SeleccionDialabel != "")
             {
                 Console.WriteLine("El locker es: " + SeleccionLockerlabel + ", El tamaño es: " + Selecciontamañolabel + ", Los dias son: " + SeleccionDialabel);
@@ -1496,6 +1498,7 @@ namespace Ubox
             CheckMarcado7Dia.Visibility = Visibility.Hidden;
             CheckMarcado1Dia.Visibility = Visibility.Visible;
             SeleccionDias.Content = "1 día";
+            SumaDias = MainWindow.today.AddDays(1);
 
         }
 
@@ -1515,6 +1518,7 @@ namespace Ubox
             CheckMarcado7Dia.Visibility = Visibility.Hidden;
             CheckMarcado2Dia.Visibility = Visibility.Visible;
             SeleccionDias.Content = "2 días";
+            SumaDias = MainWindow.today.AddDays(2);
         }
 
         private void Check3Dia_Checked(object sender, RoutedEventArgs e)
@@ -1533,6 +1537,7 @@ namespace Ubox
             CheckMarcado7Dia.Visibility = Visibility.Hidden;
             CheckMarcado3Dia.Visibility = Visibility.Visible;
             SeleccionDias.Content = "3 días";
+            SumaDias = MainWindow.today.AddDays(3);
         }
 
         private void Check4Dia_Checked(object sender, RoutedEventArgs e)
@@ -1551,6 +1556,7 @@ namespace Ubox
             CheckMarcado7Dia.Visibility = Visibility.Hidden;
             CheckMarcado4Dia.Visibility = Visibility.Visible;
             SeleccionDias.Content = "4 días";
+            SumaDias = MainWindow.today.AddDays(4);
         }
 
         private void Check5Dia_Checked(object sender, RoutedEventArgs e)
@@ -1569,6 +1575,7 @@ namespace Ubox
             CheckMarcado7Dia.Visibility = Visibility.Hidden;
             CheckMarcado5Dia.Visibility = Visibility.Visible;
             SeleccionDias.Content = "5 días";
+            SumaDias = MainWindow.today.AddDays(5);
         }
 
         private void Check6Dia_Checked(object sender, RoutedEventArgs e)
@@ -1587,6 +1594,7 @@ namespace Ubox
             CheckMarcado7Dia.Visibility = Visibility.Hidden;
             CheckMarcado6Dia.Visibility = Visibility.Visible;
             SeleccionDias.Content = "6 días";
+            SumaDias = MainWindow.today.AddDays(6);
         }
 
         private void Check7Dia_Checked(object sender, RoutedEventArgs e)
@@ -1605,6 +1613,7 @@ namespace Ubox
             CheckMarcado6Dia.Visibility = Visibility.Hidden;
             CheckMarcado7Dia.Visibility = Visibility.Visible;
             SeleccionDias.Content = "7 días";
+            SumaDias = MainWindow.today.AddDays(7);
         }
     }
 }
