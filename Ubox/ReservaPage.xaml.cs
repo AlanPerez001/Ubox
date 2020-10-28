@@ -22,7 +22,7 @@ namespace Ubox
         public ReservaPage()
         {
             InitializeComponent();
-            CostoReservado.Content = "$" + GenerarCodigo.Costo;
+            CostoReservado.Content = "$" + GenerarCodigo.Costo * GenerarCodigo.SumaDiasInt;
             NoLockerReservado.Content = GenerarCodigo.NoLocker;
             CodeGenerate.Content = Seleccion.CodeGenerated;
         }

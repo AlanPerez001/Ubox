@@ -28,11 +28,11 @@ namespace Ubox
             InitializeComponent();
             ScannerQrSerial = new SerialPort(
                   "COM3", 115200, Parity.None, 8, StopBits.One);
-            ScannerQrSerial.Open();
+            //ScannerQrSerial.Open();
             DoorSerial = new SerialPort(
   "COM6", 115200, Parity.None, 8, StopBits.One);
-            DoorSerial.Open();
-            today = Convert.ToDateTime(DateTime.Today) ;
+            //DoorSerial.Open();
+            today = Convert.ToDateTime(DateTime.Now) ;
             
         }
     }

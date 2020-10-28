@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Security.Cryptography;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -11,6 +12,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO.Ports;
+using System.Threading;
+using System.Data.SqlClient;
+using System.Data;
+using System.Timers;
 
 namespace Ubox
 {
@@ -20,16 +26,16 @@ namespace Ubox
     public partial class Seleccion : Page
     {
         public static Random random = new Random();
-         public static string CodeGenerated { get; set; }
+        public static string CodeGenerated { get; set; }
         public Seleccion()
         {
             InitializeComponent();
-            CostoSeleccion.Content = "$" + GenerarCodigo.Costo;
+            CostoSeleccion.Content = "$" + GenerarCodigo.Costo * GenerarCodigo.SumaDiasInt;
             NoLockerDejar.Content = GenerarCodigo.NoLocker;
             TamañoSeleccion.Content = GenerarCodigo.Tamaño;
-            
+
             InicioReserva.Content = MainWindow.today.ToString("dd/MM/yyyy HH:mm:ss");
-            VencimientoReserva.Content = GenerarCodigo.SumaDias.ToString("dd/MM/yyyy HH:mm:ss");
+            VencimientoReserva.Content = GenerarCodigo.SumaDiasFecha.ToString("dd/MM/yyyy HH:mm:ss");
         }
 
         private void RegresarbBtn(object sender, RoutedEventArgs e)
@@ -241,7 +247,7 @@ namespace Ubox
         private void DELBtn(object sender, RoutedEventArgs e)
         {
 
-                NumeroTelefono.Clear();
+            NumeroTelefono.Clear();
 
 
         }
@@ -506,6 +512,22 @@ namespace Ubox
         {
             //ENG
         }
+        private void InsertReserva(string CodeGenerated , string Usuario)
+        {
+
+            
+            
+
+            string ConnectionString = (App.Current as App).ConnectionString;
+            string sql = @"INSERT INTO Usuarios(Usuario,NoLocker ,Tiempo, DiaRenta, UbicacionLocker, Codigo) VALUES ('" + Usuario + "', '" + GenerarCodigo.NoLocker + "' , '" + GenerarCodigo.SumaDiasFecha.ToString("dd/MM/yyyy HH:mm") + "','" + MainWindow.today.ToString("dd/MM/yyyy HH:mm") + "','Zion','" + CodeGenerated + "');";
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+                SqlCommand queryCommand = new SqlCommand(sql, conn);
+                queryCommand.ExecuteNonQuery();
+            }
+        }
+
 
         private void ReservarBtn(object sender, RoutedEventArgs e)
         {
@@ -520,6 +542,8 @@ namespace Ubox
                 CodeGenerated = new string(Enumerable.Repeat(chars, lengthcode)
                    .Select(s => s[random.Next(s.Length)]).ToArray());
                 Console.WriteLine(CodeGenerated);
+                Thread ReservaThread = new Thread( () => InsertReserva(CodeGenerated, numero));
+                ReservaThread.Start();
                 Uri uri = new Uri("ReservaPage.xaml", UriKind.Relative);
                 this.NavigationService.Navigate(uri);
             }

@@ -33,7 +33,8 @@ namespace Ubox
         public static string Selecciontamañolabel { get; set; }
         public static string SeleccionLockerlabel { get; set; }
         public static string SeleccionDialabel { get; set; }
-        public static DateTime SumaDias { get; set; }
+        public static DateTime SumaDiasFecha { get; set; }
+        public static int SumaDiasInt { get; set; }
 
 
 
@@ -656,14 +657,14 @@ namespace Ubox
 
         private void Locker11Seleccion(object sender, RoutedEventArgs e)
         {
-            Locker2.Opacity = 0.5;
+            Locker11.Opacity = 0.5;
             aTimer = new System.Timers.Timer(2000);
             aTimer.Elapsed += OpacityBtn;
             aTimer.AutoReset = false;
             aTimer.Enabled = true;
 
             string ConnectionString = (App.Current as App).ConnectionString;
-            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Lockers where NoLocker = " + 2;
+            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Lockers where NoLocker = " + 11;
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -1498,7 +1499,8 @@ namespace Ubox
             CheckMarcado7Dia.Visibility = Visibility.Hidden;
             CheckMarcado1Dia.Visibility = Visibility.Visible;
             SeleccionDias.Content = "1 día";
-            SumaDias = MainWindow.today.AddDays(1);
+            SumaDiasFecha = MainWindow.today.AddDays(1);
+            SumaDiasInt = 1;
 
         }
 
@@ -1518,7 +1520,8 @@ namespace Ubox
             CheckMarcado7Dia.Visibility = Visibility.Hidden;
             CheckMarcado2Dia.Visibility = Visibility.Visible;
             SeleccionDias.Content = "2 días";
-            SumaDias = MainWindow.today.AddDays(2);
+            SumaDiasFecha = MainWindow.today.AddDays(2);
+            SumaDiasInt = 2;
         }
 
         private void Check3Dia_Checked(object sender, RoutedEventArgs e)
@@ -1537,7 +1540,8 @@ namespace Ubox
             CheckMarcado7Dia.Visibility = Visibility.Hidden;
             CheckMarcado3Dia.Visibility = Visibility.Visible;
             SeleccionDias.Content = "3 días";
-            SumaDias = MainWindow.today.AddDays(3);
+            SumaDiasFecha = MainWindow.today.AddDays(3);
+            SumaDiasInt = 3;
         }
 
         private void Check4Dia_Checked(object sender, RoutedEventArgs e)
@@ -1556,7 +1560,8 @@ namespace Ubox
             CheckMarcado7Dia.Visibility = Visibility.Hidden;
             CheckMarcado4Dia.Visibility = Visibility.Visible;
             SeleccionDias.Content = "4 días";
-            SumaDias = MainWindow.today.AddDays(4);
+            SumaDiasFecha = MainWindow.today.AddDays(4);
+            SumaDiasInt = 4;
         }
 
         private void Check5Dia_Checked(object sender, RoutedEventArgs e)
@@ -1575,7 +1580,8 @@ namespace Ubox
             CheckMarcado7Dia.Visibility = Visibility.Hidden;
             CheckMarcado5Dia.Visibility = Visibility.Visible;
             SeleccionDias.Content = "5 días";
-            SumaDias = MainWindow.today.AddDays(5);
+            SumaDiasFecha = MainWindow.today.AddDays(5);
+            SumaDiasInt = 5;
         }
 
         private void Check6Dia_Checked(object sender, RoutedEventArgs e)
@@ -1594,7 +1600,8 @@ namespace Ubox
             CheckMarcado7Dia.Visibility = Visibility.Hidden;
             CheckMarcado6Dia.Visibility = Visibility.Visible;
             SeleccionDias.Content = "6 días";
-            SumaDias = MainWindow.today.AddDays(6);
+            SumaDiasFecha = MainWindow.today.AddDays(6);
+            SumaDiasInt = 6;
         }
 
         private void Check7Dia_Checked(object sender, RoutedEventArgs e)
@@ -1613,7 +1620,8 @@ namespace Ubox
             CheckMarcado6Dia.Visibility = Visibility.Hidden;
             CheckMarcado7Dia.Visibility = Visibility.Visible;
             SeleccionDias.Content = "7 días";
-            SumaDias = MainWindow.today.AddDays(7);
+            SumaDiasFecha = MainWindow.today.AddDays(7);
+            SumaDiasInt = 7;
         }
     }
 }

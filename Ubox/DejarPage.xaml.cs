@@ -37,7 +37,7 @@ namespace Ubox
 
             InitializeComponent();
             thr1 = new Thread(ScannerQR);
-            thr1.Start();
+            //thr1.Start();
         }
 
         private void ScannerQR()
