@@ -76,57 +76,9 @@ namespace Ubox
             this.NavigationService.Navigate(uri);
         }
 
-        private void PassMd5(object sender, RoutedEventArgs e)
-        {
-            var text = "9H21Z0";
-            Console.WriteLine("Cadena: " + text);
 
-            var cipher = Encrypt(text);
-            Console.WriteLine("Codificado: " + cipher);
 
-            text = Decrypt(cipher);
-            Console.WriteLine("Decodificado: " + text);
-        }
 
-        public static string Encrypt(string text)
-        {
-            using (var md5 = new MD5CryptoServiceProvider())
-            {
-                using (var tdes = new TripleDESCryptoServiceProvider())
-                {
-                    tdes.Key = md5.ComputeHash(UTF8Encoding.UTF8.GetBytes(key));
-                    tdes.Mode = CipherMode.ECB;
-                    tdes.Padding = PaddingMode.PKCS7;
-
-                    using (var transform = tdes.CreateEncryptor())
-                    {
-                        byte[] textBytes = UTF8Encoding.UTF8.GetBytes(text);
-                        byte[] bytes = transform.TransformFinalBlock(textBytes, 0, textBytes.Length);
-                        return Convert.ToBase64String(bytes, 0, bytes.Length);
-                    }
-                }
-            }
-        }
-
-        public static string Decrypt(string cipher)
-        {
-            using (var md5 = new MD5CryptoServiceProvider())
-            {
-                using (var tdes = new TripleDESCryptoServiceProvider())
-                {
-                    tdes.Key = md5.ComputeHash(UTF8Encoding.UTF8.GetBytes(key));
-                    tdes.Mode = CipherMode.ECB;
-                    tdes.Padding = PaddingMode.PKCS7;
-
-                    using (var transform = tdes.CreateDecryptor())
-                    {
-                        byte[] cipherBytes = Convert.FromBase64String(cipher);
-                        byte[] bytes = transform.TransformFinalBlock(cipherBytes, 0, cipherBytes.Length);
-                        return UTF8Encoding.UTF8.GetString(bytes);
-                    }
-                }
-            }
-        }
         private void OpacityBtn(object sender, ElapsedEventArgs e)
         {
             Locker1.Dispatcher.Invoke(new Action(() => Locker1.Opacity = 1));
@@ -1499,7 +1451,7 @@ namespace Ubox
             CheckMarcado7Dia.Visibility = Visibility.Hidden;
             CheckMarcado1Dia.Visibility = Visibility.Visible;
             SeleccionDias.Content = "1 día";
-            SumaDiasFecha = MainWindow.today.AddDays(1);
+            SumaDiasFecha = Convert.ToDateTime(DateTime.Now).AddDays(1);
             SumaDiasInt = 1;
 
         }
@@ -1520,7 +1472,7 @@ namespace Ubox
             CheckMarcado7Dia.Visibility = Visibility.Hidden;
             CheckMarcado2Dia.Visibility = Visibility.Visible;
             SeleccionDias.Content = "2 días";
-            SumaDiasFecha = MainWindow.today.AddDays(2);
+            SumaDiasFecha = Convert.ToDateTime(DateTime.Now).AddDays(2);
             SumaDiasInt = 2;
         }
 
@@ -1540,7 +1492,7 @@ namespace Ubox
             CheckMarcado7Dia.Visibility = Visibility.Hidden;
             CheckMarcado3Dia.Visibility = Visibility.Visible;
             SeleccionDias.Content = "3 días";
-            SumaDiasFecha = MainWindow.today.AddDays(3);
+            SumaDiasFecha = Convert.ToDateTime(DateTime.Now).AddDays(3);
             SumaDiasInt = 3;
         }
 
@@ -1560,7 +1512,7 @@ namespace Ubox
             CheckMarcado7Dia.Visibility = Visibility.Hidden;
             CheckMarcado4Dia.Visibility = Visibility.Visible;
             SeleccionDias.Content = "4 días";
-            SumaDiasFecha = MainWindow.today.AddDays(4);
+            SumaDiasFecha = Convert.ToDateTime(DateTime.Now).AddDays(4);
             SumaDiasInt = 4;
         }
 
@@ -1580,7 +1532,7 @@ namespace Ubox
             CheckMarcado7Dia.Visibility = Visibility.Hidden;
             CheckMarcado5Dia.Visibility = Visibility.Visible;
             SeleccionDias.Content = "5 días";
-            SumaDiasFecha = MainWindow.today.AddDays(5);
+            SumaDiasFecha = Convert.ToDateTime(DateTime.Now).AddDays(5);
             SumaDiasInt = 5;
         }
 
@@ -1600,7 +1552,7 @@ namespace Ubox
             CheckMarcado7Dia.Visibility = Visibility.Hidden;
             CheckMarcado6Dia.Visibility = Visibility.Visible;
             SeleccionDias.Content = "6 días";
-            SumaDiasFecha = MainWindow.today.AddDays(6);
+            SumaDiasFecha = Convert.ToDateTime(DateTime.Now).AddDays(6);
             SumaDiasInt = 6;
         }
 
@@ -1620,7 +1572,7 @@ namespace Ubox
             CheckMarcado6Dia.Visibility = Visibility.Hidden;
             CheckMarcado7Dia.Visibility = Visibility.Visible;
             SeleccionDias.Content = "7 días";
-            SumaDiasFecha = MainWindow.today.AddDays(7);
+            SumaDiasFecha = Convert.ToDateTime(DateTime.Now).AddDays(7);
             SumaDiasInt = 7;
         }
     }

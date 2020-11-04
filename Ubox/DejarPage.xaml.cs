@@ -27,7 +27,7 @@ namespace Ubox
     public partial class DejarPage : Page
     {
         public static int NoLockerSQL { get; set; }
-        public static string Vencimiento { get; set; }
+        public static DateTime Vencimiento { get; set; }
         public static string DiaRenta { get; set; }
         public static string Trama { get; set; }
         static string key { get; set; } = "A!9HHhi%XjjYY4YP2@Nob009X";
@@ -2050,44 +2050,7 @@ namespace Ubox
             Uri uri = new Uri("GenerarCodigo.xaml", UriKind.Relative);
             this.NavigationService.Navigate(uri);
         }
-        public static string Encrypt(string text)
-        {
-            using (var md5 = new MD5CryptoServiceProvider())
-            {
-                using (var tdes = new TripleDESCryptoServiceProvider())
-                {
-                    tdes.Key = md5.ComputeHash(UTF8Encoding.UTF8.GetBytes(key));
-                    tdes.Mode = CipherMode.ECB;
-                    tdes.Padding = PaddingMode.PKCS7;
 
-                    using (var transform = tdes.CreateEncryptor())
-                    {
-                        byte[] textBytes = UTF8Encoding.UTF8.GetBytes(text);
-                        byte[] bytes = transform.TransformFinalBlock(textBytes, 0, textBytes.Length);
-                        return Convert.ToBase64String(bytes, 0, bytes.Length);
-                    }
-                }
-            }
-        }
-        public static string Decrypt(string cipher)
-        {
-            using (var md5 = new MD5CryptoServiceProvider())
-            {
-                using (var tdes = new TripleDESCryptoServiceProvider())
-                {
-                    tdes.Key = md5.ComputeHash(UTF8Encoding.UTF8.GetBytes(key));
-                    tdes.Mode = CipherMode.ECB;
-                    tdes.Padding = PaddingMode.PKCS7;
-
-                    using (var transform = tdes.CreateDecryptor())
-                    {
-                        byte[] cipherBytes = Convert.FromBase64String(cipher);
-                        byte[] bytes = transform.TransformFinalBlock(cipherBytes, 0, cipherBytes.Length);
-                        return UTF8Encoding.UTF8.GetString(bytes);
-                    }
-                }
-            }
-        }
         public void CheckCodeSQL()
 
         {
@@ -2096,11 +2059,11 @@ namespace Ubox
    DispatcherPriority.Normal,
    (ThreadStart)delegate { Codigo = Code1.Text + Code2.Text + Code3.Text + Code4.Text + Code5.Text + Code6.Text; });
             Console.WriteLine("El codigo ingresado es: " + Codigo);
-            var cipher = Encrypt(Codigo);
-            Console.WriteLine("Codificado: " + cipher);
+            var cipher = MainWindow.Encrypt(Codigo);
+            Console.WriteLine("Decodificado: " + MainWindow.Decrypt("bZw4oAc93sE="));
 
             string ConnectionString = (App.Current as App).ConnectionString;
-            string sql = @"SELECT Lockers.NoLocker, Lockers.Codigo, Usuarios.Usuario, Lockers.Trama, Usuarios.Tiempo,Usuarios.DiaRenta FROM Usuarios INNER JOIN Lockers on Usuarios.NoLocker = Lockers.NoLocker Where Usuarios.Codigo ='" + cipher + "'";
+            string sql = @"SELECT Lockers.NoLocker, Lockers.Codigo, Usuarios.Usuario, Lockers.Trama, Usuarios.Vencimiento, Usuarios.DiaRenta FROM Usuarios INNER JOIN Lockers on Usuarios.NoLocker = Lockers.NoLocker Where Usuarios.Codigo ='" + cipher + "'";
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -2111,30 +2074,39 @@ namespace Ubox
                     {
                         String CodigoSQL = Convert.ToString(reader["Codigo"]);
                         String Usuario = Convert.ToString(reader["Usuario"]);
-                        DiaRenta = Convert.ToString(reader["Tiempo"]);
-                        Vencimiento = Convert.ToString(reader["DiaRenta"]);
+                        Vencimiento = Convert.ToDateTime(reader["Vencimiento"]);
+                        DiaRenta = Convert.ToString(reader["DiaRenta"]);
                         NoLockerSQL = Convert.ToInt32(reader["NoLocker"]);
                         Trama = Convert.ToString(reader["Trama"]);
-                        Console.WriteLine("Entrando     " + CodigoSQL);
+                        var horas = (Vencimiento - DateTime.Now).TotalMinutes;
+                        Console.WriteLine("Vencimiento " + horas+" Fecha: "+ DateTime.Now);
                         if (CodigoSQL == cipher)
                         {
-                            Console.WriteLine("El Numero de Locker es: " + NoLockerSQL + ", La trama es: " + Trama);
-                            CodigoIncorrectolabel.Dispatcher.Invoke(new Action(() => CodigoIncorrectolabel.Visibility = Visibility.Hidden));
+                            if (horas > 0)
+                            {
+                                Console.WriteLine("El Numero de Locker es: " + NoLockerSQL + ", La trama es: " + Trama);
+                                CodigoIncorrectolabel.Dispatcher.Invoke(new Action(() => CodigoIncorrectolabel.Visibility = Visibility.Hidden));
+                                CodigoVencidolabel.Dispatcher.Invoke(new Action(() => CodigoIncorrectolabel.Visibility = Visibility.Hidden));
+                                // Abre la puerta del locker correspondiente
+                                string InicioTrama = "10 02 57 4f 02 00 ";
+                                string FinTrama = " 10 03";
+                                string hex = InicioTrama + Trama + FinTrama;
+                                byte[] ByteMessage = hex
+                                  .Split(' ')
+                                  .Select(item => Convert.ToByte(item, 16))
+                                  .ToArray();
+                                string HexMessage = string.Join("-", ByteMessage
+                                  .Select(item => item.ToString("X2")));
 
-                            // Abre la puerta del locker correspondiente
-                            string InicioTrama = "10 02 57 4f 02 00 ";
-                            string FinTrama = " 10 03";
-                            string hex = InicioTrama + Trama + FinTrama;
-                            byte[] ByteMessage = hex
-                              .Split(' ')
-                              .Select(item => Convert.ToByte(item, 16))
-                              .ToArray();
-                            string HexMessage = string.Join("-", ByteMessage
-                              .Select(item => item.ToString("X2")));
-
-                            MainWindow.DoorSerial.Write(ByteMessage, 0, ByteMessage.Length);
-                            Uri uri = new Uri("IngresarPaquetePage.xaml", UriKind.Relative);
-                            this.Dispatcher.Invoke(new Action(() => this.NavigationService.Navigate(uri)));
+                                MainWindow.DoorSerial.Write(ByteMessage, 0, ByteMessage.Length);
+                                Uri uri = new Uri("IngresarPaquetePage.xaml", UriKind.Relative);
+                                this.Dispatcher.Invoke(new Action(() => this.NavigationService.Navigate(uri)));
+                            }
+                            else
+                            {
+                                Console.WriteLine("Codigo Vencido");
+                                CodigoVencidolabel.Dispatcher.Invoke(new Action(() => CodigoVencidolabel.Visibility = Visibility.Visible));
+                            }
                         }
                     }
                     else

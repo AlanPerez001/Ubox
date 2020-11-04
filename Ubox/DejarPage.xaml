@@ -53,6 +53,16 @@ d:DesignHeight="1665" d:DesignWidth="1082"
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
+        <Label x:Name="CodigoVencidolabel" Content="El código que ingresaste no se encuentra vigente. Comunicate&#xD;&#xA;     con el emisor del paquete para verificar la información." HorizontalAlignment="Center" Margin="178,798,183,743" VerticalAlignment="Center" Height="124" Width="721" FontSize="23" FontFamily="/Ubox;component/Fonts/#IBM Plex Serif" Foreground="#1cdbf2" FontWeight="SemiBold" RenderTransformOrigin="0.5,0.5" HorizontalContentAlignment="Center" Visibility="Hidden" VerticalContentAlignment="Center">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="-0.1"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="-0.748"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
         <Label Content="Al escanear el código QR o dar clic en Continuar estás aceptando los terminos y condiciones de&#xA;Ubox y el Aviso de privacidad. Recuerda que estos documentos están disponibles a través de&#xA;nuestra página web ubox.com" HorizontalAlignment="Left" Margin="195,1055,0,0" VerticalAlignment="Top" Height="70" Width="748" FontSize="13" FontFamily="Manrope blod" Foreground="White" FontWeight="SemiBold" RenderTransformOrigin="0.5,0.5" VerticalContentAlignment="Center" FlowDirection="RightToLeft">
             <Label.RenderTransform>
                 <TransformGroup>

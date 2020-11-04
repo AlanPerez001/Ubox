@@ -514,26 +514,24 @@ namespace Ubox
         }
         private void InsertReserva(string CodeGenerated , string Usuario)
         {
-
-            
-            
-
+            string CodeEncrypted = MainWindow.Encrypt(CodeGenerated);
             string ConnectionString = (App.Current as App).ConnectionString;
-            string sql = @"INSERT INTO Usuarios(Usuario,NoLocker ,Tiempo, DiaRenta, UbicacionLocker, Codigo) VALUES ('" + Usuario + "', '" + GenerarCodigo.NoLocker + "' , '" + GenerarCodigo.SumaDiasFecha.ToString("dd/MM/yyyy HH:mm") + "','" + MainWindow.today.ToString("dd/MM/yyyy HH:mm") + "','Zion','" + CodeGenerated + "');";
+            string sql = @"INSERT INTO Usuarios(Usuario,NoLocker , Vencimiento, DiaRenta, UbicacionLocker, Codigo) VALUES ('" + Usuario + "', '" + GenerarCodigo.NoLocker + "' , '" + GenerarCodigo.SumaDiasFecha.ToString("dd/MM/yyyy HH:mm") + "','" + MainWindow.today.ToString("dd/MM/yyyy HH:mm") + "','Zion','" + CodeEncrypted + "');";
+            string SqlUpdate = @"UPDATE [dbo].[Lockers] SET [Disponible] = 1, [Codigo] = '" + CodeEncrypted + "' WHERE NoLocker = '" + GenerarCodigo.NoLocker + "'";
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
-                SqlCommand queryCommand = new SqlCommand(sql, conn);
-                queryCommand.ExecuteNonQuery();
+                SqlCommand QueryInsert = new SqlCommand(sql, conn);
+                QueryInsert.ExecuteNonQuery();
+
+                SqlCommand QueryUpdate = new SqlCommand(SqlUpdate, conn);
+                QueryUpdate.ExecuteNonQuery();
             }
         }
 
 
         private void ReservarBtn(object sender, RoutedEventArgs e)
         {
-
-
-
             string numero = NumeroTelefono.Text;
             if (numero.Length == 10)
             {
