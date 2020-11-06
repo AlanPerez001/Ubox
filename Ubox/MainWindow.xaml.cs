@@ -79,5 +79,20 @@ namespace Ubox
                 }
             }
         }
+        public static string CodigoAleatorio()
+        {
+            Random rdn = new Random();
+            string caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+            int longitud = caracteres.Length;
+            char letra;
+            int longitudContrasenia = 6;
+            string codigo = string.Empty;
+            for (int i = 0; i < longitudContrasenia; i++)
+            {
+                letra = caracteres[rdn.Next(longitud)];
+                codigo += letra.ToString();
+            }
+            return codigo;
+        }
     }
 }

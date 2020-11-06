@@ -49,6 +49,7 @@ namespace Ubox
 
             Thread thTable = new Thread(() => FillTable((App.Current as App).ConnectionString));
             thTable.Start();
+            Console.WriteLine(MainWindow.CodigoAleatorio());
         }
 
         private void FillTable(string ConnectionString)

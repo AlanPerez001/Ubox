@@ -530,6 +530,7 @@ namespace Ubox
         }
 
 
+
         private void ReservarBtn(object sender, RoutedEventArgs e)
         {
             string numero = NumeroTelefono.Text;
@@ -539,7 +540,6 @@ namespace Ubox
                 const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
                 CodeGenerated = new string(Enumerable.Repeat(chars, lengthcode)
                    .Select(s => s[random.Next(s.Length)]).ToArray());
-                Console.WriteLine(CodeGenerated);
                 Thread ReservaThread = new Thread( () => InsertReserva(CodeGenerated, numero));
                 ReservaThread.Start();
                 Uri uri = new Uri("ReservaPage.xaml", UriKind.Relative);
