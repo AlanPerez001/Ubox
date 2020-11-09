@@ -26,22 +26,26 @@ namespace Ubox
     /// </summary>
     public partial class RecogerPage : Page
     {
+        private static System.Timers.Timer aTimer;
         static string key { get; set; } = "A!9HHhi%XjjYY4YP2@Nob009X";
         public static string Trama { get; set; }
         public static int NoLockerSQL { get; set; }
-        private static System.Timers.Timer aTimer;
+        public static string CodigoAleatorio { get; set; }
+        public static string CodigoAleatorio2 { get; set; }
+
 
         public RecogerPage()
         {
             InitializeComponent();
             Thread thr1 = new Thread(ScannerQR);
-            thr1.Start();
+            //thr1.Start();
+
         }
 
         private void ScannerQR()
         {
-            Console.WriteLine("Escanenado");
-            string Start = "02 54 0d 02 55";
+
+            /*string Start = "02 54 0d 02 55";
             byte[] ByteMessage = Start
               .Split(' ')
               .Select(item => Convert.ToByte(item, 16))
@@ -62,35 +66,12 @@ namespace Ubox
                 Code5.Dispatcher.Invoke(new Action(() => Code5.AppendText(code.Substring(4, 1))));
                 Code6.Dispatcher.Invoke(new Action(() => Code6.AppendText(code.Substring(5, 1))));
                 CheckCodeSQL();
-            }
+            }*/
         }
 
         private void EscanearBtn(object sender, RoutedEventArgs e)
         {
-            string InicioTrama = "10 02 57 4f 02 00 ";
-            string Trama = "01 06 1d";
-            string FinTrama = " 10 03"; 
 
-            string hex = "10 02 51 53 02 00 01 12 13 10 03";
-            byte[] ByteMessage = hex
-              .Split(' ')
-              .Select(item => Convert.ToByte(item, 16))
-              .ToArray();
-            string HexMessage = string.Join("-", ByteMessage
-              .Select(item => item.ToString("X2")));
-            MainWindow.DoorSerial.Write(ByteMessage, 0, ByteMessage.Length);
-
-            string hex2 = "10 02 57 4F 02 00 01 01 1A 10 03";
-            byte[] ByteMessage2 = hex2
-              .Split(' ')
-              .Select(item => Convert.ToByte(item, 16))
-              .ToArray();
-            string HexMessage2 = string.Join("-", ByteMessage2
-              .Select(item => item.ToString("X2")));
-            MainWindow.DoorSerial.Write(ByteMessage2, 0, ByteMessage2.Length);
-            Console.WriteLine("Byte: " + MainWindow.DoorSerial.ReadByte());
-            string code = MainWindow.DoorSerial.ReadExisting();
-            Console.WriteLine(code);
         }
 
         public void RegresarbBtn(object sender, RoutedEventArgs e)
@@ -135,7 +116,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                Console.WriteLine(item.Key + " Su valor es: " + item.Value);
+                
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -183,7 +164,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                Console.WriteLine(item.Key + " Su valor es: " + item.Value);
+                
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -231,7 +212,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                Console.WriteLine(item.Key + " Su valor es: " + item.Value);
+                
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -279,7 +260,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                Console.WriteLine(item.Key + " Su valor es: " + item.Value);
+                
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -327,7 +308,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                Console.WriteLine(item.Key + " Su valor es: " + item.Value);
+                
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -375,7 +356,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                Console.WriteLine(item.Key + " Su valor es: " + item.Value);
+                
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -423,7 +404,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                Console.WriteLine(item.Key + " Su valor es: " + item.Value);
+                
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -471,7 +452,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                Console.WriteLine(item.Key + " Su valor es: " + item.Value);
+                
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -519,7 +500,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                Console.WriteLine(item.Key + " Su valor es: " + item.Value);
+                
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -567,7 +548,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                Console.WriteLine(item.Key + " Su valor es: " + item.Value);
+                
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -615,7 +596,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                Console.WriteLine(item.Key + " Su valor es: " + item.Value);
+                
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -663,7 +644,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                Console.WriteLine(item.Key + " Su valor es: " + item.Value);
+                
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -711,7 +692,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                Console.WriteLine(item.Key + " Su valor es: " + item.Value);
+                
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -759,7 +740,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                Console.WriteLine(item.Key + " Su valor es: " + item.Value);
+                
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -807,7 +788,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                Console.WriteLine(item.Key + " Su valor es: " + item.Value);
+                
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -855,7 +836,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                Console.WriteLine(item.Key + " Su valor es: " + item.Value);
+                
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -903,7 +884,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                Console.WriteLine(item.Key + " Su valor es: " + item.Value);
+                
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -951,7 +932,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                Console.WriteLine(item.Key + " Su valor es: " + item.Value);
+                
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -999,7 +980,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                Console.WriteLine(item.Key + " Su valor es: " + item.Value);
+                
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1047,7 +1028,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                Console.WriteLine(item.Key + " Su valor es: " + item.Value);
+                
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1104,7 +1085,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                Console.WriteLine(item.Key + " Su valor es: " + item.Value);
+                
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1152,7 +1133,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                Console.WriteLine(item.Key + " Su valor es: " + item.Value);
+                
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1200,7 +1181,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                Console.WriteLine(item.Key + " Su valor es: " + item.Value);
+                
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1248,7 +1229,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                Console.WriteLine(item.Key + " Su valor es: " + item.Value);
+                
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1296,7 +1277,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                Console.WriteLine(item.Key + " Su valor es: " + item.Value);
+                
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1344,7 +1325,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                Console.WriteLine(item.Key + " Su valor es: " + item.Value);
+                
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1392,7 +1373,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                Console.WriteLine(item.Key + " Su valor es: " + item.Value);
+                
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1440,7 +1421,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                Console.WriteLine(item.Key + " Su valor es: " + item.Value);
+                
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1488,7 +1469,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                Console.WriteLine(item.Key + " Su valor es: " + item.Value);
+                
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1536,7 +1517,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                Console.WriteLine(item.Key + " Su valor es: " + item.Value);
+                
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1593,7 +1574,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                Console.WriteLine(item.Key + " Su valor es: " + item.Value);
+                
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1641,7 +1622,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                Console.WriteLine(item.Key + " Su valor es: " + item.Value);
+                
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1689,7 +1670,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                Console.WriteLine(item.Key + " Su valor es: " + item.Value);
+                
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1737,7 +1718,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                Console.WriteLine(item.Key + " Su valor es: " + item.Value);
+                
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1785,7 +1766,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                Console.WriteLine(item.Key + " Su valor es: " + item.Value);
+                
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1833,7 +1814,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                Console.WriteLine(item.Key + " Su valor es: " + item.Value);
+                
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1881,7 +1862,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                Console.WriteLine(item.Key + " Su valor es: " + item.Value);
+                
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1929,7 +1910,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                Console.WriteLine(item.Key + " Su valor es: " + item.Value);
+                
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1977,7 +1958,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                Console.WriteLine(item.Key + " Su valor es: " + item.Value);
+                
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -2042,7 +2023,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                Console.WriteLine(item.Key + " Su valor es: " + item.Value);
+                
                 if (item.Value == "")
                 {
                     switch (item.Key)

@@ -23,25 +23,34 @@ namespace Ubox
     /// <summary>
     /// Lógica de interacción para MainWindow.xaml
     /// </summary>
+    // Ventana principal de la aplicacion
     public partial class MainWindow : Window
     {
         public static SerialPort ScannerQrSerial { get; set; }
         public static SerialPort DoorSerial { get; set; }
-        public static DateTime today {get;set;}
+        public static SerialPort SimSerial { get; set; }
+        public static DateTime today { get; set; }
         static string key { get; set; } = "A!9HHhi%XjjYY4YP2@Nob009X";
         public MainWindow()
         {
             InitializeComponent();
             ScannerQrSerial = new SerialPort(
                   "COM3", 115200, Parity.None, 8, StopBits.One);
-            ScannerQrSerial.Open();
-            DoorSerial = new SerialPort(
-  "COM6", 115200, Parity.None, 8, StopBits.One);
-            DoorSerial.Open();
-            today = Convert.ToDateTime(DateTime.Now) ;
-            
+            //ScannerQrSerial.Open(); //Se abre el puerto COM3 con el que se activa el Scanner QR
+            DoorSerial = new SerialPort("COM6", 115200, Parity.None, 8, StopBits.One);
+            //DoorSerial.Open(); //Se abre el puerto COM6 con el que se abren las puertas de los Lockers
+            today = Convert.ToDateTime(DateTime.Now); //Variable que contiene la fecha del día de manera global
+
+            SimSerial = new SerialPort("COM1", 115200, Parity.None, 8, StopBits.One);
+            SimSerial.Handshake = Handshake.RequestToSend;
+            SimSerial.DtrEnable = true;
+            SimSerial.RtsEnable = true;
+            SimSerial.NewLine = System.Environment.NewLine;
+            SimSerial.Open();
+
+
         }
-        public static string Encrypt(string text)
+        public static string Encrypt(string text) // Funcion con la cual se encripta una cadena en MD5
         {
             using (var md5 = new MD5CryptoServiceProvider())
             {
@@ -60,7 +69,7 @@ namespace Ubox
                 }
             }
         }
-        public static string Decrypt(string cipher)
+        public static string Decrypt(string cipher) // Funcion con la cual se desencripta una cadena en MD5
         {
             using (var md5 = new MD5CryptoServiceProvider())
             {
@@ -79,7 +88,7 @@ namespace Ubox
                 }
             }
         }
-        public static string CodigoAleatorio()
+        public static string CodigoAleatorio() // Funcion que crea una cadena con longitud de 6 caracteres aleatorios alfanumericos
         {
             Random rdn = new Random();
             string caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";

@@ -27,12 +27,14 @@ namespace Ubox
 
         private void DejarBtn(object sender, RoutedEventArgs e)
         {
+            // Uri redirige a DejarPage
             Uri uri = new Uri("DejarPage.xaml", UriKind.Relative);
             this.NavigationService.Navigate(uri);
         }
 
         private void RecogerBtn(object sender, RoutedEventArgs e)
         {
+            // Uri redirige a RecogerPage
             Uri uri = new Uri("RecogerPage.xaml", UriKind.Relative);
             this.NavigationService.Navigate(uri);
         }

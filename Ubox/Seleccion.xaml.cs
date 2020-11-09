@@ -36,6 +36,9 @@ namespace Ubox
 
             InicioReserva.Content = MainWindow.today.ToString("dd/MM/yyyy HH:mm:ss");
             VencimientoReserva.Content = GenerarCodigo.SumaDiasFecha.ToString("dd/MM/yyyy HH:mm:ss");
+
+            Thread SmsThread = new Thread(() => SendSMS("5579253854", "Hola esto es una prueba"));
+            SmsThread.Start();
         }
 
         private void RegresarbBtn(object sender, RoutedEventArgs e)
@@ -512,12 +515,13 @@ namespace Ubox
         {
             //ENG
         }
-        private void InsertReserva(string CodeGenerated , string Usuario)
+        private void InsertReserva(string CodeGenerated, string Usuario)
         {
             string CodeEncrypted = MainWindow.Encrypt(CodeGenerated);
+            string CodeEncrypted2 = MainWindow.Encrypt(MainWindow.CodigoAleatorio());
             string ConnectionString = (App.Current as App).ConnectionString;
             string sql = @"INSERT INTO Usuarios(Usuario,NoLocker , Vencimiento, DiaRenta, UbicacionLocker, Codigo) VALUES ('" + Usuario + "', '" + GenerarCodigo.NoLocker + "' , '" + GenerarCodigo.SumaDiasFecha.ToString("dd/MM/yyyy HH:mm") + "','" + MainWindow.today.ToString("dd/MM/yyyy HH:mm") + "','Zion','" + CodeEncrypted + "');";
-            string SqlUpdate = @"UPDATE [dbo].[Lockers] SET [Disponible] = 1, [Codigo] = '" + CodeEncrypted + "' WHERE NoLocker = '" + GenerarCodigo.NoLocker + "'";
+            string SqlUpdate = @"UPDATE [dbo].[Lockers] SET [Disponible] = 1, [Codigo] = '" + CodeEncrypted2 + "' WHERE NoLocker = '" + GenerarCodigo.NoLocker + "'";
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -527,8 +531,33 @@ namespace Ubox
                 SqlCommand QueryUpdate = new SqlCommand(SqlUpdate, conn);
                 QueryUpdate.ExecuteNonQuery();
             }
+            Console.WriteLine("Desencriptado 1: " + MainWindow.Decrypt(CodeEncrypted) + " Desencriptado 2: " + MainWindow.Decrypt(CodeEncrypted2));
         }
 
+
+        //create and send SMS 
+        public bool SendSMS(string cellNo, string sms)
+        {
+            if (MainWindow.SimSerial.IsOpen == true)
+            {
+                try
+                {
+                    MainWindow.SimSerial.WriteLine("AT" + (char)(13));
+                    Thread.Sleep(4);
+                    MainWindow.SimSerial.WriteLine("AT+CMGF=1" + (char)(13));
+                    Thread.Sleep(5);
+                    MainWindow.SimSerial.WriteLine("AT+CMGS=\"" + cellNo + "\"");
+                    Thread.Sleep(10);
+                    MainWindow.SimSerial.WriteLine("" + sms + (char)(26));
+                }
+                catch (Exception ex)
+                {
+                    ex.ToString();
+                }
+                return true;
+            }
+            else return false;
+        }
 
 
         private void ReservarBtn(object sender, RoutedEventArgs e)
@@ -536,11 +565,8 @@ namespace Ubox
             string numero = NumeroTelefono.Text;
             if (numero.Length == 10)
             {
-                int lengthcode = 6;
-                const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-                CodeGenerated = new string(Enumerable.Repeat(chars, lengthcode)
-                   .Select(s => s[random.Next(s.Length)]).ToArray());
-                Thread ReservaThread = new Thread( () => InsertReserva(CodeGenerated, numero));
+                CodeGenerated = MainWindow.CodigoAleatorio();
+                Thread ReservaThread = new Thread(() => InsertReserva(CodeGenerated, numero));
                 ReservaThread.Start();
                 Uri uri = new Uri("ReservaPage.xaml", UriKind.Relative);
                 this.NavigationService.Navigate(uri);
