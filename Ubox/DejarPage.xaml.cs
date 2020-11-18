@@ -28,7 +28,8 @@ namespace Ubox
     {
         public static int NoLockerSQL { get; set; }
         public static DateTime Vencimiento { get; set; }
-        public static string DiaRenta { get; set; }
+        public static string DiaRecogido { get; set; }
+        public static string EstadoLocker { get; set; }
         public static string Trama { get; set; }
         static string key { get; set; } = "A!9HHhi%XjjYY4YP2@Nob009X";
         public Thread thr1 { get; set; }
@@ -107,13 +108,13 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
                     {
                         case "1":
-                            Code1.AppendText("1");
+                            Code1.AppendText("1");  
                             break;
                         case "2":
                             Code2.AppendText("1");
@@ -154,7 +155,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -201,7 +202,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -249,7 +250,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -297,7 +298,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -345,7 +346,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -393,7 +394,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -441,7 +442,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -489,7 +490,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -537,7 +538,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -585,7 +586,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -633,7 +634,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -681,7 +682,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -729,7 +730,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -777,7 +778,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -825,7 +826,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -873,7 +874,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -921,7 +922,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -969,7 +970,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1017,7 +1018,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1074,7 +1075,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1122,7 +1123,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1170,7 +1171,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1218,7 +1219,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1266,7 +1267,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1314,7 +1315,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1362,7 +1363,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1410,7 +1411,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1458,7 +1459,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1506,7 +1507,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1563,7 +1564,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1611,7 +1612,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1659,7 +1660,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1707,7 +1708,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1755,7 +1756,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1803,7 +1804,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1851,7 +1852,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1899,7 +1900,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1947,7 +1948,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -2012,7 +2013,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -2077,7 +2078,8 @@ namespace Ubox
             // Llama a la cadena de conexion a base de datos configurada
             string ConnectionString = (App.Current as App).ConnectionString;
             // Query a la base de datos que trae toda la informacion correspondiente a el codigo ingresado
-            string sql = @"SELECT Lockers.NoLocker, Lockers.Codigo, Usuarios.Usuario, Lockers.Trama, Usuarios.Vencimiento, Usuarios.DiaRenta FROM Usuarios INNER JOIN Lockers on Usuarios.NoLocker = Lockers.NoLocker Where Usuarios.Codigo ='" + cipher + "'";
+            Console.WriteLine("Codigo: "+Codigo+" Encriptado"+MainWindow.Encrypt(Codigo));
+            string sql = @"SELECT Reservado.NoLocker, Reservado.Estado, Reservado.DiaRecogido, Usuario.CodigoDejar, Usuario.Vencimiento, Locker.Trama FROM Usuario JOIN Locker on Locker.NoLocker = Usuario.NoLocker JOIN Reservado on Reservado.NoLocker = Usuario.NoLocker  Where Usuario.CodigoDejar='" + cipher + "'";
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 // Abre cursor
@@ -2090,21 +2092,18 @@ namespace Ubox
                     if (reader.Read())
                     {
                         // Codigo encritado en la base de datos
-                        String CodigoSQL = Convert.ToString(reader["Codigo"]);
-                        // Usuario encontrado en la base de datos
-                        String Usuario = Convert.ToString(reader["Usuario"]);
+                        String CodigoSQL = Convert.ToString(reader["CodigoDejar"]);
                         Vencimiento = Convert.ToDateTime(reader["Vencimiento"]);
-                        DiaRenta = Convert.ToString(reader["DiaRenta"]);
+                        DiaRecogido = Convert.ToString(reader["DiaRecogido"]);
                         NoLockerSQL = Convert.ToInt32(reader["NoLocker"]);
                         Trama = Convert.ToString(reader["Trama"]);
-                        var horas = (Vencimiento - DateTime.Now).TotalMinutes;
-                        Console.WriteLine("Vencimiento " + horas+" Fecha: "+ DateTime.Now);
+                        EstadoLocker = Convert.ToString(reader["Estado"]);
+                        reader.Close();
                         if (CodigoSQL == cipher)
                         {
-
-                            if (horas > 0)
+                            Console.WriteLine(EstadoLocker);
+                            if (EstadoLocker == "Reservado")
                             {
-                                Console.WriteLine("El Numero de Locker es: " + NoLockerSQL + ", La trama es: " + Trama);
                                 CodigoIncorrectolabel.Dispatcher.Invoke(new Action(() => CodigoIncorrectolabel.Visibility = Visibility.Hidden));
                                 CodigoVencidolabel.Dispatcher.Invoke(new Action(() => CodigoIncorrectolabel.Visibility = Visibility.Hidden));
                                 // Abre la puerta del locker correspondiente
@@ -2118,7 +2117,21 @@ namespace Ubox
                                 string HexMessage = string.Join("-", ByteMessage
                                   .Select(item => item.ToString("X2")));
 
-                                MainWindow.DoorSerial.Write(ByteMessage, 0, ByteMessage.Length);
+                                string CodigoRecoger = MainWindow.CodigoAleatorio();
+                                Console.WriteLine("El codigo para recoger es: "+CodigoRecoger+", El codigo codificado es: "+ MainWindow.Encrypt(CodigoRecoger)+", desencriptado xd: "+ MainWindow.Decrypt("laUyJG6OyUw="));
+
+
+                                string UpdateLocker = @"UPDATE [dbo].[Usuario] SET [CodigoRecoger] = '" + MainWindow.Encrypt(CodigoRecoger)  + "'  Where [CodigoDejar]='" + cipher + "'";
+                                string UpdateReservado = @"UPDATE [dbo].[Reservado] SET [CodigoRecoger] = '" + MainWindow.Encrypt(CodigoRecoger) + "', [Estado] = 'Pendiente' Where [CodigoDejar]='" + cipher + "'";
+
+                                SqlCommand QueryUpdate = new SqlCommand(UpdateLocker, conn);
+                                QueryUpdate.ExecuteNonQuery();
+
+                                SqlCommand QueryUpdateReserva = new SqlCommand(UpdateReservado, conn);
+                                QueryUpdateReserva.ExecuteNonQuery();
+
+
+                                //MainWindow.DoorSerial.Write(ByteMessage, 0, ByteMessage.Length);
                                 Uri uri = new Uri("IngresarPaquetePage.xaml", UriKind.Relative);
                                 this.Dispatcher.Invoke(new Action(() => this.NavigationService.Navigate(uri)));
                             }

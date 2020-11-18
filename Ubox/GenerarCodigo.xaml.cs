@@ -49,12 +49,11 @@ namespace Ubox
 
             Thread thTable = new Thread(() => FillTable((App.Current as App).ConnectionString));
             thTable.Start();
-            Console.WriteLine(MainWindow.CodigoAleatorio());
         }
 
         private void FillTable(string ConnectionString)
         {
-            string sql = @"Select Tamaño, Alto, Ancho, Costo from Lockers GROUP BY Tamaño, Alto, Ancho, Costo";
+            string sql = @"Select Tamaño, Alto, Ancho, Costo from Locker GROUP BY Tamaño, Alto, Ancho, Costo";
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -126,7 +125,7 @@ namespace Ubox
 
         private void GetLockers(string ConnectionString)
         {
-            string sql = @"SELECT * FROM Lockers";
+            string sql = @"SELECT * FROM Locker";
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -339,7 +338,7 @@ namespace Ubox
             aTimer.Enabled = true;
 
             string ConnectionString = (App.Current as App).ConnectionString;
-            string sql = @"SELECT NoLocker,Tamaño ,Alto, Ancho, Costo FROM Lockers where NoLocker =" + 1;
+            string sql = @"SELECT NoLocker,Tamaño ,Alto, Ancho, Costo FROM Locker where NoLocker =" + 1;
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -362,14 +361,14 @@ namespace Ubox
         private void Locker2Seleccion(object sender, RoutedEventArgs e)
         {
 
-            Locker11.Opacity = 0.5;
+            Locker2.Opacity = 0.5;
             aTimer = new System.Timers.Timer(2000);
             aTimer.Elapsed += OpacityBtn;
             aTimer.AutoReset = false;
             aTimer.Enabled = true;
 
             string ConnectionString = (App.Current as App).ConnectionString;
-            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Lockers where NoLocker = " + 11;
+            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Locker where NoLocker = " + 2;
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -397,7 +396,7 @@ namespace Ubox
             aTimer.Enabled = true;
 
             string ConnectionString = (App.Current as App).ConnectionString;
-            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Lockers where NoLocker = " + 3;
+            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Locker where NoLocker = " + 3;
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -424,7 +423,7 @@ namespace Ubox
             aTimer.AutoReset = false;
             aTimer.Enabled = true;
             string ConnectionString = (App.Current as App).ConnectionString;
-            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Lockers where NoLocker = " + 4;
+            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Locker where NoLocker = " + 4;
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -450,7 +449,7 @@ namespace Ubox
             aTimer.Elapsed += OpacityBtn;
             aTimer.AutoReset = false;
             aTimer.Enabled = true; string ConnectionString = (App.Current as App).ConnectionString;
-            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Lockers where NoLocker = " + 5;
+            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Locker where NoLocker = " + 5;
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -478,7 +477,7 @@ namespace Ubox
             aTimer.Enabled = true;
 
             string ConnectionString = (App.Current as App).ConnectionString;
-            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Lockers where NoLocker = " + 6;
+            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Locker where NoLocker = " + 6;
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -506,7 +505,7 @@ namespace Ubox
             aTimer.Enabled = true;
 
             string ConnectionString = (App.Current as App).ConnectionString;
-            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Lockers where NoLocker = " + 7;
+            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Locker where NoLocker = " + 7;
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -534,7 +533,7 @@ namespace Ubox
             aTimer.Enabled = true;
 
             string ConnectionString = (App.Current as App).ConnectionString;
-            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Lockers where NoLocker = " + 8;
+            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Locker where NoLocker = " + 8;
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -561,7 +560,7 @@ namespace Ubox
             aTimer.AutoReset = false;
             aTimer.Enabled = true;
             string ConnectionString = (App.Current as App).ConnectionString;
-            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Lockers where NoLocker = " + 9;
+            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Locker where NoLocker = " + 9;
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -589,7 +588,7 @@ namespace Ubox
             aTimer.Enabled = true;
 
             string ConnectionString = (App.Current as App).ConnectionString;
-            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Lockers where NoLocker = " + 10;
+            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Locker where NoLocker = " + 10;
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -617,7 +616,7 @@ namespace Ubox
             aTimer.Enabled = true;
 
             string ConnectionString = (App.Current as App).ConnectionString;
-            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Lockers where NoLocker = " + 11;
+            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Locker where NoLocker = " + 11;
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -645,7 +644,7 @@ namespace Ubox
             aTimer.Enabled = true;
 
             string ConnectionString = (App.Current as App).ConnectionString;
-            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Lockers where NoLocker = " + 12;
+            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Locker where NoLocker = " + 12;
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -674,7 +673,7 @@ namespace Ubox
             aTimer.Enabled = true;
 
             string ConnectionString = (App.Current as App).ConnectionString;
-            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Lockers where NoLocker = " + 13;
+            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Locker where NoLocker = " + 13;
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -702,7 +701,7 @@ namespace Ubox
             aTimer.Enabled = true;
 
             string ConnectionString = (App.Current as App).ConnectionString;
-            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Lockers where NoLocker = " + 14;
+            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Locker where NoLocker = " + 14;
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -730,7 +729,7 @@ namespace Ubox
             aTimer.Enabled = true;
 
             string ConnectionString = (App.Current as App).ConnectionString;
-            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Lockers where NoLocker = " + 15;
+            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Locker where NoLocker = " + 15;
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -758,7 +757,7 @@ namespace Ubox
             aTimer.Enabled = true;
 
             string ConnectionString = (App.Current as App).ConnectionString;
-            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Lockers where NoLocker = " + 16;
+            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Locker where NoLocker = " + 16;
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -786,7 +785,7 @@ namespace Ubox
             aTimer.Enabled = true;
 
             string ConnectionString = (App.Current as App).ConnectionString;
-            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Lockers where NoLocker = " + 17;
+            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Locker where NoLocker = " + 17;
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -814,7 +813,7 @@ namespace Ubox
             aTimer.Enabled = true;
 
             string ConnectionString = (App.Current as App).ConnectionString;
-            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Lockers where NoLocker = " + 18;
+            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Locker where NoLocker = " + 18;
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -842,7 +841,7 @@ namespace Ubox
             aTimer.Enabled = true;
 
             string ConnectionString = (App.Current as App).ConnectionString;
-            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Lockers where NoLocker = " + 19;
+            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Locker where NoLocker = " + 19;
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -869,7 +868,7 @@ namespace Ubox
             aTimer.Enabled = true;
 
             string ConnectionString = (App.Current as App).ConnectionString;
-            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Lockers where NoLocker = " + 20;
+            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Locker where NoLocker = " + 20;
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -897,7 +896,7 @@ namespace Ubox
             aTimer.Enabled = true;
 
             string ConnectionString = (App.Current as App).ConnectionString;
-            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Lockers where NoLocker = " + 21;
+            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Locker where NoLocker = " + 21;
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -924,7 +923,7 @@ namespace Ubox
             aTimer.Enabled = true;
 
             string ConnectionString = (App.Current as App).ConnectionString;
-            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Lockers where NoLocker = " + 22;
+            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Locker where NoLocker = " + 22;
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -951,7 +950,7 @@ namespace Ubox
             aTimer.Enabled = true;
 
             string ConnectionString = (App.Current as App).ConnectionString;
-            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Lockers where NoLocker = " + 23;
+            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Locker where NoLocker = " + 23;
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -978,7 +977,7 @@ namespace Ubox
             aTimer.Enabled = true;
 
             string ConnectionString = (App.Current as App).ConnectionString;
-            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Lockers where NoLocker = " + 24;
+            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Locker where NoLocker = " + 24;
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -1006,7 +1005,7 @@ namespace Ubox
             aTimer.Enabled = true;
 
             string ConnectionString = (App.Current as App).ConnectionString;
-            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Lockers where NoLocker = " + 25;
+            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Locker where NoLocker = " + 25;
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -1034,7 +1033,7 @@ namespace Ubox
             aTimer.Enabled = true;
 
             string ConnectionString = (App.Current as App).ConnectionString;
-            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Lockers where NoLocker = " + 26;
+            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Locker where NoLocker = " + 26;
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -1062,7 +1061,7 @@ namespace Ubox
             aTimer.Enabled = true;
 
             string ConnectionString = (App.Current as App).ConnectionString;
-            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Lockers where NoLocker = " + 27;
+            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Locker where NoLocker = " + 27;
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -1090,7 +1089,7 @@ namespace Ubox
             aTimer.Enabled = true;
 
             string ConnectionString = (App.Current as App).ConnectionString;
-            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Lockers where NoLocker = " + 28;
+            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Locker where NoLocker = " + 28;
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -1117,7 +1116,7 @@ namespace Ubox
             aTimer.Enabled = true;
 
             string ConnectionString = (App.Current as App).ConnectionString;
-            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Lockers where NoLocker = " + 29;
+            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Locker where NoLocker = " + 29;
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -1144,7 +1143,7 @@ namespace Ubox
             aTimer.Enabled = true;
 
             string ConnectionString = (App.Current as App).ConnectionString;
-            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Lockers where NoLocker = " + 30;
+            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Locker where NoLocker = " + 30;
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -1171,7 +1170,7 @@ namespace Ubox
             aTimer.Enabled = true;
 
             string ConnectionString = (App.Current as App).ConnectionString;
-            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Lockers where NoLocker = " + 31;
+            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Locker where NoLocker = " + 31;
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -1198,7 +1197,7 @@ namespace Ubox
             aTimer.Enabled = true;
 
             string ConnectionString = (App.Current as App).ConnectionString;
-            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Lockers where NoLocker = " + 32;
+            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Locker where NoLocker = " + 32;
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -1224,7 +1223,7 @@ namespace Ubox
             aTimer.AutoReset = false;
             aTimer.Enabled = true;
             string ConnectionString = (App.Current as App).ConnectionString;
-            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Lockers where NoLocker = " + 33;
+            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Locker where NoLocker = " + 33;
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
 
@@ -1252,7 +1251,7 @@ namespace Ubox
             aTimer.AutoReset = false;
             aTimer.Enabled = true;
             string ConnectionString = (App.Current as App).ConnectionString;
-            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Lockers where NoLocker = " + 34;
+            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Locker where NoLocker = " + 34;
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -1279,7 +1278,7 @@ namespace Ubox
             aTimer.Enabled = true;
 
             string ConnectionString = (App.Current as App).ConnectionString;
-            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Lockers where NoLocker = " + 35;
+            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Locker where NoLocker = " + 35;
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -1306,7 +1305,7 @@ namespace Ubox
             aTimer.Enabled = true;
 
             string ConnectionString = (App.Current as App).ConnectionString;
-            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Lockers where NoLocker = " + 36;
+            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Locker where NoLocker = " + 36;
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -1334,7 +1333,7 @@ namespace Ubox
             aTimer.Enabled = true;
 
             string ConnectionString = (App.Current as App).ConnectionString;
-            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Lockers where NoLocker = " + 37;
+            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Locker where NoLocker = " + 37;
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -1363,7 +1362,7 @@ namespace Ubox
 
 
             string ConnectionString = (App.Current as App).ConnectionString;
-            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Lockers where NoLocker = " + 38;
+            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Locker where NoLocker = " + 38;
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -1391,7 +1390,7 @@ namespace Ubox
             aTimer.Enabled = true;
 
             string ConnectionString = (App.Current as App).ConnectionString;
-            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Lockers where NoLocker = " + 39;
+            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Locker where NoLocker = " + 39;
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
@@ -1417,7 +1416,7 @@ namespace Ubox
             aTimer.AutoReset = false;
             aTimer.Enabled = true;
             string ConnectionString = (App.Current as App).ConnectionString;
-            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Lockers where NoLocker = " + 40;
+            string sql = @"SELECT NoLocker, Tamaño, Alto, Ancho, Costo FROM Locker where NoLocker = " + 40;
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();

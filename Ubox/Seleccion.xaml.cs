@@ -38,7 +38,7 @@ namespace Ubox
             VencimientoReserva.Content = GenerarCodigo.SumaDiasFecha.ToString("dd/MM/yyyy HH:mm:ss");
 
             Thread SmsThread = new Thread(() => SendSMS("5579253854", "Hola esto es una prueba"));
-            SmsThread.Start();
+            //SmsThread.Start();
         }
 
         private void RegresarbBtn(object sender, RoutedEventArgs e)
@@ -515,23 +515,37 @@ namespace Ubox
         {
             //ENG
         }
-        private void InsertReserva(string CodeGenerated, string Usuario)
+        private void InsertReserva(string CodeGenerated, string Telefono)
         {
             string CodeEncrypted = MainWindow.Encrypt(CodeGenerated);
-            string CodeEncrypted2 = MainWindow.Encrypt(MainWindow.CodigoAleatorio());
             string ConnectionString = (App.Current as App).ConnectionString;
-            string sql = @"INSERT INTO Usuarios(Usuario,NoLocker , Vencimiento, DiaRenta, UbicacionLocker, Codigo) VALUES ('" + Usuario + "', '" + GenerarCodigo.NoLocker + "' , '" + GenerarCodigo.SumaDiasFecha.ToString("dd/MM/yyyy HH:mm") + "','" + MainWindow.today.ToString("dd/MM/yyyy HH:mm") + "','Zion','" + CodeEncrypted + "');";
-            string SqlUpdate = @"UPDATE [dbo].[Lockers] SET [Disponible] = 1, [Codigo] = '" + CodeEncrypted2 + "' WHERE NoLocker = '" + GenerarCodigo.NoLocker + "'";
+            string InsertUsuario = @"INSERT INTO Usuario(NoLocker , Telefono, Vencimiento, DiaRenta, Ubicacion, CodigoDejar) VALUES ('" + GenerarCodigo.NoLocker+ "', '" + Telefono + "' , '" + GenerarCodigo.SumaDiasFecha.ToString("dd/MM/yyyy HH:mm") + "','" + MainWindow.today.ToString("dd/MM/yyyy HH:mm") + "','Zion','" + CodeEncrypted + "');";
+            string InsertReserva = @"INSERT INTO Reservado(NoLocker , Estado, CodigoDejar, Ubicacion) VALUES ('" + GenerarCodigo.NoLocker + "', 'Reservado' , '" + CodeEncrypted + "', 'Zion');";
+            string UpdateLocker = @"UPDATE [dbo].[Locker] SET [Disponible] = 1 WHERE NoLocker = '" + GenerarCodigo.NoLocker + "'";
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
-                SqlCommand QueryInsert = new SqlCommand(sql, conn);
-                QueryInsert.ExecuteNonQuery();
+                SqlCommand QueryInsertU = new SqlCommand(InsertUsuario, conn);
+                QueryInsertU.ExecuteNonQuery();
 
-                SqlCommand QueryUpdate = new SqlCommand(SqlUpdate, conn);
+                SqlCommand QueryInsertR = new SqlCommand(InsertReserva, conn);
+                QueryInsertR.ExecuteNonQuery();
+
+                SqlCommand QueryUpdate = new SqlCommand(UpdateLocker, conn);
                 QueryUpdate.ExecuteNonQuery();
+
+                /*using (SqlCommand cmd = new SqlCommand("sp_tempreserva", conn))
+                {
+                    cmd.CommandTimeout = 900;
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.Add("@NoLocker", SqlDbType.Int).Value = GenerarCodigo.NoLocker;
+
+                    cmd.ExecuteNonQuery();
+                }*/
             }
-            Console.WriteLine("Desencriptado 1: " + MainWindow.Decrypt(CodeEncrypted) + " Desencriptado 2: " + MainWindow.Decrypt(CodeEncrypted2));
+            Console.WriteLine("Desencriptado 1: " + MainWindow.Decrypt(CodeEncrypted));
         }
 
 
@@ -566,7 +580,7 @@ namespace Ubox
             if (numero.Length == 10)
             {
                 CodeGenerated = MainWindow.CodigoAleatorio();
-                Thread ReservaThread = new Thread(() => InsertReserva(CodeGenerated, numero));
+                Thread ReservaThread = new Thread(() => InsertReserva(CodeGenerated,numero));
                 ReservaThread.Start();
                 Uri uri = new Uri("ReservaPage.xaml", UriKind.Relative);
                 this.NavigationService.Navigate(uri);

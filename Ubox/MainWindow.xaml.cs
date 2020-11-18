@@ -31,6 +31,7 @@ namespace Ubox
         public static SerialPort SimSerial { get; set; }
         public static DateTime today { get; set; }
         static string key { get; set; } = "A!9HHhi%XjjYY4YP2@Nob009X";
+        public static string caracteres { get; set; } = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
         public MainWindow()
         {
             InitializeComponent();
@@ -46,7 +47,7 @@ namespace Ubox
             SimSerial.DtrEnable = true;
             SimSerial.RtsEnable = true;
             SimSerial.NewLine = System.Environment.NewLine;
-            SimSerial.Open();
+            //SimSerial.Open();
 
 
         }
@@ -91,7 +92,7 @@ namespace Ubox
         public static string CodigoAleatorio() // Funcion que crea una cadena con longitud de 6 caracteres aleatorios alfanumericos
         {
             Random rdn = new Random();
-            string caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+            
             int longitud = caracteres.Length;
             char letra;
             int longitudContrasenia = 6;
