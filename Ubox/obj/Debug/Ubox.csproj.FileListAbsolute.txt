@@ -120,3 +120,4 @@ C:\Users\Developer\OneDrive\Proyectos\Ubox\Ubox\Ubox\obj\Debug\Seleccion.baml
 C:\Users\Developer\OneDrive\Proyectos\Ubox\Ubox\Ubox\obj\Debug\Ubox.g.resources
 C:\Users\Developer\OneDrive\Proyectos\Ubox\Ubox\Ubox\obj\Debug\Ubox.Properties.Resources.resources
 C:\Users\Developer\OneDrive\Proyectos\Ubox\Ubox\Ubox\obj\Debug\Ubox.csproj.GenerateResource.cache
+C:\Users\Developer\OneDrive\Proyectos\Ubox\Ubox\Ubox\obj\Debug\Ubox.csproj.CoreCompileInputs.cache

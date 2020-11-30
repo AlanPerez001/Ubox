@@ -2079,7 +2079,7 @@ namespace Ubox
             string ConnectionString = (App.Current as App).ConnectionString;
             // Query a la base de datos que trae toda la informacion correspondiente a el codigo ingresado
             Console.WriteLine("Codigo: "+Codigo+" Encriptado"+MainWindow.Encrypt(Codigo));
-            string sql = @"SELECT Reservado.NoLocker, Reservado.Estado, Reservado.DiaRecogido, Usuario.CodigoDejar, Usuario.Vencimiento, Locker.Trama FROM Usuario JOIN Locker on Locker.NoLocker = Usuario.NoLocker JOIN Reservado on Reservado.NoLocker = Usuario.NoLocker  Where Usuario.CodigoDejar='" + cipher + "'";
+            string sql = @"SELECT Reservado.NoLocker, Reservado.Estado, Reservado.DiaRecogido, Reservado.CodigoDejar, Locker.Trama, Usuario.Vencimiento FROM Reservado join Locker on Locker.NoLocker = Reservado.NoLocker join Usuario on Usuario.CodigoDejar = Reservado.CodigoDejar  Where Reservado.CodigoDejar='" + cipher + "'";
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 // Abre cursor

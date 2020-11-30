@@ -526,22 +526,31 @@ namespace Ubox
             {
                 conn.Open();
                 SqlCommand QueryInsertU = new SqlCommand(InsertUsuario, conn);
-                QueryInsertU.ExecuteNonQuery();
+                //QueryInsertU.ExecuteNonQuery();
 
                 SqlCommand QueryInsertR = new SqlCommand(InsertReserva, conn);
-                QueryInsertR.ExecuteNonQuery();
+                //QueryInsertR.ExecuteNonQuery();
 
                 SqlCommand QueryUpdate = new SqlCommand(UpdateLocker, conn);
-                QueryUpdate.ExecuteNonQuery();
+                //QueryUpdate.ExecuteNonQuery();
 
+                using (SqlCommand cmd = new SqlCommand("Sp_ReservaLockerManual", conn))
+                {
+                    cmd.CommandTimeout = 900;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@NoLocker", SqlDbType.Int).Value = GenerarCodigo.NoLocker;
+                    cmd.Parameters.Add("@NoTelefono", SqlDbType.VarChar).Value = Telefono;
+                    cmd.Parameters.Add("@Vencimiento", SqlDbType.DateTime2).Value = GenerarCodigo.SumaDiasFecha.ToString("dd/MM/yyyy HH:mm");
+                    cmd.Parameters.Add("@DiaRenta", SqlDbType.DateTime2).Value = MainWindow.today.ToString("dd/MM/yyyy HH:mm");
+                    cmd.Parameters.Add("@Ubicacion", SqlDbType.VarChar).Value = "Zion";
+                    cmd.Parameters.Add("@CodigoDejar", SqlDbType.VarChar).Value = CodeEncrypted;
+                    cmd.ExecuteNonQuery();
+                }
                 /*using (SqlCommand cmd = new SqlCommand("sp_tempreserva", conn))
                 {
                     cmd.CommandTimeout = 900;
-
                     cmd.CommandType = CommandType.StoredProcedure;
-
                     cmd.Parameters.Add("@NoLocker", SqlDbType.Int).Value = GenerarCodigo.NoLocker;
-
                     cmd.ExecuteNonQuery();
                 }*/
             }

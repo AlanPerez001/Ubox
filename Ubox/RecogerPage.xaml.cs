@@ -2079,7 +2079,7 @@ namespace Ubox
             Console.WriteLine("Codificado: " + cipher);
 
             string ConnectionString = (App.Current as App).ConnectionString;
-            string sql = @"SELECT Reservado.NoLocker, Reservado.Estado, Reservado.DiaRecogido, Usuario.CodigoRecoger, Usuario.Vencimiento, Locker.Trama FROM Usuario JOIN Locker on Locker.NoLocker = Usuario.NoLocker JOIN Reservado on Reservado.NoLocker = Usuario.NoLocker  Where Usuario.CodigoRecoger='" + cipher + "'";
+            string sql = @"SELECT Reservado.NoLocker, Reservado.Estado, Reservado.DiaRecogido, Reservado.CodigoRecoger, Usuario.Vencimiento, Locker.Trama FROM Reservado JOIN Locker on Locker.NoLocker = Reservado.NoLocker JOIN Usuario on Usuario.CodigoRecoger = Reservado.CodigoRecoger  Where Reservado.CodigoRecoger='" + cipher + "'";
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
