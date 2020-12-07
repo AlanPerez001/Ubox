@@ -119,7 +119,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -167,7 +167,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -215,7 +215,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -263,7 +263,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -311,7 +311,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -359,7 +359,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -407,7 +407,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -455,7 +455,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -503,7 +503,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -551,7 +551,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -599,7 +599,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -647,7 +647,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -695,7 +695,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -743,7 +743,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -791,7 +791,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -839,7 +839,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -887,7 +887,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -935,7 +935,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -983,7 +983,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1031,7 +1031,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1088,7 +1088,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1136,7 +1136,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1184,7 +1184,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1232,7 +1232,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1280,7 +1280,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1328,7 +1328,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1376,7 +1376,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1424,7 +1424,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1472,7 +1472,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1520,7 +1520,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1577,7 +1577,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1625,7 +1625,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1673,7 +1673,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1721,7 +1721,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1769,7 +1769,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1817,7 +1817,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1865,7 +1865,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1913,7 +1913,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -1961,7 +1961,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -2026,7 +2026,7 @@ namespace Ubox
 
             foreach (KeyValuePair<string, string> item in Codes)
             {
-                
+
                 if (item.Value == "")
                 {
                     switch (item.Key)
@@ -2079,71 +2079,81 @@ namespace Ubox
             Console.WriteLine("Codificado: " + cipher);
 
             string ConnectionString = (App.Current as App).ConnectionString;
-            string sql = @"SELECT Reservado.NoLocker, Reservado.Estado, Reservado.DiaRecogido, Reservado.CodigoRecoger, Usuario.Vencimiento, Locker.Trama FROM Reservado JOIN Locker on Locker.NoLocker = Reservado.NoLocker JOIN Usuario on Usuario.CodigoRecoger = Reservado.CodigoRecoger  Where Reservado.CodigoRecoger='" + cipher + "'";
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
-                SqlCommand queryCommand = new SqlCommand(sql, conn);
-                using (SqlDataReader reader = queryCommand.ExecuteReader())
+                using (SqlCommand cmd = new SqlCommand("Sp_SelectCodigoRecoger", conn))
                 {
-                    if (reader.Read())
+                    cmd.CommandTimeout = 900;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@CodigoRecoger", SqlDbType.VarChar).Value = cipher;
+                    using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        NoLockerSQL = Convert.ToInt32(reader["NoLocker"]);
-                        EstadoLocker = Convert.ToString(reader["Estado"]);
-                        DiaRecogido = Convert.ToString(reader["DiaRecogido"]);
-                        String CodigoSQL = Convert.ToString(reader["CodigoRecoger"]);
-                        Vencimiento = Convert.ToDateTime(reader["Vencimiento"]);
-                        Trama = Convert.ToString(reader["Trama"]);  
-
-                        var horas = (Vencimiento - DateTime.Now).TotalMinutes;
-                        reader.Close();
-                        if (CodigoSQL == cipher)
+                        if (reader.Read())
                         {
-                            if (EstadoLocker == "Pendiente")
+                            NoLockerSQL = Convert.ToInt32(reader["NoLocker"]);
+                            EstadoLocker = Convert.ToString(reader["Estado"]);
+                            DiaRecogido = Convert.ToString(reader["DiaRecogido"]);
+                            String CodigoSQL = Convert.ToString(reader["CodigoRecoger"]);
+                            Vencimiento = Convert.ToDateTime(reader["Vencimiento"]);
+                            Trama = Convert.ToString(reader["Trama"]);
+                            //Se obtiene las oras restantes de la reserva
+                            var horas = (Vencimiento - DateTime.Now).TotalMinutes;
+
+                            reader.Close();
+                            if (CodigoSQL == cipher)
                             {
-                                    
-                                // Abre la puerta del locker correspondiente
-                                string InicioTrama = "10 02 57 4f 02 00 ";
-                                string FinTrama = " 10 03";
-                                string hex = InicioTrama + Trama + FinTrama;
-                                byte[] ByteMessage = hex
-                                  .Split(' ')
-                                  .Select(item => Convert.ToByte(item, 16))
-                                  .ToArray();
-                                string HexMessage = string.Join("-", ByteMessage
-                                  .Select(item => item.ToString("X2")));
-                                //MainWindow.DoorSerial.Write(ByteMessage, 0, ByteMessage.Length);
+                                if (EstadoLocker == "Pendiente")
+                                {
 
-                                string UpdateReserva = @"UPDATE [dbo].[Reservado] SET [DiaRecogido] = '"+DateTime.Now.ToString("dd / MM / yyyy HH: mm")+ "', [Estado] = 'Recogido' Where CodigoRecoger='" + cipher + "'";
-                                string UpdateLocker = @"UPDATE[dbo].[Locker] SET[Disponible] = 0 WHERE NoLocker ='" + NoLockerSQL + "'";
+                                    // Se completa la trama de comunicacion con la trama obtenida del locker correspondiente
+                                    string InicioTrama = "10 02 57 4f 02 00 ";
+                                    string FinTrama = " 10 03";
+                                    string hex = InicioTrama + Trama + FinTrama;
+                                    //Se convierte la trama completa en bytes para poder enviarla al serial
+                                    byte[] ByteMessage = hex
+                                      .Split(' ')
+                                      .Select(item => Convert.ToByte(item, 16))
+                                      .ToArray();
+                                    string HexMessage = string.Join("-", ByteMessage
+                                      .Select(item => item.ToString("X2")));
+                                    //Envia la trama en bytes para poder abrir la puerta del locker correspondiente.
+                                    //--------------MainWindow.DoorSerial.Write(ByteMessage, 0, ByteMessage.Length);
+                                    //Se llama a procedimiento almacenado para actualizar el estado de la reserva y liberar el Locker reservado
+                                    using (SqlCommand cmd2 = new SqlCommand("Sp_UpdateLockerRecogido", conn))
+                                    {
+                                        cmd2.CommandTimeout = 900;
+                                        cmd2.CommandType = CommandType.StoredProcedure;
+                                        //Parametros a actualizar en las tablas Usuario y Locker
+                                        cmd2.Parameters.Add("@CodigoRecoger", SqlDbType.VarChar).Value = cipher;
+                                        cmd2.Parameters.Add("@DiaRecogido", SqlDbType.DateTime2).Value = DateTime.Now.ToString("dd / MM / yyyy HH: mm");
+                                        cmd2.Parameters.Add("@NoLocker", SqlDbType.Int).Value = NoLockerSQL;
+                                        cmd2.ExecuteNonQuery();
+                                    }
 
-                                SqlCommand QueryUpdate = new SqlCommand(UpdateReserva, conn);
-                                QueryUpdate.ExecuteNonQuery();
-
-                                SqlCommand QueryUpdateReserva = new SqlCommand(UpdateLocker, conn);
-                                QueryUpdateReserva.ExecuteNonQuery();
-
-
-                                CodigoIncorrectolabel.Dispatcher.Invoke(new Action(() => CodigoIncorrectolabel.Visibility = Visibility.Hidden));
-                                NoLocker.Dispatcher.Invoke(new Action(() => NoLocker.Content = "No. 0" + NoLockerSQL));
-                                NotificacionGrid.Dispatcher.Invoke(new Action(() => NotificacionGrid.Visibility = Visibility.Visible));
-                                aTimer = new System.Timers.Timer(15000);
-                                // Hook up the Elapsed event for the timer. 
-                                aTimer.Elapsed += NotificacionTimer;
-                                aTimer.AutoReset = false;
-                                aTimer.Enabled = true;
-                            }
-                            else
-                            {
-                                Console.WriteLine("Codigo Vencido");
-                                CodigoVencidolabel.Dispatcher.Invoke(new Action(() => CodigoVencidolabel.Visibility = Visibility.Visible));
+                                    CodigoIncorrectolabel.Dispatcher.Invoke(new Action(() => CodigoIncorrectolabel.Visibility = Visibility.Hidden));
+                                    //Concatena el numero de locker en el recuadro de notificacion.
+                                    NoLocker.Dispatcher.Invoke(new Action(() => NoLocker.Content = "No. " + NoLockerSQL));
+                                    //La notificacion se hace visible al usuario
+                                    NotificacionGrid.Dispatcher.Invoke(new Action(() => NotificacionGrid.Visibility = Visibility.Visible));
+                                    //Inicia temporizador de 15s para redirigir a la pantalla principal
+                                    aTimer = new System.Timers.Timer(15000);
+                                    aTimer.Elapsed += NotificacionTimer;
+                                    aTimer.AutoReset = false;
+                                    aTimer.Enabled = true;
+                                }
+                                else
+                                {
+                                    //Si el codigo esta vencido se muestra la etiqueta.
+                                    CodigoVencidolabel.Dispatcher.Invoke(new Action(() => CodigoVencidolabel.Visibility = Visibility.Visible));
+                                }
                             }
                         }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Codigo Incorrecto");
-                        CodigoIncorrectolabel.Dispatcher.Invoke(new Action(() => CodigoIncorrectolabel.Visibility = Visibility.Visible));
+                        else
+                        {
+                            // En el caso de que el codigo ingresado no exista mostrara una etiqueta informando del error
+                            CodigoIncorrectolabel.Dispatcher.Invoke(new Action(() => CodigoIncorrectolabel.Visibility = Visibility.Visible));
+                        }
                     }
                 }
             }

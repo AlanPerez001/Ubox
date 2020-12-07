@@ -519,21 +519,9 @@ namespace Ubox
         {
             string CodeEncrypted = MainWindow.Encrypt(CodeGenerated);
             string ConnectionString = (App.Current as App).ConnectionString;
-            string InsertUsuario = @"INSERT INTO Usuario(NoLocker , Telefono, Vencimiento, DiaRenta, Ubicacion, CodigoDejar) VALUES ('" + GenerarCodigo.NoLocker+ "', '" + Telefono + "' , '" + GenerarCodigo.SumaDiasFecha.ToString("dd/MM/yyyy HH:mm") + "','" + MainWindow.today.ToString("dd/MM/yyyy HH:mm") + "','Zion','" + CodeEncrypted + "');";
-            string InsertReserva = @"INSERT INTO Reservado(NoLocker , Estado, CodigoDejar, Ubicacion) VALUES ('" + GenerarCodigo.NoLocker + "', 'Reservado' , '" + CodeEncrypted + "', 'Zion');";
-            string UpdateLocker = @"UPDATE [dbo].[Locker] SET [Disponible] = 1 WHERE NoLocker = '" + GenerarCodigo.NoLocker + "'";
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
-                SqlCommand QueryInsertU = new SqlCommand(InsertUsuario, conn);
-                //QueryInsertU.ExecuteNonQuery();
-
-                SqlCommand QueryInsertR = new SqlCommand(InsertReserva, conn);
-                //QueryInsertR.ExecuteNonQuery();
-
-                SqlCommand QueryUpdate = new SqlCommand(UpdateLocker, conn);
-                //QueryUpdate.ExecuteNonQuery();
-
                 using (SqlCommand cmd = new SqlCommand("Sp_ReservaLockerManual", conn))
                 {
                     cmd.CommandTimeout = 900;
