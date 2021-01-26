@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -22,7 +23,7 @@ namespace Ubox
         public ReservaPage()
         {
             InitializeComponent();
-            CostoReservado.Content = "$" + GenerarCodigo.Costo * GenerarCodigo.SumaDiasInt;
+            CostoReservado.Content = "$" + Convert.ToInt32(GenerarCodigo.Costo) * GenerarCodigo.SumaDiasInt;
             NoLockerReservado.Content = GenerarCodigo.NoLocker;
             CodeGenerate.Content = Seleccion.CodeGenerated;
         }

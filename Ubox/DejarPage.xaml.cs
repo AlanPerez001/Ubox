@@ -17,6 +17,9 @@ using System.Threading;
 using System.Data.SqlClient;
 using System.Data;
 using System.Windows.Threading;
+using Ubox.ModelService;
+using Ubox.ModelService.Ubox;
+using System.Configuration;
 
 namespace Ubox
 {
@@ -27,9 +30,9 @@ namespace Ubox
     public partial class DejarPage : Page
     {
         public static int NoLockerSQL { get; set; }
-        public static DateTime Vencimiento { get; set; }
+        public static string Vencimiento { get; set; }
         public static string DiaRecogido { get; set; }
-        public static string EstadoLocker { get; set; }
+        public static int EstadoLocker { get; set; }
         public static string Trama { get; set; }
         static string key { get; set; } = "A!9HHhi%XjjYY4YP2@Nob009X";
         public Thread thr1 { get; set; }
@@ -2065,101 +2068,65 @@ namespace Ubox
         }
 
         // Verifica el estado del codigo ingresado o escaneado
-        public void CheckCodeSQL()
+        public async void CheckCodeSQL()
 
         {
             // Variable vacia que almacenará el dodigo ingresado en las cajas de texto
             string Codigo = string.Empty;
-            System.Windows.Application.Current.Dispatcher.Invoke(
-   DispatcherPriority.Normal,
-   (ThreadStart)delegate { Codigo = Code1.Text + Code2.Text + Code3.Text + Code4.Text + Code5.Text + Code6.Text; });
-            // Cipher llama a la funcion Encrypt creada en MainWindow para encriptar el codigo ingresado
-            var cipher = MainWindow.Encrypt(Codigo);
-            // Llama a la cadena de conexion a base de datos configurada
-            string ConnectionString = (App.Current as App).ConnectionString;
-            // Query a la base de datos que trae toda la informacion correspondiente a el codigo ingresado
-            Console.WriteLine("Codigo: " + Codigo + " Encriptado" + MainWindow.Encrypt(Codigo));            
-            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            System.Windows.Application.Current.Dispatcher.Invoke(DispatcherPriority.Normal, (ThreadStart)delegate { Codigo = Code1.Text + Code2.Text + Code3.Text + Code4.Text + Code5.Text + Code6.Text; });
+            string CodigoRecoger = string.Empty;
+            string idUbox = ConfigurationManager.AppSettings["IdUbox"].ToString();
+            string creado = ConfigurationManager.AppSettings["Plataforma"].ToString();
+            ClienteWebApi clienteWebApi = new ClienteWebApi();
+            var respuestaDatosBasicos = await clienteWebApi.callWebApiAutorizacionGetLista($"Ubox/ingresarpaquete/{Codigo}");
+            if (respuestaDatosBasicos != null)
             {
-                // Abre cursor
-                conn.Open();
-                // Executa el Stored Procedure que trae toda la informacion sobre el Locker reservado
-                using (SqlCommand cmd = new SqlCommand("Sp_SelectCodigoDejar", conn))
+                var datosBasicos = respuestaDatosBasicos.respuesta.Datos.ToObject<List<ModeloDejarP>>();
+                foreach (var datos in datosBasicos)
                 {
-                    cmd.CommandTimeout = 900;
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.Add("@CodigoDejar", SqlDbType.VarChar).Value = cipher;
-
-                    using (SqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        // Si el codigo ingresado existe en la base de datos pasa a la condicion del vencimiento
-                        if (reader.Read())
-                        {
-                            // Codigo encritado en la base de datos
-                            String CodigoSQL = Convert.ToString(reader["CodigoDejar"]);
-                            Vencimiento = Convert.ToDateTime(reader["Vencimiento"]);
-                            DiaRecogido = Convert.ToString(reader["DiaRecogido"]);
-                            NoLockerSQL = Convert.ToInt32(reader["NoLocker"]);
-                            Trama = Convert.ToString(reader["Trama"]);
-                            EstadoLocker = Convert.ToString(reader["Estado"]);
-                            reader.Close();
-                            if (CodigoSQL == cipher)
-                            {
-                                //Se hace una validación sobre el estado del Locker.
-                                if (EstadoLocker == "Reservado")
-                                {
-                                    //Ocultamos las etiquetas de Codigo invalido
-                                    CodigoIncorrectolabel.Dispatcher.Invoke(new Action(() => CodigoIncorrectolabel.Visibility = Visibility.Hidden));
-                                    CodigoVencidolabel.Dispatcher.Invoke(new Action(() => CodigoIncorrectolabel.Visibility = Visibility.Hidden));
-                                    // Se completa la trama de comunicacion con la trama obtenida del locker correspondiente
-                                    string InicioTrama = "10 02 57 4f 02 00 ";
-                                    string FinTrama = " 10 03";
-                                    string hex = InicioTrama + Trama + FinTrama;
-                                    //Se convierte la trama completa en bytes para poder enviarla al serial
-                                    byte[] ByteMessage = hex
-                                      .Split(' ')
-                                      .Select(item => Convert.ToByte(item, 16))
-                                      .ToArray();
-                                    string HexMessage = string.Join("-", ByteMessage
-                                      .Select(item => item.ToString("X2")));
-                                    //Envia la trama en bytes para poder abrir la puerta del locker correspondiente.
-                                    //--------------MainWindow.DoorSerial.Write(ByteMessage, 0, ByteMessage.Length);
-                                    //Generamos el codigo para recoger el paquete
-                                    string CodigoRecoger = MainWindow.CodigoAleatorio();
-                                    Console.WriteLine("El codigo para recoger es: " + CodigoRecoger + ", El codigo codificado es: " + MainWindow.Encrypt(CodigoRecoger));
-                                    //Se llama al SP para actualizar el codigo de recogida y estado del locker
-                                    using (SqlCommand cmd2 = new SqlCommand("Sp_UpdateCodigoRecogida", conn))
-                                    {
-                                        cmd2.CommandTimeout = 900;
-                                        cmd2.CommandType = CommandType.StoredProcedure;
-                                        //Parametros a actualizar en las tablas Usuario y Reservado
-                                        cmd2.Parameters.Add("@CodigoDejar", SqlDbType.VarChar).Value = cipher;
-                                        cmd2.Parameters.Add("@CodigoRecoger", SqlDbType.VarChar).Value = MainWindow.Encrypt(CodigoRecoger);
-                                        cmd2.ExecuteNonQuery();
-                                    }
-                                    Uri uri = new Uri("IngresarPaquetePage.xaml", UriKind.Relative);
-                                    this.Dispatcher.Invoke(new Action(() => this.NavigationService.Navigate(uri)));
-                                }
-                                else
-                                {
-                                    //Si el codigo esta vencido se muestra la etiqueta.
-                                    CodigoVencidolabel.Dispatcher.Invoke(new Action(() => CodigoVencidolabel.Visibility = Visibility.Visible));
-                                }
-                            }
-                        }
-                        else
-                        {
-                            // En el caso de que el codigo ingresado no exista mostrara una etiqueta informando del error
-                            CodigoIncorrectolabel.Dispatcher.Invoke(new Action(() => CodigoIncorrectolabel.Visibility = Visibility.Visible));
-                        }
-
-                    }
+                    Vencimiento = datos.fechavencimiento;
+                    NoLockerSQL = datos.idLocker;
+                    Trama = datos.trama;
+                    EstadoLocker = datos.estatus;
+                    CodigoRecoger = datos.codigoRecogerP;
                 }
+                if (EstadoLocker == 1)
+                {
+                    Console.WriteLine("El codigo para recoger es: "+ CodigoRecoger);
+                    //Ocultamos las etiquetas de Codigo invalido
+                    CodigoIncorrectolabel.Dispatcher.Invoke(new Action(() => CodigoIncorrectolabel.Visibility = Visibility.Hidden));
+                    CodigoVencidolabel.Dispatcher.Invoke(new Action(() => CodigoIncorrectolabel.Visibility = Visibility.Hidden));
+                    // Se completa la trama de comunicacion con la trama obtenida del locker correspondiente
+                    string InicioTrama = "10 02 57 4f 02 00 ";
+                    string FinTrama = " 10 03";
+                    string hex = InicioTrama + Trama + FinTrama;
+                    //Se convierte la trama completa en bytes para poder enviarla al serial
+                    byte[] ByteMessage = hex
+                      .Split(' ')
+                      .Select(item => Convert.ToByte(item, 16))
+                      .ToArray();
+                    string HexMessage = string.Join("-", ByteMessage
+                      .Select(item => item.ToString("X2")));
+                    //Envia la trama en bytes para poder abrir la puerta del locker correspondiente.
+                    //--------------MainWindow.DoorSerial.Write(ByteMessage, 0, ByteMessage.Length);
+                    Uri uri = new Uri("IngresarPaquetePage.xaml", UriKind.Relative);
+                    this.Dispatcher.Invoke(new Action(() => this.NavigationService.Navigate(uri)));
+                }
+                else
+                {
+                    //Si el codigo esta vencido se muestra la etiqueta.
+                    CodigoVencidolabel.Dispatcher.Invoke(new Action(() => CodigoVencidolabel.Visibility = Visibility.Visible));
+                }
+            }
+            else
+            {
+                // En el caso de que el codigo ingresado no exista mostrara una etiqueta informando del error
+                CodigoIncorrectolabel.Dispatcher.Invoke(new Action(() => CodigoIncorrectolabel.Visibility = Visibility.Visible));
             }
         }
 
 
-        public void CheckCode(object sender, RoutedEventArgs e)
+        public async void CheckCode(object sender, RoutedEventArgs e)
         {
             CheckCodeSQL();
         }

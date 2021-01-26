@@ -12,6 +12,11 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Threading;
+using System.Threading.Tasks;
+using System.Configuration;
+using Ubox.ModelService.Autenticacion;
+using Ubox.ModelService;
+using Newtonsoft.Json;
 
 namespace Ubox
 {
@@ -23,20 +28,32 @@ namespace Ubox
         public Home()
         {
             InitializeComponent();
+            var x = Globals.getMacAddress();
         }
 
-        private void DejarBtn(object sender, RoutedEventArgs e)
+    
+
+        private async void DejarBtn(object sender, RoutedEventArgs e)
         {
             // Uri redirige a DejarPage
-            Uri uri = new Uri("DejarPage.xaml", UriKind.Relative);
-            this.NavigationService.Navigate(uri);
+            if(await Globals.iniciaSesionAsync())
+            {
+                Uri uri = new Uri("DejarPage.xaml", UriKind.Relative);
+                this.NavigationService.Navigate(uri);
+            }
+
         }
 
-        private void RecogerBtn(object sender, RoutedEventArgs e)
+        private async void RecogerBtn(object sender, RoutedEventArgs e)
         {
-            // Uri redirige a RecogerPage
-            Uri uri = new Uri("RecogerPage.xaml", UriKind.Relative);
-            this.NavigationService.Navigate(uri);
+            if(await Globals.iniciaSesionAsync())
+            {
+                // Uri redirige a RecogerPage
+                Uri uri = new Uri("RecogerPage.xaml", UriKind.Relative);
+                this.NavigationService.Navigate(uri);
+            }
+
+           
         }
     }
 }

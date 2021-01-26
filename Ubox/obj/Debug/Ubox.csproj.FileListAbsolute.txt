@@ -1,95 +1,67 @@
-C:\Users\Developer\OneDrive\Ubox\Ubox\Ubox\bin\Debug\Ubox.exe
-C:\Users\Developer\OneDrive\Ubox\Ubox\Ubox\bin\Debug\Ubox.pdb
-C:\Users\Developer\OneDrive\Ubox\Ubox\Ubox\obj\Debug\Ubox.csprojAssemblyReference.cache
-C:\Users\Developer\OneDrive\Ubox\Ubox\Ubox\obj\Debug\MainWindow.g.cs
-C:\Users\Developer\OneDrive\Ubox\Ubox\Ubox\obj\Debug\App.g.cs
-C:\Users\Developer\OneDrive\Ubox\Ubox\Ubox\obj\Debug\Ubox_MarkupCompile.cache
-C:\Users\Developer\OneDrive\Ubox\Ubox\Ubox\obj\Debug\Ubox_MarkupCompile.lref
-C:\Users\Developer\OneDrive\Ubox\Ubox\Ubox\obj\Debug\MainWindow.baml
-C:\Users\Developer\OneDrive\Ubox\Ubox\Ubox\obj\Debug\Ubox.g.resources
-C:\Users\Developer\OneDrive\Ubox\Ubox\Ubox\obj\Debug\Ubox.Properties.Resources.resources
-C:\Users\Developer\OneDrive\Ubox\Ubox\Ubox\obj\Debug\Ubox.csproj.GenerateResource.cache
-C:\Users\Developer\OneDrive\Ubox\Ubox\Ubox\obj\Debug\Ubox.exe
-C:\Users\Developer\OneDrive\Ubox\Ubox\Ubox\obj\Debug\Ubox.pdb
-C:\Users\Developer\OneDrive\Ubox\Ubox\Ubox\obj\Debug\Home.g.cs
-C:\Users\Developer\OneDrive\Ubox\Ubox\Ubox\obj\Debug\Home.baml
-C:\Users\Developer\OneDrive\Ubox\Ubox\Ubox\obj\Debug\App.baml
-C:\Users\Developer\OneDrive\Ubox\Ubox\Ubox\obj\Debug\RecogerPage.baml
-C:\Users\Developer\OneDrive\Ubox\Ubox\Ubox\obj\Debug\RecogerPage.g.cs
-C:\Users\Developer\OneDrive\Ubox\Ubox\Ubox\obj\Debug\DejarPage.baml
-C:\Users\Developer\OneDrive\Ubox\Ubox\Ubox\obj\Debug\DejarPage.g.cs
-C:\Users\Developer\OneDrive\Ubox\Ubox\Ubox\obj\Debug\GenerarCodigo.baml
-C:\Users\Developer\OneDrive\Ubox\Ubox\Ubox\obj\Debug\GenerarCodigo.g.cs
-C:\Users\Developer\OneDrive\Ubox\Ubox\Ubox\obj\Debug\IngresarPaquetePage.g.cs
-C:\Users\Developer\OneDrive\Ubox\Ubox\Ubox\obj\Debug\IngresarPaquetePage.baml
-C:\Users\Developer\OneDrive\Ubox\Ubox\Ubox\obj\Debug\ConfirmacionDejarPage.g.cs
-C:\Users\Developer\OneDrive\Ubox\Ubox\Ubox\obj\Debug\ConfirmacionDejarPage.baml
-C:\Users\Developer\OneDrive\Ubox\Ubox\Ubox\obj\Debug\Seleccion.g.cs
-C:\Users\Developer\OneDrive\Ubox\Ubox\Ubox\obj\Debug\Seleccion.baml
-C:\Users\Developer\OneDrive\Ubox\Ubox\Ubox\obj\Debug\ReservaPage.g.cs
-C:\Users\Developer\OneDrive\Ubox\Ubox\Ubox\obj\Debug\ReservaPage.baml
-C:\Users\Administrator\Desktop\Ubox\Ubox\bin\Debug\Ubox.exe
-C:\Users\Administrator\Desktop\Ubox\Ubox\bin\Debug\Ubox.pdb
-C:\Users\Administrator\Desktop\Ubox\Ubox\obj\Debug\Ubox.csprojAssemblyReference.cache
-C:\Users\Administrator\Desktop\Ubox\Ubox\obj\Debug\DejarPage.baml
-C:\Users\Administrator\Desktop\Ubox\Ubox\obj\Debug\GenerarCodigo.baml
-C:\Users\Administrator\Desktop\Ubox\Ubox\obj\Debug\RecogerPage.baml
-C:\Users\Administrator\Desktop\Ubox\Ubox\obj\Debug\ConfirmacionDejarPage.g.cs
-C:\Users\Administrator\Desktop\Ubox\Ubox\obj\Debug\DejarPage.g.cs
-C:\Users\Administrator\Desktop\Ubox\Ubox\obj\Debug\GenerarCodigo.g.cs
-C:\Users\Administrator\Desktop\Ubox\Ubox\obj\Debug\IngresarPaquetePage.g.cs
-C:\Users\Administrator\Desktop\Ubox\Ubox\obj\Debug\RecogerPage.g.cs
-C:\Users\Administrator\Desktop\Ubox\Ubox\obj\Debug\Home.g.cs
-C:\Users\Administrator\Desktop\Ubox\Ubox\obj\Debug\MainWindow.g.cs
-C:\Users\Administrator\Desktop\Ubox\Ubox\obj\Debug\ReservaPage.g.cs
-C:\Users\Administrator\Desktop\Ubox\Ubox\obj\Debug\Seleccion.g.cs
-C:\Users\Administrator\Desktop\Ubox\Ubox\obj\Debug\App.g.cs
-C:\Users\Administrator\Desktop\Ubox\Ubox\obj\Debug\Ubox_MarkupCompile.cache
-C:\Users\Administrator\Desktop\Ubox\Ubox\obj\Debug\Ubox_MarkupCompile.lref
-C:\Users\Administrator\Desktop\Ubox\Ubox\obj\Debug\App.baml
-C:\Users\Administrator\Desktop\Ubox\Ubox\obj\Debug\ConfirmacionDejarPage.baml
-C:\Users\Administrator\Desktop\Ubox\Ubox\obj\Debug\IngresarPaquetePage.baml
-C:\Users\Administrator\Desktop\Ubox\Ubox\obj\Debug\Home.baml
-C:\Users\Administrator\Desktop\Ubox\Ubox\obj\Debug\MainWindow.baml
-C:\Users\Administrator\Desktop\Ubox\Ubox\obj\Debug\ReservaPage.baml
-C:\Users\Administrator\Desktop\Ubox\Ubox\obj\Debug\Seleccion.baml
-C:\Users\Administrator\Desktop\Ubox\Ubox\obj\Debug\Ubox.g.resources
-C:\Users\Administrator\Desktop\Ubox\Ubox\obj\Debug\Ubox.Properties.Resources.resources
-C:\Users\Administrator\Desktop\Ubox\Ubox\obj\Debug\Ubox.csproj.GenerateResource.cache
-C:\Users\Administrator\Desktop\Ubox\Ubox\obj\Debug\Ubox.csproj.CoreCompileInputs.cache
-C:\Users\Administrator\Desktop\Ubox\Ubox\obj\Debug\Ubox.exe
-C:\Users\Administrator\Desktop\Ubox\Ubox\obj\Debug\Ubox.pdb
-C:\DrvPath\Network\Lan\Realtek\Ubox\Ubox\bin\Debug\Ubox.exe
-C:\DrvPath\Network\Lan\Realtek\Ubox\Ubox\bin\Debug\Ubox.pdb
-C:\DrvPath\Network\Lan\Realtek\Ubox\Ubox\obj\Debug\Ubox.csprojAssemblyReference.cache
-C:\DrvPath\Network\Lan\Realtek\Ubox\Ubox\obj\Debug\DejarPage.baml
-C:\DrvPath\Network\Lan\Realtek\Ubox\Ubox\obj\Debug\GenerarCodigo.baml
-C:\DrvPath\Network\Lan\Realtek\Ubox\Ubox\obj\Debug\RecogerPage.baml
-C:\DrvPath\Network\Lan\Realtek\Ubox\Ubox\obj\Debug\ConfirmacionDejarPage.g.cs
-C:\DrvPath\Network\Lan\Realtek\Ubox\Ubox\obj\Debug\DejarPage.g.cs
-C:\DrvPath\Network\Lan\Realtek\Ubox\Ubox\obj\Debug\GenerarCodigo.g.cs
-C:\DrvPath\Network\Lan\Realtek\Ubox\Ubox\obj\Debug\IngresarPaquetePage.g.cs
-C:\DrvPath\Network\Lan\Realtek\Ubox\Ubox\obj\Debug\RecogerPage.g.cs
-C:\DrvPath\Network\Lan\Realtek\Ubox\Ubox\obj\Debug\Home.g.cs
-C:\DrvPath\Network\Lan\Realtek\Ubox\Ubox\obj\Debug\MainWindow.g.cs
-C:\DrvPath\Network\Lan\Realtek\Ubox\Ubox\obj\Debug\ReservaPage.g.cs
-C:\DrvPath\Network\Lan\Realtek\Ubox\Ubox\obj\Debug\Seleccion.g.cs
-C:\DrvPath\Network\Lan\Realtek\Ubox\Ubox\obj\Debug\App.g.cs
-C:\DrvPath\Network\Lan\Realtek\Ubox\Ubox\obj\Debug\Ubox_MarkupCompile.cache
-C:\DrvPath\Network\Lan\Realtek\Ubox\Ubox\obj\Debug\Ubox_MarkupCompile.lref
-C:\DrvPath\Network\Lan\Realtek\Ubox\Ubox\obj\Debug\App.baml
-C:\DrvPath\Network\Lan\Realtek\Ubox\Ubox\obj\Debug\ConfirmacionDejarPage.baml
-C:\DrvPath\Network\Lan\Realtek\Ubox\Ubox\obj\Debug\IngresarPaquetePage.baml
-C:\DrvPath\Network\Lan\Realtek\Ubox\Ubox\obj\Debug\Home.baml
-C:\DrvPath\Network\Lan\Realtek\Ubox\Ubox\obj\Debug\MainWindow.baml
-C:\DrvPath\Network\Lan\Realtek\Ubox\Ubox\obj\Debug\ReservaPage.baml
-C:\DrvPath\Network\Lan\Realtek\Ubox\Ubox\obj\Debug\Seleccion.baml
-C:\DrvPath\Network\Lan\Realtek\Ubox\Ubox\obj\Debug\Ubox.g.resources
-C:\DrvPath\Network\Lan\Realtek\Ubox\Ubox\obj\Debug\Ubox.Properties.Resources.resources
-C:\DrvPath\Network\Lan\Realtek\Ubox\Ubox\obj\Debug\Ubox.csproj.GenerateResource.cache
-C:\DrvPath\Network\Lan\Realtek\Ubox\Ubox\obj\Debug\Ubox.csproj.CoreCompileInputs.cache
-C:\DrvPath\Network\Lan\Realtek\Ubox\Ubox\obj\Debug\Ubox.exe
-C:\DrvPath\Network\Lan\Realtek\Ubox\Ubox\obj\Debug\Ubox.pdb
+C:\Proyectos Git\Ubox\UBAppWindows\Ubox\bin\Debug\Ubox.exe
+C:\Proyectos Git\Ubox\UBAppWindows\Ubox\bin\Debug\Ubox.pdb
+C:\Proyectos Git\Ubox\UBAppWindows\Ubox\bin\Debug\Newtonsoft.Json.dll
+C:\Proyectos Git\Ubox\UBAppWindows\Ubox\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\Proyectos Git\Ubox\UBAppWindows\Ubox\bin\Debug\System.Net.Http.Extensions.dll
+C:\Proyectos Git\Ubox\UBAppWindows\Ubox\bin\Debug\System.Net.Http.Primitives.dll
+C:\Proyectos Git\Ubox\UBAppWindows\Ubox\bin\Debug\System.Security.AccessControl.dll
+C:\Proyectos Git\Ubox\UBAppWindows\Ubox\bin\Debug\System.Security.Permissions.dll
+C:\Proyectos Git\Ubox\UBAppWindows\Ubox\bin\Debug\System.Security.Principal.Windows.dll
+C:\Proyectos Git\Ubox\UBAppWindows\Ubox\bin\Debug\Newtonsoft.Json.xml
+C:\Proyectos Git\Ubox\UBAppWindows\Ubox\bin\Debug\System.Configuration.ConfigurationManager.xml
+C:\Proyectos Git\Ubox\UBAppWindows\Ubox\bin\Debug\System.Net.Http.Extensions.xml
+C:\Proyectos Git\Ubox\UBAppWindows\Ubox\bin\Debug\System.Net.Http.Primitives.xml
+C:\Proyectos Git\Ubox\UBAppWindows\Ubox\bin\Debug\System.Security.AccessControl.xml
+C:\Proyectos Git\Ubox\UBAppWindows\Ubox\bin\Debug\System.Security.Permissions.xml
+C:\Proyectos Git\Ubox\UBAppWindows\Ubox\bin\Debug\System.Security.Principal.Windows.xml
+C:\Proyectos Git\Ubox\UBAppWindows\Ubox\obj\Debug\Ubox.csprojAssemblyReference.cache
+C:\Proyectos Git\Ubox\UBAppWindows\Ubox\obj\Debug\DejarPage.baml
+C:\Proyectos Git\Ubox\UBAppWindows\Ubox\obj\Debug\GenerarCodigo.baml
+C:\Proyectos Git\Ubox\UBAppWindows\Ubox\obj\Debug\RecogerPage.baml
+C:\Proyectos Git\Ubox\UBAppWindows\Ubox\obj\Debug\ConfirmacionDejarPage.g.cs
+C:\Proyectos Git\Ubox\UBAppWindows\Ubox\obj\Debug\DejarPage.g.cs
+C:\Proyectos Git\Ubox\UBAppWindows\Ubox\obj\Debug\GenerarCodigo.g.cs
+C:\Proyectos Git\Ubox\UBAppWindows\Ubox\obj\Debug\IngresarPaquetePage.g.cs
+C:\Proyectos Git\Ubox\UBAppWindows\Ubox\obj\Debug\RecogerPage.g.cs
+C:\Proyectos Git\Ubox\UBAppWindows\Ubox\obj\Debug\Home.g.cs
+C:\Proyectos Git\Ubox\UBAppWindows\Ubox\obj\Debug\MainWindow.g.cs
+C:\Proyectos Git\Ubox\UBAppWindows\Ubox\obj\Debug\ReservaPage.g.cs
+C:\Proyectos Git\Ubox\UBAppWindows\Ubox\obj\Debug\Seleccion.g.cs
+C:\Proyectos Git\Ubox\UBAppWindows\Ubox\obj\Debug\App.g.cs
+C:\Proyectos Git\Ubox\UBAppWindows\Ubox\obj\Debug\Ubox_MarkupCompile.cache
+C:\Proyectos Git\Ubox\UBAppWindows\Ubox\obj\Debug\Ubox_MarkupCompile.lref
+C:\Proyectos Git\Ubox\UBAppWindows\Ubox\obj\Debug\App.baml
+C:\Proyectos Git\Ubox\UBAppWindows\Ubox\obj\Debug\ConfirmacionDejarPage.baml
+C:\Proyectos Git\Ubox\UBAppWindows\Ubox\obj\Debug\IngresarPaquetePage.baml
+C:\Proyectos Git\Ubox\UBAppWindows\Ubox\obj\Debug\Home.baml
+C:\Proyectos Git\Ubox\UBAppWindows\Ubox\obj\Debug\MainWindow.baml
+C:\Proyectos Git\Ubox\UBAppWindows\Ubox\obj\Debug\ReservaPage.baml
+C:\Proyectos Git\Ubox\UBAppWindows\Ubox\obj\Debug\Seleccion.baml
+C:\Proyectos Git\Ubox\UBAppWindows\Ubox\obj\Debug\Ubox.g.resources
+C:\Proyectos Git\Ubox\UBAppWindows\Ubox\obj\Debug\Ubox.Properties.Resources.resources
+C:\Proyectos Git\Ubox\UBAppWindows\Ubox\obj\Debug\Ubox.csproj.GenerateResource.cache
+C:\Proyectos Git\Ubox\UBAppWindows\Ubox\obj\Debug\Ubox.csproj.CoreCompileInputs.cache
+C:\Proyectos Git\Ubox\UBAppWindows\Ubox\obj\Debug\Ubox.csproj.CopyComplete
+C:\Proyectos Git\Ubox\UBAppWindows\Ubox\obj\Debug\Ubox.exe
+C:\Proyectos Git\Ubox\UBAppWindows\Ubox\obj\Debug\Ubox.pdb
+C:\Proyectos Git\Ubox\UBAppWindows\Ubox\bin\Debug\Ubox.exe.config
+C:\Users\Developer\OneDrive\Proyectos\Ubox\Ubox\Ubox\bin\Debug\Ubox.exe.config
+C:\Users\Developer\OneDrive\Proyectos\Ubox\Ubox\Ubox\bin\Debug\Ubox.exe
+C:\Users\Developer\OneDrive\Proyectos\Ubox\Ubox\Ubox\bin\Debug\Ubox.pdb
+C:\Users\Developer\OneDrive\Proyectos\Ubox\Ubox\Ubox\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Developer\OneDrive\Proyectos\Ubox\Ubox\Ubox\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\Users\Developer\OneDrive\Proyectos\Ubox\Ubox\Ubox\bin\Debug\System.Net.Http.Extensions.dll
+C:\Users\Developer\OneDrive\Proyectos\Ubox\Ubox\Ubox\bin\Debug\System.Net.Http.Primitives.dll
+C:\Users\Developer\OneDrive\Proyectos\Ubox\Ubox\Ubox\bin\Debug\System.Security.AccessControl.dll
+C:\Users\Developer\OneDrive\Proyectos\Ubox\Ubox\Ubox\bin\Debug\System.Security.Permissions.dll
+C:\Users\Developer\OneDrive\Proyectos\Ubox\Ubox\Ubox\bin\Debug\System.Security.Principal.Windows.dll
+C:\Users\Developer\OneDrive\Proyectos\Ubox\Ubox\Ubox\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Developer\OneDrive\Proyectos\Ubox\Ubox\Ubox\bin\Debug\System.Configuration.ConfigurationManager.xml
+C:\Users\Developer\OneDrive\Proyectos\Ubox\Ubox\Ubox\bin\Debug\System.Net.Http.Extensions.xml
+C:\Users\Developer\OneDrive\Proyectos\Ubox\Ubox\Ubox\bin\Debug\System.Net.Http.Primitives.xml
+C:\Users\Developer\OneDrive\Proyectos\Ubox\Ubox\Ubox\bin\Debug\System.Security.AccessControl.xml
+C:\Users\Developer\OneDrive\Proyectos\Ubox\Ubox\Ubox\bin\Debug\System.Security.Permissions.xml
+C:\Users\Developer\OneDrive\Proyectos\Ubox\Ubox\Ubox\bin\Debug\System.Security.Principal.Windows.xml
 C:\Users\Developer\OneDrive\Proyectos\Ubox\Ubox\Ubox\obj\Debug\Ubox.csprojAssemblyReference.cache
 C:\Users\Developer\OneDrive\Proyectos\Ubox\Ubox\Ubox\obj\Debug\DejarPage.baml
 C:\Users\Developer\OneDrive\Proyectos\Ubox\Ubox\Ubox\obj\Debug\GenerarCodigo.baml
@@ -106,10 +78,6 @@ C:\Users\Developer\OneDrive\Proyectos\Ubox\Ubox\Ubox\obj\Debug\Seleccion.g.cs
 C:\Users\Developer\OneDrive\Proyectos\Ubox\Ubox\Ubox\obj\Debug\App.g.cs
 C:\Users\Developer\OneDrive\Proyectos\Ubox\Ubox\Ubox\obj\Debug\Ubox_MarkupCompile.cache
 C:\Users\Developer\OneDrive\Proyectos\Ubox\Ubox\Ubox\obj\Debug\Ubox_MarkupCompile.lref
-C:\Users\Developer\OneDrive\Proyectos\Ubox\Ubox\Ubox\obj\Debug\Ubox.exe
-C:\Users\Developer\OneDrive\Proyectos\Ubox\Ubox\Ubox\obj\Debug\Ubox.pdb
-C:\Users\Developer\OneDrive\Proyectos\Ubox\Ubox\Ubox\bin\Debug\Ubox.exe
-C:\Users\Developer\OneDrive\Proyectos\Ubox\Ubox\Ubox\bin\Debug\Ubox.pdb
 C:\Users\Developer\OneDrive\Proyectos\Ubox\Ubox\Ubox\obj\Debug\App.baml
 C:\Users\Developer\OneDrive\Proyectos\Ubox\Ubox\Ubox\obj\Debug\ConfirmacionDejarPage.baml
 C:\Users\Developer\OneDrive\Proyectos\Ubox\Ubox\Ubox\obj\Debug\IngresarPaquetePage.baml
@@ -121,3 +89,6 @@ C:\Users\Developer\OneDrive\Proyectos\Ubox\Ubox\Ubox\obj\Debug\Ubox.g.resources
 C:\Users\Developer\OneDrive\Proyectos\Ubox\Ubox\Ubox\obj\Debug\Ubox.Properties.Resources.resources
 C:\Users\Developer\OneDrive\Proyectos\Ubox\Ubox\Ubox\obj\Debug\Ubox.csproj.GenerateResource.cache
 C:\Users\Developer\OneDrive\Proyectos\Ubox\Ubox\Ubox\obj\Debug\Ubox.csproj.CoreCompileInputs.cache
+C:\Users\Developer\OneDrive\Proyectos\Ubox\Ubox\Ubox\obj\Debug\Ubox.csproj.CopyComplete
+C:\Users\Developer\OneDrive\Proyectos\Ubox\Ubox\Ubox\obj\Debug\Ubox.exe
+C:\Users\Developer\OneDrive\Proyectos\Ubox\Ubox\Ubox\obj\Debug\Ubox.pdb

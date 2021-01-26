@@ -15,7 +15,7 @@ namespace Ubox
     {
         // Connection string for using Windows Authentication.
         //private string connectionString = @"data source=desarrollozion.ddns.net; database=Ubox; User Id=sa; Password=Linda-058";
-        private string connectionString = @"data source=ALANPEREZ; database=UboxDesarrollo;Integrated Security=True;";
+        private string connectionString = ConfigurationManager.ConnectionStrings["str"].ToString();
         public string ConnectionString { get => connectionString; set => connectionString = value; }
     }
 }

@@ -17,6 +17,9 @@ using System.Threading;
 using System.Data.SqlClient;
 using System.Data;
 using System.Windows.Threading;
+using System.Net.Http;
+using System.Configuration;
+using System.Net.Http.Headers;
 
 namespace Ubox
 {
@@ -32,8 +35,12 @@ namespace Ubox
         public static DateTime today { get; set; }
         static string key { get; set; } = "A!9HHhi%XjjYY4YP2@Nob009X";
         public static string caracteres { get; set; } = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+        public static int IdUbox { get; set; } = 1;
+
         public MainWindow()
         {
+
+            
             InitializeComponent();
             ScannerQrSerial = new SerialPort(
                   "COM3", 115200, Parity.None, 8, StopBits.One);

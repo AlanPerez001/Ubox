@@ -18,6 +18,9 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Timers;
 using System.Windows.Threading;
+using System.Configuration;
+using Ubox.ModelService;
+using Ubox.ModelService.Ubox;
 
 namespace Ubox
 {
@@ -28,13 +31,11 @@ namespace Ubox
     {
         private static System.Timers.Timer aTimer;
         static string key { get; set; } = "A!9HHhi%XjjYY4YP2@Nob009X";
-        public static DateTime Vencimiento { get; set; }
-        public static string DiaRecogido { get; set; }
-        public static string EstadoLocker { get; set; }
+        public static string Vencimiento { get; set; }
+        public static int EstadoLocker { get; set; }
         public static string Trama { get; set; }
         public static int NoLockerSQL { get; set; }
-        public static string CodigoAleatorio { get; set; }
-        public static string CodigoAleatorio2 { get; set; }
+
 
 
         public RecogerPage()
@@ -2068,119 +2069,90 @@ namespace Ubox
         {
             //ENG
         }
-        private void CheckCodeSQL()
+        private async void CheckCodeSQL()
         {
             string Codigo = string.Empty;
-            System.Windows.Application.Current.Dispatcher.Invoke(
-   DispatcherPriority.Normal,
-   (ThreadStart)delegate { Codigo = Code1.Text + Code2.Text + Code3.Text + Code4.Text + Code5.Text + Code6.Text; });
-            Console.WriteLine("El codigo ingresado es: " + Codigo);
-            var cipher = MainWindow.Encrypt(Codigo);
-            Console.WriteLine("Codificado: " + cipher);
-
-            string ConnectionString = (App.Current as App).ConnectionString;
-            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            System.Windows.Application.Current.Dispatcher.Invoke(DispatcherPriority.Normal, (ThreadStart)delegate { Codigo = Code1.Text + Code2.Text + Code3.Text + Code4.Text + Code5.Text + Code6.Text; });
+            string CodigoRecoger = string.Empty;
+            string idUbox = ConfigurationManager.AppSettings["IdUbox"].ToString();
+            string creado = ConfigurationManager.AppSettings["Plataforma"].ToString();
+            ClienteWebApi clienteWebApi = new ClienteWebApi();
+            var respuestaDatosBasicos = await clienteWebApi.callWebApiAutorizacionGetLista($"Ubox/recogerpaquete/{Codigo}");
+            if (respuestaDatosBasicos != null)
             {
-                conn.Open();
-                using (SqlCommand cmd = new SqlCommand("Sp_SelectCodigoRecoger", conn))
+                var datosBasicos = respuestaDatosBasicos.respuesta.Datos.ToObject<List<ModeloRecogerP>>();
+                foreach (var datos in datosBasicos)
                 {
-                    cmd.CommandTimeout = 900;
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.Add("@CodigoRecoger", SqlDbType.VarChar).Value = cipher;
-                    using (SqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            NoLockerSQL = Convert.ToInt32(reader["NoLocker"]);
-                            EstadoLocker = Convert.ToString(reader["Estado"]);
-                            DiaRecogido = Convert.ToString(reader["DiaRecogido"]);
-                            String CodigoSQL = Convert.ToString(reader["CodigoRecoger"]);
-                            Vencimiento = Convert.ToDateTime(reader["Vencimiento"]);
-                            Trama = Convert.ToString(reader["Trama"]);
-                            //Se obtiene las oras restantes de la reserva
-                            var horas = (Vencimiento - DateTime.Now).TotalMinutes;
+                    Vencimiento = datos.fechavencimiento;
+                    NoLockerSQL = datos.idLocker;
+                    Trama = datos.trama;
+                    EstadoLocker = datos.estatus;
+                }
+                if (EstadoLocker == 1)
+                {
+                    // Se completa la trama de comunicacion con la trama obtenida del locker correspondiente
+                    string InicioTrama = "10 02 57 4f 02 00 ";
+                    string FinTrama = " 10 03";
+                    string hex = InicioTrama + Trama + FinTrama;
+                    //Se convierte la trama completa en bytes para poder enviarla al serial
+                    byte[] ByteMessage = hex
+                      .Split(' ')
+                      .Select(item => Convert.ToByte(item, 16))
+                      .ToArray();
+                    string HexMessage = string.Join("-", ByteMessage
+                      .Select(item => item.ToString("X2")));
+                    //Envia la trama en bytes para poder abrir la puerta del locker correspondiente.
+                    //--------------MainWindow.DoorSerial.Write(ByteMessage, 0, ByteMessage.Length);
+                    CodigoIncorrectolabel.Dispatcher.Invoke(new Action(() => CodigoIncorrectolabel.Visibility = Visibility.Hidden));
+                    //Concatena el numero de locker en el recuadro de notificacion.
 
-                            reader.Close();
-                            if (CodigoSQL == cipher)
-                            {
-                                if (EstadoLocker == "Pendiente")
-                                {
-
-                                    // Se completa la trama de comunicacion con la trama obtenida del locker correspondiente
-                                    string InicioTrama = "10 02 57 4f 02 00 ";
-                                    string FinTrama = " 10 03";
-                                    string hex = InicioTrama + Trama + FinTrama;
-                                    //Se convierte la trama completa en bytes para poder enviarla al serial
-                                    byte[] ByteMessage = hex
-                                      .Split(' ')
-                                      .Select(item => Convert.ToByte(item, 16))
-                                      .ToArray();
-                                    string HexMessage = string.Join("-", ByteMessage
-                                      .Select(item => item.ToString("X2")));
-                                    //Envia la trama en bytes para poder abrir la puerta del locker correspondiente.
-                                    //--------------MainWindow.DoorSerial.Write(ByteMessage, 0, ByteMessage.Length);
-                                    //Se llama a procedimiento almacenado para actualizar el estado de la reserva y liberar el Locker reservado
-                                    using (SqlCommand cmd2 = new SqlCommand("Sp_UpdateLockerRecogido", conn))
-                                    {
-                                        cmd2.CommandTimeout = 900;
-                                        cmd2.CommandType = CommandType.StoredProcedure;
-                                        //Parametros a actualizar en las tablas Usuario y Locker
-                                        cmd2.Parameters.Add("@CodigoRecoger", SqlDbType.VarChar).Value = cipher;
-                                        cmd2.Parameters.Add("@DiaRecogido", SqlDbType.DateTime2).Value = DateTime.Now.ToString("dd / MM / yyyy HH: mm");
-                                        cmd2.Parameters.Add("@NoLocker", SqlDbType.Int).Value = NoLockerSQL;
-                                        cmd2.ExecuteNonQuery();
-                                    }
-
-                                    CodigoIncorrectolabel.Dispatcher.Invoke(new Action(() => CodigoIncorrectolabel.Visibility = Visibility.Hidden));
-                                    //Concatena el numero de locker en el recuadro de notificacion.
-                                    NoLocker.Dispatcher.Invoke(new Action(() => NoLocker.Content = "No. " + NoLockerSQL));
-                                    //La notificacion se hace visible al usuario
-                                    NotificacionGrid.Dispatcher.Invoke(new Action(() => NotificacionGrid.Visibility = Visibility.Visible));
-                                    //Inicia temporizador de 15s para redirigir a la pantalla principal
-                                    aTimer = new System.Timers.Timer(15000);
-                                    aTimer.Elapsed += NotificacionTimer;
-                                    aTimer.AutoReset = false;
-                                    aTimer.Enabled = true;
-                                }
-                                else
-                                {
-                                    //Si el codigo esta vencido se muestra la etiqueta.
-                                    CodigoVencidolabel.Dispatcher.Invoke(new Action(() => CodigoVencidolabel.Visibility = Visibility.Visible));
-                                }
-                            }
-                        }
-                        else
-                        {
-                            // En el caso de que el codigo ingresado no exista mostrara una etiqueta informando del error
-                            CodigoIncorrectolabel.Dispatcher.Invoke(new Action(() => CodigoIncorrectolabel.Visibility = Visibility.Visible));
-                        }
-                    }
+                }
+                else
+                {
+                    //Si el codigo esta vencido se muestra la etiqueta.
+                    CodigoVencidolabel.Dispatcher.Invoke(new Action(() => CodigoVencidolabel.Visibility = Visibility.Visible));
                 }
             }
+            else
+            {
+                // En el caso de que el codigo ingresado no exista mostrara una etiqueta informando del error
+                CodigoIncorrectolabel.Dispatcher.Invoke(new Action(() => CodigoIncorrectolabel.Visibility = Visibility.Visible));
+            }
         }
-        private void CheckCode(object sender, RoutedEventArgs e)
-        {
-            CheckCodeSQL();
-        }
+    
 
-        private void NotificacionTimer(object sender, ElapsedEventArgs e)
-        {
 
-            NotificacionGrid.Dispatcher.Invoke(new Action(() => NotificacionGrid.Visibility = Visibility.Collapsed));
-            Uri uri = new Uri("Home.xaml", UriKind.Relative);
-            this.Dispatcher.Invoke(new Action(() => this.NavigationService.Navigate(uri)));
+    private void CheckCode(object sender, RoutedEventArgs e)
+    {
+        CheckCodeSQL();
+        NoLocker.Content = "No. " + NoLockerSQL;
+        //La notificacion se hace visible al usuario
+        NotificacionGrid.Visibility = Visibility.Visible;
+        //Inicia temporizador de 15s para redirigir a la pantalla principal
+        aTimer = new System.Timers.Timer(15000);
+        aTimer.Elapsed += NotificacionTimer;
+        aTimer.AutoReset = false;
+        aTimer.Enabled = true;
+    }
 
-        }
+    private void NotificacionTimer(object sender, ElapsedEventArgs e)
+    {
 
-        private void CloseNotificacion(object sender, RoutedEventArgs e)
-        {
-            aTimer.Stop();
-            NotificacionGrid.Visibility = Visibility.Collapsed;
-            Uri uri = new Uri("Home.xaml", UriKind.Relative);
-            this.NavigationService.Navigate(uri);
-        }
+        NotificacionGrid.Dispatcher.Invoke(new Action(() => NotificacionGrid.Visibility = Visibility.Collapsed));
+        Uri uri = new Uri("Home.xaml", UriKind.Relative);
+        this.Dispatcher.Invoke(new Action(() => this.NavigationService.Navigate(uri)));
 
     }
+
+    private void CloseNotificacion(object sender, RoutedEventArgs e)
+    {
+        aTimer.Stop();
+        NotificacionGrid.Visibility = Visibility.Collapsed;
+        Uri uri = new Uri("Home.xaml", UriKind.Relative);
+        this.NavigationService.Navigate(uri);
+    }
+
+}
 }
 
 

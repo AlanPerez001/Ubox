@@ -17,6 +17,9 @@ using System.Threading;
 using System.Data.SqlClient;
 using System.Data;
 using System.Timers;
+using System.Configuration;
+using Ubox.ModelService;
+using Ubox.ModelService.Ubox;
 
 namespace Ubox
 {
@@ -30,7 +33,7 @@ namespace Ubox
         public Seleccion()
         {
             InitializeComponent();
-            CostoSeleccion.Content = "$" + GenerarCodigo.Costo * GenerarCodigo.SumaDiasInt;
+            CostoSeleccion.Content = "$" + Convert.ToInt32(GenerarCodigo.Costo) * GenerarCodigo.SumaDiasInt;
             NoLockerDejar.Content = GenerarCodigo.NoLocker;
             TamañoSeleccion.Content = GenerarCodigo.Tamaño;
 
@@ -515,36 +518,6 @@ namespace Ubox
         {
             //ENG
         }
-        private void InsertReserva(string CodeGenerated, string Telefono)
-        {
-            string CodeEncrypted = MainWindow.Encrypt(CodeGenerated);
-            string ConnectionString = (App.Current as App).ConnectionString;
-            using (SqlConnection conn = new SqlConnection(ConnectionString))
-            {
-                conn.Open();
-                using (SqlCommand cmd = new SqlCommand("Sp_ReservaLockerManual", conn))
-                {
-                    cmd.CommandTimeout = 900;
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.Add("@NoLocker", SqlDbType.Int).Value = GenerarCodigo.NoLocker;
-                    cmd.Parameters.Add("@NoTelefono", SqlDbType.VarChar).Value = Telefono;
-                    cmd.Parameters.Add("@Vencimiento", SqlDbType.DateTime2).Value = GenerarCodigo.SumaDiasFecha.ToString("dd/MM/yyyy HH:mm");
-                    cmd.Parameters.Add("@DiaRenta", SqlDbType.DateTime2).Value = MainWindow.today.ToString("dd/MM/yyyy HH:mm");
-                    cmd.Parameters.Add("@Ubicacion", SqlDbType.VarChar).Value = "Zion";
-                    cmd.Parameters.Add("@CodigoDejar", SqlDbType.VarChar).Value = CodeEncrypted;
-                    cmd.ExecuteNonQuery();
-                }
-                /*using (SqlCommand cmd = new SqlCommand("sp_tempreserva", conn))
-                {
-                    cmd.CommandTimeout = 900;
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.Add("@NoLocker", SqlDbType.Int).Value = GenerarCodigo.NoLocker;
-                    cmd.ExecuteNonQuery();
-                }*/
-            }
-            Console.WriteLine("Desencriptado 1: " + MainWindow.Decrypt(CodeEncrypted));
-        }
-
 
         //create and send SMS 
         public bool SendSMS(string cellNo, string sms)
@@ -571,16 +544,33 @@ namespace Ubox
         }
 
 
-        private void ReservarBtn(object sender, RoutedEventArgs e)
+        private async void ReservarBtn(object sender, RoutedEventArgs e)
         {
             string numero = NumeroTelefono.Text;
             if (numero.Length == 10)
             {
-                CodeGenerated = MainWindow.CodigoAleatorio();
-                Thread ReservaThread = new Thread(() => InsertReserva(CodeGenerated,numero));
-                ReservaThread.Start();
-                Uri uri = new Uri("ReservaPage.xaml", UriKind.Relative);
-                this.NavigationService.Navigate(uri);
+                string idUbox = ConfigurationManager.AppSettings["IdUbox"].ToString();
+                string creado = ConfigurationManager.AppSettings["Plataforma"].ToString();
+                ClienteWebApi clienteWebApi = new ClienteWebApi();
+                int estatus = 1;
+                var respuestaDatosBasicos = await clienteWebApi.callWebApiAutorizacionGetLista($"Ubox/ReservaWindows/{numero}/{GenerarCodigo.NoLocker}/{estatus}/{creado}/{GenerarCodigo.SumaDiasInt}/{GenerarCodigo.SumaDiasFecha.ToString("yyyy-MM-dd T HH:mm:ss")}");
+                if (respuestaDatosBasicos != null)
+                {
+                    var datosBasicos = respuestaDatosBasicos.respuesta.Datos.ToObject<List<ModeloReservaWindows>>();
+                    foreach (var datos in datosBasicos)
+                    {
+                        CodeGenerated = datos.CodigoDejarP;
+                        Console.WriteLine("El Codigo para dejar es {0}", CodeGenerated);
+                    }
+                    Uri uri = new Uri("ReservaPage.xaml", UriKind.Relative);
+                    this.NavigationService.Navigate(uri);
+                }
+                else
+                {
+                    ////Aqui habria que ver igual que mensaje poner desde el web api
+                    ////Por que debio ocurrir un error en el web api
+                    MessageBox.Show(respuestaDatosBasicos.message);
+                }
             }
             else
             {
